@@ -1,0 +1,531 @@
+/* ==============================================
+   VARIABLES Y ESTILOS GLOBALES
+   Edita estos colores para cambiar el tema del sitio.
+   ============================================== */
+:root {
+    --color-background: #121212; /* Negro casi puro para un look moderno */
+    --color-surface: #1E1E1E;    /* Un gris oscuro para las tarjetas y superficies */
+    --color-primary: #fe1619;    /* Rojo vibrante para CTAs y acentos */
+    --color-primary-hover: #D30F12; /* Un rojo un poco más oscuro para el hover */
+    --color-secondary: #333333;
+    --color-text-primary: #F5F5F5; /* Blanco suave para el texto */
+    --color-text-secondary: #A0A0A0;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Reseteo básico y configuración del body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.7;
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+/* ==============================================
+   HEADER Y NAVEGACIÓN (Mobile-First)
+   ============================================== */
+.site-header {
+    background: rgba(18, 18, 18, 0.8);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px; /* Un poco más pequeño en móvil */
+}
+
+.hamburger {
+    display: block; /* Visible por defecto en móvil */
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: none; /* Oculto por defecto en móvil */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* MEJORA: Abarca todo el ancho para un mejor look */
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid #2a2a2a;
+}
+
+.nav-links.active {
+    display: flex; /* Se muestra con JS */
+}
+
+.nav-links li {
+    margin: 1rem 0;
+}
+
+.nav-links a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+
+/* ==============================================
+   HERO SECTION
+   ============================================== */
+.hero-section {
+    padding-top: 8rem; /* Espacio para el header fijo */
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; 
+    background-image: 
+        linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)),
+        url('../images/hero2.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero-section h1 {
+    font-size: 2rem; /* Tamaño base para móvil */
+    font-weight: 700;
+    color: #fff;
+}
+
+.hero-section .subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin: 1rem 0;
+}
+
+.hero-section .hook {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin: 1rem 0;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.hero-section .hook:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.hero-section .support-text {
+    max-width: 600px;
+    margin: 1rem auto;
+    color: var(--color-text-secondary);
+}
+
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Permite que los botones se apilen si no caben */
+}
+
+.btn {
+    padding: 0.8rem 1.5rem; /* Menos padding horizontal en móvil */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    width: auto; /* Ancho automático por defecto */
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-primary);
+}
+.btn-secondary:hover {
+    background-color: #444;
+}
+
+/* ==============================================
+   TRUST BADGES
+   ============================================== */
+.trust-badges {
+    background-color: var(--color-surface);
+    padding: 2.5rem 0;
+}
+
+.trust-badges .container {
+    display: flex;
+    flex-direction: column; /* Apilados en móvil por defecto */
+    align-items: flex-start; /* Alineados a la izquierda */
+    gap: 2rem;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    max-width: 300px;
+}
+
+.badge i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+/* ==============================================
+   SERVICES SECTION
+   ============================================== */
+.services-section {
+    background-color: var(--color-background);
+}
+
+.services-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr; /* Una columna por defecto en móvil */
+}
+
+.service-card {
+    background-color: var(--color-surface);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    padding: 0;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-card-content {
+    padding: 1.5rem; /* Menos padding en móvil */
+}
+
+.service-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.service-card h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.service-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-card ul li {
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--color-primary);
+    position: absolute;
+    left: 0;
+}
+
+/* ==============================================
+   GALLERY SECTION
+   ============================================== */
+.gallery-section {
+    text-align: center;
+}
+
+.gallery-section p {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: var(--color-text-secondary);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* ==============================================
+   CONTACT SECTION
+   ============================================== */
+.contact-section {
+    background-color: var(--color-surface);
+    text-align: center;
+}
+
+.contact-details {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem; /* Más espacio vertical en móvil */
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex; /* MEJORA: para alinear icono y texto */
+    align-items: flex-start;
+    text-align: left;
+}
+
+.contact-info a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+.contact-info i {
+    color: var(--color-primary);
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0; /* Evita que el icono se encoja */
+    margin-top: 0.1em; /* Alineación vertical fina */
+}
+
+.social-media a {
+    color: var(--color-text-secondary);
+    font-size: 1.8rem; /* Ligeramente más pequeños en móvil */
+    margin: 0 0.8rem;
+    transition: color 0.3s ease;
+}
+.social-media a:hover {
+    color: var(--color-primary);
+}
+
+/* === SOLUCIÓN PRINCIPAL PARA EL BOTÓN === */
+.final-cta {
+    font-size: 1.1rem; /* Ligeramente más pequeño para móvil */
+    padding: 1rem 1.5rem;
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+    display: block; /* Necesario para que width: 100% funcione */
+}
+
+/* ==============================================
+   FOOTER PERSONALIZADO
+   ============================================== */
+.site-footer-custom {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #0A0A0A;
+}
+
+.site-footer-custom p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo {
+    height: 35px;
+    filter: grayscale(1) brightness(1.5);
+    transition: filter 0.3s;
+}
+.footer-logo:hover {
+    filter: none;
+}
+
+/* =======================================
+   MEDIOS DE PAGO
+   ======================================= */
+.medios {
+    display: flex;            /* 1. Habilita Flexbox para controlar la alineación de los logos. */
+    flex-direction: column;   /* 2. Apila los logos uno encima del otro. */
+    align-items: center;      /* 3. Centra los logos horizontalmente en la columna. */
+    gap: 20px;                /* 4. Añade un espacio vertical de 20px entre cada logo. */
+}
+
+.medios-logo {
+    height: 25px;
+    filter: grayscale(1) brightness(1.5);
+    transition: filter 0.3s;
+}
+
+.medios-logo:hover {
+    filter: none;
+}
+
+@media (min-width: 768px) {
+    .medios {
+        flex-direction: row;      /* 1. Cambia la dirección para ponerlos en una fila. */
+        justify-content: center;  /* 2. Centra el grupo de logos horizontalmente. */
+        align-items: center;      /* 3. Mantiene la alineación vertical centrada. */
+        gap: 50px;                /* 4. Establece la separación horizontal de 50px deseada. */
+    }
+}
+
+/* =======================================
+   APILAMIENTO Y RESPONSIVE
+   ======================================= */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para Tablet (768px y más) */
+@media (min-width: 768px) {
+    .logo img {
+        height: 70px; /* Vuelve a su tamaño original */
+    }
+
+    .hamburger {
+        display: none; /* Ocultamos la hamburguesa */
+    }
+
+    .nav-links {
+        display: flex; /* Mostramos el menú normal */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        gap: 2rem;
+    }
+    
+    .nav-links li {
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section {
+        padding-top: 10rem;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+
+    .trust-badges .container {
+        flex-direction: row; /* Vuelven a estar en fila */
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .services-grid {
+        /* Restaura el grid para más de una columna */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .service-card-content {
+        padding: 2rem;
+    }
+
+    .contact-details {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    /* RESTAURAMOS EL BOTÓN FINAL A SU ESTADO ORIGINAL */
+    .final-cta {
+        width: auto; /* El botón deja de ocupar el 100% */
+        display: inline-block; /* Vuelve a ser un botón normal */
+        font-size: 1.2rem;
+        padding: 1rem 2.5rem;
+    }
+}
