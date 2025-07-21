@@ -1,0 +1,223 @@
+/* --- CYBERPUNK AGENT OS THEME --- */
+/* --- ARCHITECT: n8n Agent Architect --- */
+
+:root {
+    --color-background: #0d0d1a;
+    --color-text: #c0f3ff;
+    --color-primary: #00ffff;
+    --color-secondary: #ff00ff;
+    --color-accent: #faff00;
+    --color-glow: rgba(0, 255, 255, 0.5);
+    --font-primary: 'Orbitron', sans-serif;
+    --font-secondary: 'Share Tech Mono', monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    padding: 2rem;
+}
+
+/* --- VISUAL EFFECTS --- */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0,
+        rgba(0, 255, 255, 0.05) 1px,
+        rgba(0, 0, 0, 0) 2px
+    );
+    animation: scanmove 15s linear infinite;
+}
+
+@keyframes scanmove {
+    from { background-position: 0 0; }
+    to { background-position: 0 100px; }
+}
+
+/* --- HUD (HEADER) --- */
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    background-color: rgba(0, 255, 255, 0.05);
+    backdrop-filter: blur(3px);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+#main-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    text-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent);
+    letter-spacing: 2px;
+}
+
+.hud-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    opacity: 0.8;
+}
+
+.global-progress-container {
+    text-align: right;
+    font-size: 0.9rem;
+}
+#global-progress-value {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-left: 10px;
+}
+
+/* --- PHASE CARDS (ACCORDION) --- */
+.phase-card {
+    border: 1px solid var(--color-primary);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(145deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+    transition: box-shadow 0.3s ease-in-out;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+.phase-card:hover {
+    box-shadow: 0 0 15px var(--color-glow);
+}
+.phase-card[open] {
+    box-shadow: 0 0 20px var(--color-secondary);
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    display: block;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+.summary-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.phase-id {
+    color: var(--color-accent);
+    margin-right: 1rem;
+    font-weight: 700;
+}
+h2 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+.phase-progress {
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+.phase-progress span {
+    width: 50px;
+    text-align: right;
+    font-family: var(--font-primary);
+    color: var(--color-text);
+}
+
+.card-content {
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+.card-content h3 {
+    color: var(--color-accent);
+    margin-top: 1rem;
+}
+.card-content h4 {
+    color: var(--color-primary);
+    margin-top: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+.card-content ul {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+/* --- INTERACTIVE ELEMENTS --- */
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border: 1px solid var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+progress::-webkit-progress-bar {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+    transition: width 0.3s ease;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    transition: color 0.2s;
+}
+input[type="checkbox"] + label:hover {
+    color: var(--color-primary);
+}
+input[type="checkbox"] + label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-primary);
+    background-color: transparent;
+    transition: all 0.2s;
+}
+input[type="checkbox"]:checked + label {
+    color: var(--color-secondary);
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+input[type="checkbox"]:checked + label::before {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 5px var(--color-glow);
+}
+input[type="checkbox"]:checked + label::after {
+    content: '✓';
+    position: absolute;
+    left: 4px;
+    top: -1px;
+    font-family: var(--font-secondary);
+    color: var(--color-background);
+    font-size: 18px;
+    font-weight: bold;
+}

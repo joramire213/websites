@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGENT OS // MISSION_BLUEPRINT_ACA-v1.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+
+    <header class="hud">
+        <div class="hud-item title-container">
+            <h1 id="main-title"></h1>
+            <span class="hud-subtitle">// AGENT_COGNITIVE_AUTONOMOUS // BLUEPRINT_v1.0</span>
+        </div>
+        <div class="hud-item global-progress-container">
+            <label for="global-progress">MISSION_PROGRESS:</label>
+            <progress id="global-progress" max="100" value="0"></progress>
+            <span id="global-progress-value">0%</span>
+        </div>
+    </header>
+
+    <main id="mission-phases">
+        <!-- FASE 1 -->
+        <details class="phase-card" open>
+            <summary>
+                <div class="summary-content">
+                    <h2><span class="phase-id">// FASE 1</span>LA FUNDACIÓN COGNITIVA</h2>
+                    <div class="phase-progress">
+                        <progress max="100" value="0"></progress>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </summary>
+            <div class="card-content">
+                <h3>Objetivo:</h3>
+                <p>Dotar al agente de memoria y de la capacidad de comprender la intención del usuario.</p>
+                
+                <h4>1. Implementar el `Context Manager`:</h4>
+                <ul>
+                    <li><input type="checkbox" id="task1-1"><label for="task1-1">Crear sub-workflow `ContextManager` para operaciones get/set en Redis.</label></li>
+                    <li><input type="checkbox" id="task1-2"><label for="task1-2">Definir estructura de datos en Redis (profile, short_term_memory, current_task, permissions).</label></li>
+                    <li><input type="checkbox" id="task1-3"><label for="task1-3">Integrar `Execute Workflow` para `get` de contexto antes de `Preparar Payload OpenAI`.</label></li>
+                    <li><input type="checkbox" id="task1-4"><label for="task1-4">Integrar `Execute Workflow` para `set` de contexto después de `Enviar Texto`.</label></li>
+                </ul>
+
+                <h4>2. Onboarding y Ayuda Contextual (Primer Contacto Inteligente):</h4>
+                <ul>
+                    <li><input type="checkbox" id="task1-5"><label for="task1-5">Añadir nodo `If` para detectar contexto nulo (primer contacto).</label></li>
+                    <li><input type="checkbox" id="task1-6"><label for="task1-6">Configurar rama `true` del `If` para dirigir a un `OpenAI Chat Model` con prompt de bienvenida.</label></li>
+                    <li><input type="checkbox" id="task1-7"><label for="task1-7">Añadir lógica de detección de comando `/help` en `Unificar y Preparar Datos`.</label></li>
+                    <li><input type="checkbox" id="task1-8"><label for="task1-8">Crear `If` para enrutar las solicitudes `/help` a un resumen de capacidades.</label></li>
+                </ul>
+            </div>
+        </details>
+
+        <!-- FASE 2 -->
+        <details class="phase-card">
+            <summary>
+                <div class="summary-content">
+                    <h2><span class="phase-id">// FASE 2</span>LA EXPLOSIÓN DE CAPACIDADES</h2>
+                    <div class="phase-progress">
+                        <progress max="100" value="0"></progress>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </summary>
+            <div class="card-content">
+                 <h3>Objetivo:</h3>
+                <p>Implementar `Tool Use` (Function Calling) y RAG (Retrieval-Augmented Generation).</p>
+
+                <h4>1. Crear el `Tool Router`:</h4>
+                <ul>
+                    <li><input type="checkbox" id="task2-1"><label for="task2-1">Editar Asistente en OpenAI para añadir herramientas (enviar_recurso, agendar_sesion, buscar_en_base_de_conocimiento).</label></li>
+                    <li><input type="checkbox" id="task2-2"><label for="task2-2">Conectar la salida `on('tool_calls')` del `Message an assistant` a un nuevo `Switch`.</label></li>
+                    <li><input type="checkbox" id="task2-3"><label for="task2-3">Configurar el `Switch` para enrutar por `{{ $json.tool_calls[0].function.name }}`.</label></li>
+                </ul>
+
+                <h4>2. Implementar RAG (Conocimiento Externo):</h4>
+                <ul>
+                    <li><input type="checkbox" id="task2-4"><label for="task2-4">Configurar base de datos vectorial (ej. Supabase con pgvector).</label></li>
+                    <li><input type="checkbox" id="task2-5"><label for="task2-5">Crear workflow de "ingesta" para procesar, crear `embeddings` y guardar documentos.</label></li>
+                    <li><input type="checkbox" id="task2-6"><label for="task2-6">Implementar la lógica de la rama `buscar_en_base_de_conocimiento` para buscar y devolver contexto.</label></li>
+                    <li><input type="checkbox" id="task2-7"><label for="task2-7">Asegurar que el resultado de RAG se envía de vuelta con `Submit Tool Outputs`.</label></li>
+                </ul>
+
+                <h4>3. Integrar la Primera Herramienta Práctica (Calendario):</h4>
+                <ul>
+                    <li><input type="checkbox" id="task2-8"><label for="task2-8">En la rama `agendar_sesion`, conectar un nodo `Google Calendar`.</label></li>
+                    <li><input type="checkbox" id="task2-9"><label for="task2-9">Implementar acciones `check_availability` y `schedule_meeting`.</label></li>
+                    <li><input type="checkbox" id="task2-10"><label for="task2-10">Enviar confirmación o error al asistente vía `Submit Tool Outputs`.</label></li>
+                </ul>
+            </div>
+        </details>
+        
+        <!-- FASE 3 -->
+        <details class="phase-card">
+            <summary>
+                <div class="summary-content">
+                    <h2><span class="phase-id">// FASE 3</span>FORTIFICACIÓN Y ESCALABILIDAD</h2>
+                    <div class="phase-progress">
+                        <progress max="100" value="0"></progress>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </summary>
+            <div class="card-content">
+                <h3>Objetivo:</h3>
+                <p>Transformar el workflow en un sistema de producción robusto y seguro.</p>
+
+                <h4>1. Implementar Seguridad por Capas:</h4>
+                <ul>
+                    <li><input type="checkbox" id="task3-1"><label for="task3-1">Crear `Security Filter` (nodo `Code`) para sanitizar entradas y detectar Prompt Injection.</label></li>
+                    <li><input type="checkbox" id="task3-2"><label for="task3-2">Implementar `Auth Controller` (nodo `Code`) para verificar permisos del usuario contra la herramienta solicitada.</label></li>
+                </ul>
+                
+                <h4>2. Optimizar la Arquitectura (Nivel Enterprise):</h4>
+                <ul>
+                    <li><input type="checkbox" id="task3-3"><label for="task3-3">Modularizar la lógica del `Tool Router` en un sub-workflow (`Execute Workflow`).</label></li>
+                    <li><input type="checkbox" id="task3-4"><label for="task3-4">Activar `Task Runners` en la instancia de n8n para tareas pesadas (transcripción, etc.).</label></li>
+                    <li><input type="checkbox" id="task3-5"><label for="task3-5">Configurar CI/CD: Exportar workflow a Git y usar `n8n-cli` para despliegues.</label></li>
+                </ul>
+            </div>
+        </details>
+        
+        <!-- FASE 4 -->
+        <details class="phase-card">
+            <summary>
+                <div class="summary-content">
+                    <h2><span class="phase-id">// FASE 4</span>INTELIGENCIA PROACTIVA Y AUTONOMÍA</h2>
+                    <div class="phase-progress">
+                        <progress max="100" value="0"></progress>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </summary>
+            <div class="card-content">
+                <h3>Objetivo:</h3>
+                <p>El agente deja de ser reactivo y empieza a anticipar las necesidades del usuario.</p>
+
+                <h4>1. Implementar el `Task Planner`:</h4>
+                <ul>
+                    <li><input type="checkbox" id="task4-1"><label for="task4-1">Definir herramienta `crear_plan_de_ejecucion` en OpenAI.</label></li>
+                    <li><input type="checkbox" id="task4-2"><label for="task4-2">Implementar la lógica en n8n para que un LLM descomponga un objetivo complejo en sub-tareas (JSON).</label></li>
+                    <li><input type="checkbox" id="task4-3"><label for="task4-3">Modificar `Context Manager` para guardar y actualizar el estado del plan de ejecución.</label></li>
+                </ul>
+                
+                <h4>2. Activar Triggers Proactivos:</h4>
+                <ul>
+                    <li><input type="checkbox" id="task4-4"><label for="task4-4">Crear un nuevo workflow con un trigger `Cron` para ejecutarse periódicamente.</label></li>
+                    <li><input type="checkbox" id="task4-5"><label for="task4-5">El workflow de `Cron` debe leer los contextos de los usuarios en Redis.</label></li>
+                    <li><input type="checkbox" id="task4-6"><label for="task4-6">Implementar la lógica para detectar condiciones (ej. reunión próxima) e iniciar una conversación proactivamente.</label></li>
+                </ul>
+            </div>
+        </details>
+        
+        <!-- MÉTRICAS DE ÉXITO -->
+         <details class="phase-card">
+            <summary>
+                <div class="summary-content">
+                    <h2><span class="phase-id">// SYSTEM</span>MÉTRICAS DE ÉXITO (KPIs)</h2>
+                    <div class="phase-progress">
+                        <progress max="100" value="0"></progress>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </summary>
+            <div class="card-content">
+                <h3>Objetivo:</h3>
+                <p>Establecer un sistema de monitoreo para medir el rendimiento y el valor del agente.</p>
+                <ul>
+                    <li><input type="checkbox" id="task5-1"><label for="task5-1">Implementar registro de Tasa de Éxito de Tareas en una base de datos.</label></li>
+                    <li><input type="checkbox" id="task5-2"><label for="task5-2">Medir y registrar la Latencia de Respuesta (End-to-End) para cada interacción.</label></li>
+                    <li><input type="checkbox" id="task5-3"><label for="task5-3">Integrar sistema de feedback CSAT (👍/👎) con la API de Evolution y registrar los resultados.</label></li>
+                    <li><input type="checkbox" id="task5-4"><label for="task5-4">Registrar el uso de tokens de OpenAI en cada llamada para un monitoreo preciso de costos.</label></li>
+                </ul>
+            </div>
+        </details>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
