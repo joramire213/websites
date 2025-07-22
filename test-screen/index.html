@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ... tu head sin cambios ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Bienestar Digital Infantil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <!-- ... progress-container sin cambios ... -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">Inicio</div>
+                <div class="progress-step" data-step="2">Parte 1</div>
+                <div class="progress-step" data-step="3">Parte 2</div>
+                <div class="progress-step" data-step="4">Resultado</div>
+            </div>
+        </div>
+
+        <form id="screenTimeTest">
+            <!-- ==== INICIO DEL BLOQUE MODIFICADO ==== -->
+            <div class="test-step active" id="step-1">
+                <div class="intro-section">
+                    <div class="intro-section__content">
+                        <h1 class="intro__title">Evaluación de Bienestar Digital</h1>
+                        <p class="intro__subtitle">Este instrumento está diseñado para que padres y cuidadores identifiquen hábitos digitales en niños de <strong>3 a 14 años</strong>. Tómate unos minutos para responder con honestidad.</p>
+                        <div class="instructions">
+                            <h3>Instrucciones</h3>
+                            <p>Lee cada afirmación y selecciona la frecuencia con la que ha ocurrido en tu hogar durante los <strong>últimos tres meses</strong>.</p>
+                        </div>
+                        <div class="navigation-buttons">
+                            <button type="button" class="nav-button next-button">Comenzar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ==== FIN DEL BLOQUE MODIFICADO ==== -->
+
+            <!-- ... step-2, step-3, y el resto del form sin cambios ... -->
+            <div class="test-step" id="step-2">
+                <h2>Parte 1: Comportamiento y Enfoque</h2>
+                <div id="questions-part-1"></div>
+                <div class="navigation-buttons">
+                    <button type="button" class="nav-button prev-button">Anterior</button>
+                    <button type="button" class="nav-button next-button">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="test-step" id="step-3">
+                <h2>Parte 2: Impacto y Consecuencias</h2>
+                <div id="questions-part-2"></div>
+                <div class="navigation-buttons">
+                    <button type="button" class="nav-button prev-button">Anterior</button>
+                    <button type="submit" class="cta-button">Ver mis resultados</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- ... step-4 y el resto del main sin cambios ... -->
+        <div class="test-step" id="step-4">
+             <section id="results" class="results-section">
+                <h2>Tus Resultados</h2>
+                <div class="risk-scale-card">
+                    <div id="risk-scale-container" class="risk-scale">
+                        <!-- Las categorías de riesgo se generarán aquí con JavaScript -->
+                    </div>
+                    <div class="risk-scale-summary">
+                        <h3 id="result-level"></h3>
+                        <p id="result-interpretation"></p>
+                        <p class="summary-score">Puntaje final: <strong id="final-score">0</strong> / 40</p>
+                    </div>
+                </div>
+                <h3>Plan de Acción Sugerido</h3>
+                <div class="table-container">
+                    <table id="action-plan-table">
+                        <thead><tr><th>Nivel de Riesgo</th><th>Puntaje</th><th>Acción Sugerida</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+             </section>
+        </div>
+    </main>
+
+    <!-- ... footers sin cambios ... -->
+    <footer class="site-footer">
+        <div class="container">
+            <p><strong>Aviso:</strong> Este test es una herramienta orientativa y no sustituye una valoración clínica profesional.</p>
+        </div>
+    </footer>
+    <footer class="site-footer-custom">
+        <p>Powered by:</p>
+        <a href="https://travisafe.com/" target="_blank">
+            <img src="https://vivelacity.com/wp-content/uploads/2024/11/Logo_Travi_Connect_Trans_A.webp" alt="Logo Travisafe" class="footer-logo">
+        </a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

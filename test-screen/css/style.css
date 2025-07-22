@@ -1,0 +1,294 @@
+/* ---- VARIABLES Y ESTILOS GLOBALES ---- */
+:root {
+    /* ... sin cambios ... */
+    --color-primary: #6366f1;
+    --color-secondary: #2dd4bf;
+    --color-background: #1f2937;
+    --color-surface: #374151;
+    --color-surface-light: #4b5563;
+    --color-text: #f3f4f6;
+    --color-text-muted: #9ca3af;
+    --color-border: #4b5563;
+    --font-family: 'Source Sans Pro', sans-serif;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --border-radius: 16px;
+}
+
+/* ... body, container, h1, h2, h3, etc. sin cambios ... */
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 { color: #ffffff; font-weight: 800; }
+h2 { font-size: 1.8rem; margin-bottom: 2.5rem; text-align: center; }
+h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+
+/* ... Barra de Progreso y Estilos de Etapas sin cambios ... */
+.progress-container {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+.progress-bar {
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 4px;
+    transition: width 0.4s ease-in-out;
+}
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -25px;
+}
+.progress-step {
+    color: var(--color-text-muted);
+    font-weight: 700;
+    transition: color 0.4s ease;
+}
+.progress-step.active {
+    color: var(--color-primary);
+}
+.test-step { display: none; }
+.test-step.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ==== INICIO DEL BLOQUE MODIFICADO ==== */
+
+/* ---- ETAPA 1: HERO SECTION ---- */
+.intro-section {
+    position: relative;
+    text-align: center;
+    padding: 2.8rem 2rem; /* Más padding para el efecto hero */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Esencial para que el overlay respete el borde redondeado */
+    background-image: url('../img/hero.png'); /* Ruta a tu imagen */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Creamos un overlay oscuro para asegurar la legibilidad del texto */
+.intro-section::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* Abarca todo el contenedor (top, right, bottom, left = 0) */
+    background-color: rgba(31, 41, 55, 0.75); /* Color de fondo con 75% de opacidad */
+    z-index: 1;
+}
+
+/* Posicionamos el contenedor del contenido por encima del overlay */
+.intro-section__content {
+    position: relative;
+    z-index: 2;
+}
+
+.intro__title { 
+    font-size: 2.5rem; 
+    line-height: 1.2; 
+    margin-bottom: 1rem; 
+}
+.intro__subtitle { 
+    font-size: 1.1rem; 
+    color: var(--color-text); /* Cambiamos el color para mejor contraste */
+    max-width: 600px; 
+    margin: 0 auto 2rem; 
+}
+
+/* Ajustamos el cuadro de instrucciones para que se integre mejor en el hero */
+.instructions {
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semitransparente */
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-primary);
+    text-align: left;
+    margin-top: 2.5rem;
+}
+
+/* Eliminamos los estilos de la imagen anterior */
+/* .intro__image-container, .intro__image { ... } */
+
+/* ==== FIN DEL BLOQUE MODIFICADO ==== */
+
+
+/* ---- TARJETAS DE PREGUNTAS ---- */
+/* ... (sin cambios) ... */
+.question-card {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-border);
+    transition: border-color 0.3s ease;
+}
+.question-card.missing-answer { border-color: #e74c3c; }
+
+.question-card__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+.question-card__description { color: var(--color-text-muted); margin: 0 0 1.5rem 0; }
+
+.options-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    border: none; padding: 0;
+}
+.options-group label {
+    text-align: center;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--color-surface-light);
+    font-size: 0.8rem;
+}
+.options-group input[type="radio"] { display: none; }
+.options-group input[type="radio"]:checked + label {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* ---- BOTONES DE NAVEGACIÓN Y CTA ---- */
+/* ... (sin cambios) ... */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+.nav-button, .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.nav-button.prev-button { background-color: var(--color-surface-light); color: var(--color-text); }
+.nav-button.prev-button:hover { background-color: var(--color-border); }
+.nav-button.next-button { background-color: var(--color-primary); color: #fff; }
+.nav-button.next-button:hover { background-color: #5254d4; } /* Ajuste del hover para el nuevo color primario */
+.cta-button {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: #fff;
+    width: 100%;
+}
+.cta-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(45, 212, 191, 0.2); /* Ajuste del hover para el nuevo color secundario */
+}
+
+/* ---- ETAPA 4: RESULTADOS (VERSIÓN CATEGÓRICA) ---- */
+/* ... (sin cambios) ... */
+.results-section { background-color: transparent; }
+
+.risk-scale-card {
+    background-color: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.risk-scale {
+    display: flex;
+    flex-wrap: wrap; /* Para que se adapte en móviles */
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.risk-scale__item {
+    background-color: var(--color-surface-light);
+    color: var(--color-text-muted);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    flex-grow: 1; /* Para que ocupen el espacio disponible */
+}
+
+.item__level {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.item__score-range {
+    font-size: 0.85rem;
+}
+.risk-scale__item.is-active {
+    transform: scale(1.05);
+    color: #111827; /* Texto oscuro para buen contraste con fondos de color */
+    box-shadow: var(--shadow);
+}
+.risk-scale__item.is-active .item__level {
+    color: inherit;
+}
+
+.risk-scale-summary #result-level {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    transition: color 0.5s ease;
+}
+
+.risk-scale-summary #result-interpretation {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin: 0 auto 1rem auto;
+}
+
+.risk-scale-summary .summary-score {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+.risk-scale-summary .summary-score strong {
+    font-weight: 700;
+}
+
+/* Tabla de Resultados */
+/* ... (sin cambios) ... */
+.table-container { overflow-x: auto; }
+#action-plan-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+#action-plan-table th, #action-plan-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+#action-plan-table th { background-color: var(--color-surface-light); font-weight: 700; }
+#action-plan-table tbody tr { transition: background-color 0.3s ease; }
+#action-plan-table tbody tr.highlight {
+    /* El color de fondo se aplica dinámicamente con JS */
+}
+
+/* ---- FOOTERS ---- */
+/* ... (sin cambios) ... */
+.site-footer, .site-footer-custom { text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: var(--color-text-muted); }
+.site-footer { background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
+.site-footer-custom { padding: 2rem 0; }
+.site-footer-custom p { margin-bottom: 0.5rem; }
+.footer-logo { height: 45px; filter: grayscale(1) brightness(1.5); transition: filter 0.3s; }
+.footer-logo:hover { filter: none; }
+
+/* ---- RESPONSIVE DESIGN ---- */
+/* ... (sin cambios) ... */
+@media (max-width: 768px) {
+    .intro__title { font-size: 2rem; }
+    .nav-button, .cta-button { width: 100%; margin-top: 0.5rem; }
+    .navigation-buttons { flex-direction: column-reverse; }
+    .nav-button.prev-button { margin-top: 1rem; }
+}
