@@ -292,6 +292,6 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     .navigation-buttons { flex-direction: column-reverse; }
     .nav-button.prev-button { margin-top: 1rem; }
     .intro-section {
-        padding: 1.5rem;
-}
+        padding: 0.7rem;
+    }
 }
