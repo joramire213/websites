@@ -14,19 +14,20 @@
 <body>
 
     <main class="container">
-        <!-- ... progress-container sin cambios ... -->
+        <!-- ==== INICIO CÓDIGO MODIFICADO: Barra de progreso con 4 pasos (visual) ==== -->
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
             <div class="progress-steps">
                 <div class="progress-step active" data-step="1">Inicio</div>
                 <div class="progress-step" data-step="2">Parte 1</div>
                 <div class="progress-step" data-step="3">Parte 2</div>
-                <div class="progress-step" data-step="4">Resultado</div>
+                <div class="progress-step" data-step="4">Resultado</div> 
             </div>
         </div>
+        <!-- ==== FIN CÓDIGO MODIFICADO ==== -->
 
         <form id="screenTimeTest">
-            <!-- ==== INICIO DEL BLOQUE MODIFICADO ==== -->
+            <!-- step-1, step-2, y step-3 no tienen cambios -->
             <div class="test-step active" id="step-1">
                 <div class="intro-section">
                     <div class="intro-section__content">
@@ -42,9 +43,7 @@
                     </div>
                 </div>
             </div>
-            <!-- ==== FIN DEL BLOQUE MODIFICADO ==== -->
 
-            <!-- ... step-2, step-3, y el resto del form sin cambios ... -->
             <div class="test-step" id="step-2">
                 <h2>Parte 1: Comportamiento y Enfoque</h2>
                 <div id="questions-part-1"></div>
@@ -64,14 +63,46 @@
             </div>
         </form>
 
-        <!-- ... step-4 y el resto del main sin cambios ... -->
+        <!-- Step-4: Captura de Leads (Textos actualizados) -->
         <div class="test-step" id="step-4">
+            <div class="lead-form-container">
+                <div class="lead-form-visual">
+                    <img src="img/ebook.png" alt="Portada del Ebook Crecer en Familia">
+                </div>
+                <div class="lead-form-content">
+                    <h2 class="lead-form__title">¡Estás a un paso de ver los resultados!</h2>
+                    <p class="lead-form__subtitle">Antes de continuar, recibe gratis nuestro manual exclusivo <strong>"Crecer en Familia"</strong>.</p>
+                    
+                    <ul class="ebook-features">
+                        <li> Descubre estrategias prácticas para transformar el tiempo en pantalla en oportunidades de conexión.</li>
+                        <li> Aprende a establecer límites saludables y fomentar el diálogo.</li>
+                        <li> Crea momentos inolvidables que fortalezcan el vínculo familiar.</li>
+                    </ul>
+
+                    <form id="lead-form" class="lead-capture-form">
+                        <p class="lead-form__cta-text">Déjanos tus datos y te lo enviaremos a tu correo:</p>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+                        </div>
+                        <div id="form-status"></div>
+                        <div class="form-actions">
+                            <button type="submit" class="cta-button">Recibir Ebook y Ver Resultados</button>
+                            <button type="button" id="skip-btn" class="nav-button prev-button">Omitir y ver solo mis Resultados</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-5: Resultados -->
+        <div class="test-step" id="step-5">
              <section id="results" class="results-section">
                 <h2>Tus Resultados</h2>
                 <div class="risk-scale-card">
-                    <div id="risk-scale-container" class="risk-scale">
-                        <!-- Las categorías de riesgo se generarán aquí con JavaScript -->
-                    </div>
+                    <div id="risk-scale-container" class="risk-scale"></div>
                     <div class="risk-scale-summary">
                         <h3 id="result-level"></h3>
                         <p id="result-interpretation"></p>
@@ -89,7 +120,6 @@
         </div>
     </main>
 
-    <!-- ... footers sin cambios ... -->
     <footer class="site-footer">
         <div class="container">
             <p><strong>Aviso:</strong> Este test es una herramienta orientativa y no sustituye una valoración clínica profesional.</p>
