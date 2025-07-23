@@ -1,6 +1,4 @@
-/* ---- VARIABLES Y ESTILOS GLOBALES ---- */
 :root {
-    /* Nueva Paleta "Luz y Esperanza" */
     --color-primary: #1abc9c;
     --color-secondary: #f1c40f;
     --color-background: #f8f9fa;
@@ -9,7 +7,6 @@
     --color-text: #34495e;
     --color-text-muted: #7f8c8d;
     --color-border: #dee2e6;
-    
     --font-family: 'Source Sans Pro', sans-serif;
     --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     --border-radius: 16px;
@@ -38,7 +35,7 @@ h2 { font-size: 1.8rem; margin-bottom: 2.5rem; text-align: center; }
 h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 
 .progress-container {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
     position: relative;
 }
 .progress-bar {
@@ -69,11 +66,10 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ---- ETAPA 1: HERO SECTION ---- */
 .intro-section {
     position: relative;
     text-align: center;
-    padding: 2.8rem 2rem;
+    padding: 0.8rem 2rem;
     border-radius: var(--border-radius);
     overflow: hidden;
     background-image: url('../img/hero.png');
@@ -109,27 +105,46 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* ==== INICIO DEL BLOQUE MODIFICADO ==== */
 .instructions {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 1rem 1.5rem; /* Reducido: 1rem arriba/abajo, 1.5rem a los lados */
+    padding: 1rem 1.5rem;
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-primary);
     text-align: left;
-    margin-top: 2.5rem;
+    margin-top: 0.5rem;
     color: var(--color-text);
 }
 .instructions h3 {
     color: var(--color-primary);
-    margin-top: 0; /* Aseguramos no tener margen superior */
-    margin-bottom: 0.5rem; /* Reducimos el espacio debajo del título */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 .instructions p {
-    margin-bottom: 0; /* Eliminamos el margen inferior del párrafo */
+    margin-bottom: 0;
 }
-/* ==== FIN DEL BLOQUE MODIFICADO ==== */
 
-/* ---- TARJETAS DE PREGUNTAS ---- */
+.designed-by {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+.designed-by__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #f3f4f6;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    margin: 0 0 0.75rem 0;
+}
+.designed-by__logo {
+    max-width: 180px; /* Aumentamos ligeramente el contenedor para el padding */
+    height: auto;
+    background-color: var(--color-surface); /* Fondo blanco para el marco */
+    padding: 1rem; /* Espacio interno para crear el marco */
+    border-radius: 12px; /* Bordes ligeramente redondeados */
+    border: 2px solid var(--color-text); /* Borde con el color más oscuro */
+    box-sizing: border-box; /* Asegura que el padding y borde no añadan tamaño extra */
+    /* Se elimina el filtro para mostrar el logo con sus colores originales */
+}
+
 .question-card {
     background-color: var(--color-surface);
     border-radius: var(--border-radius);
@@ -160,7 +175,7 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     cursor: pointer;
     transition: all 0.2s ease;
     background-color: var(--color-surface-light);
-    font-size: 0.9rem; /* Un poco más grande para mejor legibilidad */
+    font-size: 0.9rem;
 }
 .options-group input[type="radio"] { 
     display: none; 
@@ -173,7 +188,6 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     box-shadow: 0 4px 10px rgba(26, 188, 156, 0.3);
 }
 
-/* ---- BOTONES DE NAVEGACIÓN Y CTA ---- */
 .navigation-buttons {
     display: flex;
     justify-content: space-between;
@@ -201,7 +215,7 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     color: #fff;
 }
 .nav-button.next-button:hover {
-    background-color: #16a085; /* Ajuste del hover */
+    background-color: #16a085;
 }
 .cta-button {
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
@@ -219,7 +233,6 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     min-width: 200px;
 }
 
-/* ---- ETAPA 4: RESULTADOS (VERSIÓN CATEGÓRICA) ---- */
 .results-section { background-color: transparent; }
 .risk-scale-card, .lead-form-container {
     background-color: var(--color-surface);
@@ -245,22 +258,18 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 .risk-scale-summary .summary-score { font-size: 1rem; color: var(--color-text); }
 .risk-scale-summary .summary-score strong { font-weight: 700; }
 
-/* Tabla de Resultados */
 .table-container { overflow-x: auto; }
 #action-plan-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
 #action-plan-table th, #action-plan-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
 #action-plan-table th { background-color: var(--color-surface-light); font-weight: 700; }
 #action-plan-table tbody tr { transition: background-color 0.3s ease; }
-#action-plan-table tbody tr.highlight { /* Color aplicado con JS */ }
 
-/* ---- FOOTERS ---- */
 .site-footer, .site-footer-custom { text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: var(--color-text-muted); }
 .site-footer { background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
 .site-footer-custom p { margin-bottom: 0.5rem; }
 .footer-logo { height: 45px; filter: none; transition: filter 0.3s; }
 .footer-logo:hover { opacity: 0.8; }
 
-/* ---- LEAD FORM ---- */
 .lead-form-container {
     display: flex;
     align-items: center;
@@ -282,7 +291,20 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 .form-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
 #form-status { color: var(--color-text-muted); text-align: center; margin-top: 1rem; font-weight: 600; min-height: 1.2em; }
 
-/* ---- RESPONSIVE DESIGN ---- */
+.results-section .designed-by {
+    margin-top: 3rem; /* Añade más espacio superior */
+}
+
+.results-section .designed-by__label {
+    color: var(--color-text-muted); /* Cambia el texto a un color oscuro y legible */
+    text-shadow: none; /* Elimina la sombra de texto */
+}
+
+.results-section .designed-by__logo {
+    filter: none; /* Elimina el filtro blanco para mostrar el logo original */
+    opacity: 1;
+}
+
 @media (max-width: 768px) {
     .intro__title { font-size: 2rem; }
     .intro-section { padding: 1.5rem; }
