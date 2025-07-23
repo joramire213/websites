@@ -1,20 +1,20 @@
 /* ---- VARIABLES Y ESTILOS GLOBALES ---- */
 :root {
-    /* ... sin cambios ... */
-    --color-primary: #6366f1;
-    --color-secondary: #2dd4bf;
-    --color-background: #1f2937;
-    --color-surface: #374151;
-    --color-surface-light: #4b5563;
-    --color-text: #f3f4f6;
-    --color-text-muted: #9ca3af;
-    --color-border: #4b5563;
+    /* Nueva Paleta "Luz y Esperanza" */
+    --color-primary: #1abc9c;
+    --color-secondary: #f1c40f;
+    --color-background: #f8f9fa;
+    --color-surface: #ffffff;
+    --color-surface-light: #f1f3f5;
+    --color-text: #34495e;
+    --color-text-muted: #7f8c8d;
+    --color-border: #dee2e6;
+    
     --font-family: 'Source Sans Pro', sans-serif;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     --border-radius: 16px;
 }
 
-/* ... body, container, h1, h2, h3, etc. sin cambios ... */
 body {
     font-family: var(--font-family);
     background-color: var(--color-background);
@@ -30,11 +30,13 @@ body {
     padding: 0 20px;
 }
 
-h1, h2, h3 { color: #ffffff; font-weight: 800; }
+h1, h2, h3 { 
+    color: var(--color-text);
+    font-weight: 800; 
+}
 h2 { font-size: 1.8rem; margin-bottom: 2.5rem; text-align: center; }
 h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 
-/* ... Barra de Progreso y Estilos de Etapas sin cambios ... */
 .progress-container {
     margin-bottom: 1.2rem;
     position: relative;
@@ -67,83 +69,88 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ==== INICIO DEL BLOQUE MODIFICADO ==== */
-
 /* ---- ETAPA 1: HERO SECTION ---- */
 .intro-section {
     position: relative;
     text-align: center;
-    padding: 2.8rem 2rem; /* Más padding para el efecto hero */
+    padding: 2.8rem 2rem;
     border-radius: var(--border-radius);
-    overflow: hidden; /* Esencial para que el overlay respete el borde redondeado */
-    background-image: url('../img/hero.png'); /* Ruta a tu imagen */
+    overflow: hidden;
+    background-image: url('../img/hero.png');
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
 }
-
-/* Creamos un overlay oscuro para asegurar la legibilidad del texto */
 .intro-section::before {
     content: '';
     position: absolute;
-    inset: 0; /* Abarca todo el contenedor (top, right, bottom, left = 0) */
-    background-color: rgba(31, 41, 55, 0.75); /* Color de fondo con 75% de opacidad */
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4), rgba(0,0,0,0.6));
     z-index: 1;
 }
-
-/* Posicionamos el contenedor del contenido por encima del overlay */
 .intro-section__content {
     position: relative;
     z-index: 2;
+    width: 100%;
 }
-
 .intro__title { 
     font-size: 2.5rem; 
     line-height: 1.2; 
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
+    color: #ffffff; 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .intro__subtitle { 
     font-size: 1.1rem; 
-    color: var(--color-text); /* Cambiamos el color para mejor contraste */
+    color: #f3f4f6; 
     max-width: 600px; 
     margin: 0 auto 2rem; 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Ajustamos el cuadro de instrucciones para que se integre mejor en el hero */
+/* ==== INICIO DEL BLOQUE MODIFICADO ==== */
 .instructions {
-    background-color: rgba(0, 0, 0, 0.25); /* Fondo semitransparente */
-    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 1.5rem; /* Reducido: 1rem arriba/abajo, 1.5rem a los lados */
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-primary);
     text-align: left;
     margin-top: 2.5rem;
+    color: var(--color-text);
 }
-
-/* Eliminamos los estilos de la imagen anterior */
-/* .intro__image-container, .intro__image { ... } */
-
+.instructions h3 {
+    color: var(--color-primary);
+    margin-top: 0; /* Aseguramos no tener margen superior */
+    margin-bottom: 0.5rem; /* Reducimos el espacio debajo del título */
+}
+.instructions p {
+    margin-bottom: 0; /* Eliminamos el margen inferior del párrafo */
+}
 /* ==== FIN DEL BLOQUE MODIFICADO ==== */
 
-
 /* ---- TARJETAS DE PREGUNTAS ---- */
-/* ... (sin cambios) ... */
 .question-card {
     background-color: var(--color-surface);
     border-radius: var(--border-radius);
     padding: 2rem;
     margin-bottom: 1.5rem;
     border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
     transition: border-color 0.3s ease;
 }
+.question-card__description { 
+    color: var(--color-text-muted); 
+    margin: 0 0 1.5rem 0; 
+}
 .question-card.missing-answer { border-color: #e74c3c; }
-
-.question-card__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem 0; }
-.question-card__description { color: var(--color-text-muted); margin: 0 0 1.5rem 0; }
-
+.question-card__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--color-primary); }
 .options-group {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
-    border: none; padding: 0;
+    border: none; 
+    padding: 0;
 }
 .options-group label {
     text-align: center;
@@ -153,18 +160,20 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     cursor: pointer;
     transition: all 0.2s ease;
     background-color: var(--color-surface-light);
-    font-size: 0.8rem;
+    font-size: 0.9rem; /* Un poco más grande para mejor legibilidad */
 }
-.options-group input[type="radio"] { display: none; }
+.options-group input[type="radio"] { 
+    display: none; 
+}
 .options-group input[type="radio"]:checked + label {
     background: var(--color-primary);
     color: #ffffff;
     border-color: var(--color-primary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(26, 188, 156, 0.3);
 }
 
 /* ---- BOTONES DE NAVEGACIÓN Y CTA ---- */
-/* ... (sin cambios) ... */
 .navigation-buttons {
     display: flex;
     justify-content: space-between;
@@ -179,40 +188,45 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.nav-button.prev-button { background-color: var(--color-surface-light); color: var(--color-text); }
-.nav-button.prev-button:hover { background-color: var(--color-border); }
-.nav-button.next-button { background-color: var(--color-primary); color: #fff; }
-.nav-button.next-button:hover { background-color: #5254d4; } /* Ajuste del hover para el nuevo color primario */
+.nav-button.prev-button {
+    background-color: var(--color-surface-light);
+    color: var(--color-text-muted);
+}
+.nav-button.prev-button:hover {
+    background-color: var(--color-border);
+    color: var(--color-text);
+}
+.nav-button.next-button {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+.nav-button.next-button:hover {
+    background-color: #16a085; /* Ajuste del hover */
+}
 .cta-button {
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    color: #fff;
+    color: #2c3e50;
     width: 100%;
 }
 .cta-button:hover {
     transform: scale(1.02);
-    box-shadow: 0 5px 20px rgba(45, 212, 191, 0.2); /* Ajuste del hover para el nuevo color secundario */
+    box-shadow: 0 5px 20px rgba(26, 188, 156, 0.3);
+}
+.intro-button {
+    margin-top: 2.5rem;
+    display: inline-block;
+    width: auto;
+    min-width: 200px;
 }
 
 /* ---- ETAPA 4: RESULTADOS (VERSIÓN CATEGÓRICA) ---- */
-/* ... (sin cambios) ... */
 .results-section { background-color: transparent; }
-
-.risk-scale-card {
+.risk-scale-card, .lead-form-container {
     background-color: var(--color-surface);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    margin-bottom: 3rem;
-    text-align: center;
+    box-shadow: var(--shadow);
 }
-
-.risk-scale {
-    display: flex;
-    flex-wrap: wrap; /* Para que se adapte en móviles */
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
+.risk-scale-card { padding: 2rem; border-radius: var(--border-radius); margin-bottom: 3rem; text-align: center; }
+.risk-scale { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
 .risk-scale__item {
     background-color: var(--color-surface-light);
     color: var(--color-text-muted);
@@ -220,179 +234,63 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     border-radius: 8px;
     border: 2px solid transparent;
     transition: all 0.3s ease-in-out;
-    flex-grow: 1; /* Para que ocupen el espacio disponible */
+    flex-grow: 1;
 }
-
-.item__level {
-    display: block;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--color-text);
-}
-
-.item__score-range {
-    font-size: 0.85rem;
-}
-.risk-scale__item.is-active {
-    transform: scale(1.05);
-    color: #111827; /* Texto oscuro para buen contraste con fondos de color */
-    box-shadow: var(--shadow);
-}
-.risk-scale__item.is-active .item__level {
-    color: inherit;
-}
-
-.risk-scale-summary #result-level {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
-    transition: color 0.5s ease;
-}
-
-.risk-scale-summary #result-interpretation {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    max-width: 500px;
-    margin: 0 auto 1rem auto;
-}
-
-.risk-scale-summary .summary-score {
-    font-size: 1rem;
-    color: var(--color-text);
-}
-.risk-scale-summary .summary-score strong {
-    font-weight: 700;
-}
+.item__level { display: block; font-weight: 700; font-size: 1rem; color: var(--color-text); }
+.item__score-range { font-size: 0.85rem; }
+.risk-scale__item.is-active { transform: scale(1.05); color: #34495e; box-shadow: var(--shadow); }
+.risk-scale__item.is-active .item__level { color: inherit; }
+.risk-scale-summary #result-level { margin-top: 0; margin-bottom: 0.5rem; font-size: 1.8rem; transition: color 0.5s ease; }
+.risk-scale-summary #result-interpretation { font-size: 1.1rem; color: var(--color-text-muted); max-width: 500px; margin: 0 auto 1rem auto; }
+.risk-scale-summary .summary-score { font-size: 1rem; color: var(--color-text); }
+.risk-scale-summary .summary-score strong { font-weight: 700; }
 
 /* Tabla de Resultados */
-/* ... (sin cambios) ... */
 .table-container { overflow-x: auto; }
 #action-plan-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
 #action-plan-table th, #action-plan-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--color-border); }
 #action-plan-table th { background-color: var(--color-surface-light); font-weight: 700; }
 #action-plan-table tbody tr { transition: background-color 0.3s ease; }
-#action-plan-table tbody tr.highlight {
-    /* El color de fondo se aplica dinámicamente con JS */
-}
+#action-plan-table tbody tr.highlight { /* Color aplicado con JS */ }
 
 /* ---- FOOTERS ---- */
-/* ... (sin cambios) ... */
 .site-footer, .site-footer-custom { text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: var(--color-text-muted); }
 .site-footer { background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
-.site-footer-custom { padding: 2rem 0; }
 .site-footer-custom p { margin-bottom: 0.5rem; }
-.footer-logo { height: 45px; filter: grayscale(1) brightness(1.5); transition: filter 0.3s; }
-.footer-logo:hover { filter: none; }
+.footer-logo { height: 45px; filter: none; transition: filter 0.3s; }
+.footer-logo:hover { opacity: 0.8; }
 
-/* ==== INICIO DEL CÓDIGO AÑADIDO: ESTILOS PARA LA PANTALLA DE CAPTURA DE LEADS ==== */
-
+/* ---- LEAD FORM ---- */
 .lead-form-container {
     display: flex;
     align-items: center;
     gap: 3rem;
-    background-color: var(--color-surface);
     padding: 3rem;
     border-radius: var(--border-radius);
 }
+.lead-form-visual { flex-basis: 40%; flex-shrink: 0; }
+.lead-form-visual img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.lead-form-content { flex-basis: 60%; text-align: left; }
+.lead-form__title { color: var(--color-text); font-size: 1.8rem; margin-bottom: 0.5rem; }
+.lead-form__subtitle { color: var(--color-text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; }
+.ebook-features { list-style-type: none; padding-left: 0; margin-bottom: 2rem; }
+.ebook-features li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; color: var(--color-text); }
+.ebook-features li::before { content: '✓'; color: var(--color-secondary); position: absolute; left: 0; font-weight: bold; }
+.lead-form__cta-text { font-weight: 600; }
+.form-group { margin-bottom: 1rem; }
+.lead-capture-form input { width: 100%; padding: 0.8rem 1rem; background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: 8px; color: var(--color-text); font-size: 1rem; font-family: var(--font-family); }
+.form-actions { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+#form-status { color: var(--color-text-muted); text-align: center; margin-top: 1rem; font-weight: 600; min-height: 1.2em; }
 
-.lead-form-visual {
-    flex-basis: 40%;
-    flex-shrink: 0;
-}
-.lead-form-visual img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.lead-form-content {
-    flex-basis: 60%;
-    text-align: left;
-}
-.lead-form__title {
-    font-size: 1.8rem;
-    color: var(--color-text);
-    margin-bottom: 0.5rem;
-}
-.lead-form__subtitle {
-    font-size: 1.1rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-}
-
-.ebook-features {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-}
-.ebook-features li {
-    padding-left: 1.5rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
-}
-.ebook-features li::before {
-    content: '✓';
-    color: var(--color-secondary);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.lead-form__cta-text {
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-.form-group {
-    margin-bottom: 1rem;
-}
-.lead-capture-form input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    color: var(--color-text);
-    font-size: 1rem;
-    font-family: var(--font-family);
-}
-.form-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-#form-status {
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: 600;
-    min-height: 1.2em;
-}
-
-/* ---- RESPONSIVE DESIGN (Añadido) ---- */
+/* ---- RESPONSIVE DESIGN ---- */
 @media (max-width: 768px) {
-    /* ... (reglas responsive existentes) ... */
-
-    .lead-form-container {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 1.5rem;
-    }
-    .lead-form-content {
-        text-align: center;
-    }
-    .lead-form__title {
-        font-size: 1.5rem;
-    }
-    .ebook-features {
-        text-align: left;
-    }
     .intro__title { font-size: 2rem; }
+    .intro-section { padding: 1.5rem; }
+    .lead-form-container { flex-direction: column; gap: 2rem; padding: 1.5rem; }
+    .lead-form-content { text-align: center; }
+    .lead-form__title { font-size: 1.5rem; }
+    .ebook-features { text-align: left; }
     .nav-button, .cta-button { width: 100%; margin-top: 0.5rem; }
     .navigation-buttons { flex-direction: column-reverse; }
     .nav-button.prev-button { margin-top: 1rem; }
-    .intro-section {
-        padding: 0.7rem;
-    }
 }
