@@ -396,3 +396,18 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
         padding: 0.7rem;
     }
 }
+
+/* === DASHBOARD TEST SCREEN === */
+.dashboard-wrapper  { max-width:1200px; margin:auto; padding:2rem; }
+.dashboard-title    { text-align:center; font-size:2.4rem; color:var(--color-primary); margin-bottom:2rem; }
+.kpi-grid           { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-bottom:2rem; }
+.kpi-card           { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--border-radius); padding:1.25rem; text-align:center; box-shadow:var(--shadow); }
+.kpi-card h2        { margin:0 0 .4rem 0; font-size:1rem; font-weight:600; color:var(--color-text-muted); }
+.kpi-card p         { margin:0; font-size:2.3rem; font-weight:800; color:var(--color-primary); }
+.section-box        { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--border-radius); padding:2rem; margin-bottom:2rem; }
+.section-title      { font-size:1.4rem; font-weight:700; margin:0 0 1.2rem 0; color:#fff; }
+
+/* Datatables override */
+table.dataTable      { width:100%; color:var(--color-text); }
+table.dataTable thead th   { background:#2a2a2a; color:var(--color-primary); border-bottom:2px solid var(--color-primary); }
+table.dataTable tbody tr:nth-child(even){ background:rgba(255,255,255,.04); }
