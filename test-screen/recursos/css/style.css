@@ -22,7 +22,7 @@ body {
 /* --- Header y Navegación --- */
 .page-header {
     background-color: #fff;
-    padding: 1rem 2rem;
+    padding: 0.7rem 2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@ body {
 }
 
 .logo {
-    height: 40px;
+    height: 50px;
     flex-shrink: 0;
 }
 
