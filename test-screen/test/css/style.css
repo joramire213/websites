@@ -72,7 +72,7 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     padding: 0.8rem 2rem;
     border-radius: var(--border-radius);
     overflow: hidden;
-    background-image: url('../img/hero.png');
+    background-image: url('/img/hero.png');
     background-size: cover;
     background-position: center;
     display: flex;
