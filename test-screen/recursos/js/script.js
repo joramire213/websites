@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (navToggle && navLinks) {
         navToggle.addEventListener('click', function() {
+            // Simplemente añade o quita la clase 'nav-active' a la lista de links.
             navLinks.classList.toggle('nav-active');
         });
     }

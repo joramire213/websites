@@ -32,6 +32,10 @@ body {
     align-items: center;
 }
 .logo { height: 50px; flex-shrink: 0; }
+.main-nav {
+    /* Clave para que el menú absoluto se posicione correctamente */
+    position: relative; 
+}
 .nav-links { display: flex; list-style: none; align-items: center; gap: 2rem; }
 .nav-links a { text-decoration: none; color: var(--color-texto); font-weight: 600; padding: 0.5rem 0; position: relative; transition: color 0.3s; }
 .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--color-principal); transition: width 0.3s ease; }
@@ -67,33 +71,30 @@ blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background-color: var(--col
     h2 { font-size: 1.4rem; }
 
     /* === REESCRITO DESDE CERO: Navegación Móvil Simple === */
-    
     .nav-toggle {
-        display: block; /* Muestra el botón hamburguesa */
+        display: block;
     }
 
-    .main-nav {
-        /* Hacemos que el contenedor del nav ocupe todo el espacio disponible */
-        /* Esto es para que el menú desplegable se alinee correctamente */
-        position: static;
-        width: 100%;
+    .header-content {
+        /* Hacemos que el contenedor del header sea el punto de referencia */
+        position: relative;
     }
 
     .nav-links {
-        /* Por defecto, el menú está oculto */
+        /* Por defecto, los links en móvil están ocultos y apilados */
         display: none;
-        
-        /* Cuando se muestre, será un bloque apilado */
-        position: absolute;
-        top: 66px; /* Altura del header. Ajustar si cambia. */
-        left: 0;
-        width: 100%;
-        background-color: white;
-        box-shadow: 0 3px 5px rgba(0,0,0,0.05);
-
-        /* Estilos internos */
         flex-direction: column;
         gap: 0;
+
+        /* Posicionamiento del menú desplegable */
+        position: absolute;
+        top: 100%; /* Justo debajo de su contenedor padre (.header-content) */
+        right: -2rem; /* Alineado a la derecha del header */
+        width: 100vw; /* Ocupa todo el ancho de la pantalla */
+        
+        /* Estilos visuales */
+        background-color: white;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.1);
         padding-bottom: 1rem;
     }
 
@@ -104,13 +105,13 @@ blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background-color: var(--col
     .nav-links li {
         width: 100%;
         text-align: center;
-        border-top: 1px solid #f0f0f0;
     }
     
     .nav-links a {
-        display: block; /* Hacemos que todo el área del link sea clickeable */
+        display: block;
         width: 100%;
-        padding: 1rem 0;
+        padding: 1rem 2rem;
+        border-top: 1px solid #f0f0f0;
     }
 
     .nav-links a::after {
