@@ -264,11 +264,38 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
 #action-plan-table th { background-color: var(--color-surface-light); font-weight: 700; }
 #action-plan-table tbody tr { transition: background-color 0.3s ease; }
 
-.site-footer, .site-footer-custom { text-align: center; padding: 2rem; margin-top: 3rem; font-size: 0.9rem; color: var(--color-text-muted); }
-.site-footer { background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
-.site-footer-custom p { margin-bottom: 0.5rem; }
-.footer-logo { height: 45px; filter: none; transition: filter 0.3s; }
-.footer-logo:hover { opacity: 0.8; }
+/* --- Footer Unificado --- */
+.page-footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-copyright {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-powered-by p {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.powered-by-logo {
+    height: 45px;
+    transition: opacity 0.3s;
+}
+
+.powered-by-logo:hover {
+    opacity: 0.8;
+}
 
 .lead-form-container {
     display: flex;
