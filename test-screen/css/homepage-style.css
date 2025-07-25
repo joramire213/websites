@@ -44,19 +44,25 @@
 .hero-title {
     font-size: 2.8rem;
     line-height: 1.2;
-    font-weight: 900; /* Un peso mayor para impacto */
+    font-weight: 900;
+    color: #00A98F; /* Color del texto principal */
     text-shadow:
-      0 0 8px #ffffff,
-      0 0 15px #ffffff,
-      0 0 30px #ffd700;
+        -1px -1px 0 #fff,
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
     margin: 0;
 }
 
 .hero-title strong {
-    color: #ffae30; /* Usamos el color secundario para destacar */
+    color: #ffae30;
     font-weight: 900;
+    text-shadow:
+        -1px -1px 0 #fff,
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
 }
-
 
 /* --- 3. Panel Derecho (Tarjetas de Pasos) --- */
 .steps-panel {
