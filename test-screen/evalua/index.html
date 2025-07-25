@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- ... tu head sin cambios ... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Bienestar Digital Infantil</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <title>Test de Bienestar Digital Infantil | Evalúa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
 </head>
 <body>
 
+    <header class="page-header">
+        <div class="header-content">
+            <a href="/" class="logo-link">
+                <img src="../img/logo_tiempodejugar.png" alt="Logo Tiempo de Jugar" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="/evalua/">Evalúa</a></li>
+                    <li><a href="/aprende/">Aprende</a></li>
+                    <li><a href="/actua/">Actúa</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+            </nav>
+        </div>
+    </header>
     <main class="container">
-        <!-- ==== INICIO CÓDIGO MODIFICADO: Barra de progreso con 4 pasos (visual) ==== -->
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
             <div class="progress-steps">
@@ -24,10 +37,8 @@
                 <div class="progress-step" data-step="4">Resultado</div> 
             </div>
         </div>
-        <!-- ==== FIN CÓDIGO MODIFICADO ==== -->
 
         <form id="screenTimeTest">
-            <!-- step-1, step-2, y step-3 no tienen cambios -->
             <div class="test-step active" id="step-1">
                 <div class="intro-section">
                     <div class="intro-section__content">
@@ -66,7 +77,6 @@
             </div>
         </form>
 
-        <!-- Step-4: Captura de Leads (Textos actualizados) -->
         <div class="test-step" id="step-4">
             <div class="lead-form-container">
                 <div class="lead-form-visual">
@@ -100,7 +110,6 @@
             </div>
         </div>
 
-        <!-- Step-5: Resultados -->
         <div class="test-step" id="step-5">
              <section id="results" class="results-section">
                 <h2>Tus Resultados</h2>
@@ -119,10 +128,10 @@
                         <tbody></tbody>
                     </table>
                 </div>
-                        <div class="designed-by">
-                            <p class="designed-by__label">Desarrollado con la metodología de:</p>
-                            <img src="/img/logo_momento_presente.png" alt="Logo Momento Presente" class="designed-by__logo">
-                        </div>
+                <div class="designed-by">
+                    <p class="designed-by__label">Desarrollado con la metodología de:</p>
+                    <img src="/img/logo_momento_presente.png" alt="Logo Momento Presente" class="designed-by__logo">
+                </div>
              </section>
         </div>
     </main>
@@ -142,7 +151,6 @@
             </a>
         </div>
     </footer>
-
     <script src="js/script.js"></script>
 </body>
 </html>
