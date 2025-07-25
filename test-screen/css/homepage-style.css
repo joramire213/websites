@@ -14,7 +14,7 @@
 
 /* --- 2. Panel Izquierdo (Hero Visual) --- */
 .hero-panel {
-    background-image: url('../img/familia-jugando.jpg'); /* << REEMPLAZA CON TU IMAGEN */
+    background-image: url('../img/ninos-jugando.png');
     background-size: cover;
     background-position: center 70%;
     border-radius: 16px;
