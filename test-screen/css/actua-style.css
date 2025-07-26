@@ -145,6 +145,10 @@
     .actua-hero h1 { font-size: 1.8rem; }
     .actua-hero h2 { font-size: 1rem; }
 
+    .actua-hero {
+        background-position: left center; /* ¡Esta es la línea mágica! */
+    }
+
     .category-card {
         min-height: 250px;
     }
