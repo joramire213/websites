@@ -26,7 +26,8 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 80, 70, 0.7) 0%, rgba(0, 169, 143, 0.5) 100%);
+    /* Un degradado desde un verde muy oscuro y desaturado hasta un verde de marca muy transparente */
+    background: linear-gradient(to top, rgba(10, 45, 40, 0.75) 0%, rgba(0, 169, 143, 0.15) 100%);
     z-index: 1;
 }
 
