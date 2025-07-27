@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte y Movimiento en Medellín | Actividades para Niños | Tiempo de Jugar</title>
+    <meta name="description" content="Descubre un directorio de academias de danza, escuelas de música, talleres de arte y clubes deportivos en Medellín. El antídoto perfecto para el sedentarismo y la pasividad.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Arte y Movimiento en Medellín | Tiempo de Jugar">
+    <meta property="og:description" content="Encuentra el espacio ideal para que tus hijos canalicen su energía y desarrollen su creatividad. Clases de música, danza, pintura, deportes y más.">
+    <meta property="og:image" content="https://tiempodejugar.com/img/thumb_tiempodejugar.png">
+    <meta property="og:url" content="https://tiempodejugar.com/actua/arte-y-movimiento">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arte y Movimiento | Planes para Niños en Medellín">
+    <meta name="twitter:description" content="El directorio definitivo para que tus hijos exploren sus pasiones artísticas y deportivas. Descuentos y beneficios exclusivos para nuestra comunidad.">
+    <meta name="twitter:image" content="https://tiempodejugar.com/img/thumb_tiempodejugar.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- 1. Estilos Globales -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- 2. Estilos Específicos para Páginas de Categoría -->
+    <link rel="stylesheet" href="/css/category-page-style.css">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="header-content">
+            <a href="/" class="logo-link">
+                <img src="/img/logo_tiempodejugar.png" alt="Logo Tiempo de Jugar" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="/evalua/">Evalúa</a></li>
+                    <li><a href="/aprende/">Aprende</a></li>
+                    <li><a href="/actua/">Actúa</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="category-container">
+        
+        <section class="category-hero">
+            <h1>Arte y Movimiento</h1>
+            <p>Donde la energía se vuelve arte y la curiosidad, talento. Descubre el espacio perfecto para que tus hijos exploren su creatividad, canalicen su vitalidad y se enamoren de una nueva pasión.</p>
+        </section>
+
+        <section class="events-list-section">
+            <!-- El contenedor donde el script inyectará los eventos -->
+            <div id="eventos-container">
+                <p class="events-feedback">Cargando próximos eventos...</p>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <p>© 2025 Tiempo de Jugar. Todos los derechos reservados.</p>
+            <p>Una iniciativa para las familias de Medellín.</p>
+        </div>
+        <div class="footer-powered-by">
+            <p>Powered by:</p>
+            <a href="https://travisafe.com/" target="_blank">
+                <img src="https://vivelacity.com/wp-content/uploads/2025/03/Logo_Travi_Connect_Trans.png" alt="Logo Travisafe" class="powered-by-logo">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // --- INICIO DEL SCRIPT PARA CARGAR EVENTOS ---
+        const API_URL = 'https://vivelacity.com/wp-json/tribe/events/v1/events?categories=182&start_date=now&per_page=10';
+        const eventsContainer = document.getElementById('eventos-container');
+
+        fetch(API_URL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error de red: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Limpiamos el mensaje de "cargando"
+                eventsContainer.innerHTML = ''; 
+
+                if (!data.events || data.events.length === 0) {
+                    eventsContainer.innerHTML = '<p class="events-feedback">Por el momento, no hay eventos próximos en esta categoría. ¡Vuelve a consultar pronto!</p>';
+                    return;
+                }
+
+                data.events.forEach(evento => {
+                    const eventCard = document.createElement('div');
+                    eventCard.className = 'event-card';
+                    
+                    // Extraer solo el texto de la descripción y limpiarlo
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = evento.description;
+                    const cleanDescription = tempDiv.textContent || tempDiv.innerText || "";
+
+                    eventCard.innerHTML = `
+                        <h2 class="event-card__title">${evento.title}</h2>
+                        <time class="event-card__date">${new Date(evento.start_date).toLocaleString('es-CO', {
+                            weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit', hour12: true
+                        })}</time>
+                        <p class="event-card__description">${cleanDescription.slice(0, 150)}...</p>
+                        <a href="${evento.url}" target="_blank" rel="noopener noreferrer" class="event-card__link">Ver más detalles →</a>
+                    `;
+
+                    eventsContainer.appendChild(eventCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error al cargar los eventos:', error);
+                eventsContainer.innerHTML = '<p class="events-feedback">Lo sentimos, hubo un problema al cargar los eventos. Por favor, inténtalo de nuevo más tarde.</p>';
+            });
+        // --- FIN DEL SCRIPT ---
+    </script>
+
+</body>
+</html>
