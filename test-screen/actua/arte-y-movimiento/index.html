@@ -76,8 +76,10 @@
         </div>
     </footer>
 
-    <script>
-        // --- INICIO DEL SCRIPT PARA CARGAR EVENTOS ---
+        <script>
+        // --- INICIO DEL SCRIPT FINAL Y CORRECTO ---
+        
+        // La URL definitiva que usa los parámetros correctos para la REST API
         const API_URL = 'https://vivelacity.com/wp-json/tribe/events/v1/events?categories=182&start_date=now&per_page=10';
         const eventsContainer = document.getElementById('eventos-container');
 
@@ -101,7 +103,6 @@
                     const eventCard = document.createElement('div');
                     eventCard.className = 'event-card';
                     
-                    // Extraer solo el texto de la descripción y limpiarlo
                     const tempDiv = document.createElement('div');
                     tempDiv.innerHTML = evento.description;
                     const cleanDescription = tempDiv.textContent || tempDiv.innerText || "";
