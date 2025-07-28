@@ -23,11 +23,25 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/img/sec_01_interna.png'); /* Ruta a tu textura */
+    /* Quitamos la imagen de aquí y la definimos por separado */
     background-repeat: repeat;
     background-position: center;
-    opacity: 0.15; /* Sutil, puedes ajustar entre 0.1 y 0.25 */
+    opacity: 0.15;
     z-index: 1;
+}
+
+/* --- ¡NUEVO! Asignación de texturas de fondo específicas por categoría --- */
+.cat-arte-movimiento .category-hero::before {
+    background-image: url('/img/sec_01_interna.png'); /* Asume que tienes esta imagen */
+}
+.cat-habilidades-futuro .category-hero::before {
+    background-image: url('/img/sec_02_interna.png'); /* Asume que tienes esta imagen */
+}
+.cat-red-apoyo .category-hero::before {
+    background-image: url('/img/sec_03_interna.png'); /* Asume que tienes esta imagen */
+}
+.cat-bienestar-emocional .category-hero::before {
+    background-image: url('/img/sec_04_interna.png'); /* Asume que tienes esta imagen */
 }
 
 .category-hero h1,

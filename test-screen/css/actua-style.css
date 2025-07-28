@@ -130,6 +130,28 @@
 #cat-3 { background-image: url('/img/sec_03.png'); }
 #cat-4 { background-image: url('/img/sec_04.png'); }
 
+/* --- ¡NUEVO! Estilos para las etiquetas de categoría --- */
+.category-tags {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    z-index: 3; /* Por encima del overlay y del contenido principal */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    color: #fff;
+    font-size: 0.75rem; /* Letra pequeña pero legible */
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase; /* Para un look más de "etiqueta" */
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px); /* Efecto vidrio esmerilado opcional */
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.category-card {
+    justify-content: flex-end;
+}
 
 /* --- 4. Diseño Responsivo --- */
 @media (max-width: 992px) {
