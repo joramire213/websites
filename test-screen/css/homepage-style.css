@@ -67,7 +67,6 @@
 }
 
 .step-card {
-    background-color: #fff;
     border: 1px solid #eee;
     padding: 2rem;
     border-radius: 16px;
@@ -88,34 +87,38 @@
 
 .step-card__title {
     font-size: 1.8rem;
-    color: var(--color-principal);
+    color: #004D40; /* ¡NUEVO! Un verde muy oscuro, casi negro, para máxima elegancia */
     margin-bottom: 0.5rem;
 }
 
 .step-card__subtitle {
     font-size: 1rem;
     line-height: 1.5;
-    color: #555;
+    color: #37474F; /* ¡NUEVO! Usamos el gris oscuro y cálido para un contraste perfecto */
     margin: 0;
 }
 
-/* --- Colores diferenciados para cada tarjeta lateral (Evalúa, Aprende, Actúa) --- */
+/* --- Colores diferenciados con degradado premium para cada tarjeta --- */
+/* --- Colores diferenciados con degradado sutil para cada tarjeta --- */
 .step-card:nth-child(1) {
-    background-color: #e6f6f4; /* Verde agua suave */
+    background-color: #e6f6f4; /* Color base de carga */
+    background-image: linear-gradient(135deg, #f0fdfa 0%, #dcf7f3 100%);
 }
 
 .step-card:nth-child(2) {
-    background-color: #fff7e6; /* Naranja crema suave */
+    background-color: #fff7e6; /* Color base de carga */
+    background-image: linear-gradient(135deg, #fffaf0 0%, #fff0d1 100%);
 }
 
 .step-card:nth-child(3) {
-    background-color: #e6f6f4; /* Verde agua suave */
+    background-color: #e6f6f4; /* Color base de carga */
+    background-image: linear-gradient(135deg, #f0fdfa 0%, #dcf7f3 100%);
 }
 
 .step-icon {
     margin-right: 0.5rem;
     font-size: 1.2rem;
-    color: var(--color-principal);
+    color: #004D40; /* ¡NUEVO! Mismo color oscuro para consistencia */
     vertical-align: middle;
 }
 
