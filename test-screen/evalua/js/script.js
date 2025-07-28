@@ -1,11 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- DATOS DEL TEST (sin cambios) ---
-    const testData = {
+        const testData = {
         questions: [ { id: 1, title: "Preocupación anticipada", text: "Su hijo/a habla o piensa repetidamente en cuándo volverá a usar dispositivos, incluso mientras realiza otras actividades." }, { id: 2, title: "Búsqueda de mayor estímulo", text: "Necesita aumentar el tiempo de pantalla o usar contenidos más intensos para sentir la misma diversión que antes." }, { id: 3, title: "Reacciones de abstinencia", text: "Al interrumpir el uso de dispositivos, aparece irritabilidad, ansiedad o cambios bruscos de humor." }, { id: 4, title: "Dificultad para parar", text: "El tiempo acordado se prolonga o sigue conectado a pesar de que se le pide detenerse." }, { id: 5, title: "Desplazamiento de actividades", text: "Juegos físicos, lectura u otras aficiones quedan relegados por preferir la pantalla." }, { id: 6, title: "Impacto escolar y atencional", text: "Se observan distracción o descenso del rendimiento relacionados con los dispositivos." }, { id: 7, title: "Consecuencias físicas y del sueño", text: "Hay cansancio diurno, alteraciones del sueño o molestias físicas (dolor de cabeza, vista cansada)." }, { id: 8, title: "Regulador emocional", text: "Recurre a la pantalla para calmarse, combatir el aburrimiento o escapar de emociones." }, { id: 9, title: "Engaño u ocultamiento", text: "Oculta el dispositivo, cierra apps rápidamente o minimiza el tiempo real que ha estado conectado." }, { id: 10, title: "Conflictos familiares", text: "Las normas sobre pantallas son motivo recurrente de discusiones o tensión en casa." } ],
         options: [ { text: "Nunca", value: 0 }, { text: "Rara vez", value: 1 }, { text: "A veces", value: 2 }, { text: "Frecuentemente", value: 3 }, { text: "Siempre", value: 4 } ],
-        results: [ { level: "Uso saludable", scoreRange: [0, 8], interpretation: "El uso de pantallas se mantiene dentro de límites equilibrados.", action: "Mantenga rutinas variadas, horarios claros y sea ejemplo de uso responsable.", color: "#2ecc71" }, { level: "Riesgo leve", scoreRange: [9, 18], interpretation: "Aparecen primeras señales de desequilibrio.", action: "Refuerce límites, añada “pausas digitales” y fomente actividades sin pantalla.", color: "#f1c40f" }, { level: "Riesgo moderado", scoreRange: [19, 28], interpretation: "El impacto en sueño, relaciones o rendimiento es evidente.", action: "Establezca un plan familiar de reducción y considere orientación profesional si persisten las dificultades.", color: "#e67e22" }, { level: "Riesgo alto", scoreRange: [29, 40], interpretation: "Indicadores de dependencia significativa y conflictos frecuentes.", action: "Busque apoyo de un profesional en bienestar infantil para una evaluación completa.", color: "#e74c3c" } ]
-    };
+        results: [
+            {
+                level: "Uso saludable",
+                scoreRange: [0, 8],
+                interpretation: "El uso de pantallas se mantiene dentro de límites equilibrados.",
+                action: "Mantenga rutinas variadas, horarios claros y sea ejemplo de uso responsable.",
+                color: "#2ecc71"
+            },
+            {
+                level: "Riesgo leve",
+                scoreRange: [9, 18],
+                interpretation: "Aparecen primeras señales de desequilibrio.",
+                action: '<a href="/aprende/06.html">Refuerce los límites</a>, añada “pausas digitales” y <a href="/actua/">fomente actividades sin pantalla</a>.',
+                color: "#f1c40f"
+            },
+            {
+                level: "Riesgo moderado",
+                scoreRange: [19, 28],
+                interpretation: "El impacto en sueño, relaciones o rendimiento es evidente.",
+                action: 'Establezca un <a href="/aprende/06.html">plan familiar de reducción</a> y considere buscar <a href="/actua/bienestar-emocional/">orientación profesional</a> si persisten las dificultades.',
+                color: "#e67e22"
+            },
+            {
+                level: "Riesgo alto",
+                scoreRange: [29, 40],
+                interpretation: "Indicadores de dependencia significativa y conflictos frecuentes.",
+                action: '<a href="/actua/bienestar-emocional/">Busque apoyo de un profesional en bienestar infantil</a> para una evaluación completa.',
+                color: "#e74c3c"
+            }
+        ]
+    }; // <-- ¡Punto y coma crucial aquí para cerrar el objeto!
+
+    // Ahora, la función hexToRgba está fuera del objeto, como debe ser.
+    function hexToRgba(hex, alpha = 1) { const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i; hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b); const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); if (!result) return null; const r = parseInt(result[1], 16); const g = parseInt(result[2], 16); const b = parseInt(result[3], 16); return `rgba(${r}, ${g}, ${b}, ${alpha})`; }
 
     function hexToRgba(hex, alpha = 1) { const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i; hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b); const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); if (!result) return null; const r = parseInt(result[1], 16); const g = parseInt(result[2], 16); const b = parseInt(result[3], 16); return `rgba(${r}, ${g}, ${b}, ${alpha})`; }
 
