@@ -24,7 +24,11 @@
     position: absolute;
     inset: 0;
     /* Quitamos la imagen de aquí y la definimos por separado */
-    background-repeat: repeat;
+    
+    /* ¡CAMBIO CLAVE AQUÍ! */
+    background-size: cover; /* Hace que la imagen se estire para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    
     background-position: center;
     opacity: 0.15;
     z-index: 1;
