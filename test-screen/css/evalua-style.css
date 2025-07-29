@@ -356,6 +356,15 @@ h3 { font-size: 1.4rem; margin-bottom: 1rem; }
     text-decoration: none;
 }
 
+/* Estilo para alinear campos en la misma fila */
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+.form-row .form-group {
+    flex: 1; /* Cada campo ocupa la mitad del espacio */
+}
+
 /* ========================================================= */
 /* INICIO: MEDIA QUERIES UNIFICADAS                          */
 /* ========================================================= */

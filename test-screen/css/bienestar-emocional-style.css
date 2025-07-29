@@ -1,0 +1,266 @@
+/* ========================================================= */
+/* ESTILOS ESPECÍFICOS PARA PÁGINA "BIENESTAR EMOCIONAL"    */
+/* ========================================================= */
+
+/* --- INICIO: ESTILOS DEL HERO RECUPERADOS --- */
+.category-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.category-hero {
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-acento-claro);
+}
+
+.category-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+/* Textura específica para esta página */
+.cat-bienestar-emocional .category-hero::before {
+    background-image: url('/img/sec_04_interna.png');
+}
+
+.category-hero h1,
+.category-hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.category-hero h1 {
+    color: var(--color-principal);
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    border: none;
+    padding: 0;
+    text-shadow: 0 0 12px rgba(248, 249, 250, 0.9);
+}
+
+.category-hero p {
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    font-weight: 600;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-shadow: 0 0 8px rgba(248, 249, 250, 0.8);
+}
+/* --- FIN: ESTILOS DEL HERO RECUPERADOS --- */
+
+
+/* --- Contenedor Principal para las tarjetas --- */
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- Tarjeta de Socio Principal (Momento Presente) --- */
+.partner-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.partner-logo {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.partner-card .intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.partner-card .contact-info {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.partner-card .contact-info a {
+    color: var(--color-principal);
+    text-decoration: none;
+}
+.partner-card .contact-info a:hover {
+    text-decoration: underline;
+}
+
+.partner-card .social-heading {
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    font-size: 2.2rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-principal);
+}
+
+.form-intro-text {
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    margin-top: 2.5rem; /* Más espacio para separar de los íconos */
+    margin-bottom: 0.5rem; /* Menos espacio antes del formulario */
+}
+
+/* --- Formulario de Contacto --- */
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .submit-button {
+    grid-column: 1 / -1;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .submit-button:hover {
+    background-color: #008a75;
+}
+
+/* --- Tarjeta de Invitación a Profesionales --- */
+.invitation-card {
+    background-color: var(--color-acento-claro);
+    border: 1px dashed var(--color-principal);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.invitation-card h2 {
+    border: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.invitation-card p {
+    max-width: 600px;
+    margin: 0.5rem auto 1.5rem auto;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #25D366;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.cta-button i {
+    font-size: 1.5rem;
+}
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 768px) {
+    .category-hero h1 { font-size: 2rem; }
+    .category-hero p { font-size: 1.1rem; }
+    
+    .content-wrapper {
+        padding: 1rem 0;
+    }
+
+    .partner-card, .invitation-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+}

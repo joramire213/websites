@@ -122,12 +122,39 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const formData = new FormData(leadForm);
             const leadData = Object.fromEntries(formData);
+        
+            // El puntaje ya está calculado y guardado en la variable 'finalScore'
             const resultDetails = testData.results.find(r => finalScore >= r.scoreRange[0] && finalScore <= r.scoreRange[1]);
-            const payload = { ...leadData, subject: 'Test Screen Ebook', score: finalScore, ...resultDetails };
-    
+
+            // ===================================================================
+            // CONSTRUCCIÓN DEL PAYLOAD ALINEADO CON POSTGRES (VERSIÓN EBOOK)
+            // ===================================================================
+            const payload = {
+                created_at: new Date().toISOString(),
+                nombre: leadData.nombre || null,
+                apellido: leadData.apellido || null, // Nuevo campo
+                celular: null, // No se pide en este formulario
+                email: leadData.email || null,
+                origen: 'Test Ebook', // Origen claro y descriptivo
+
+                // Campos específicos del resultado del test
+                score: finalScore,
+                nivel: resultDetails.level || null,
+                sintomas: resultDetails.interpretation || null, // Mapeo de 'interpretation' a 'sintomas'
+                action_plan: resultDetails.action || null,
+                color: resultDetails.color || null,
+            
+                // Campos no aplicables en este formulario
+                cta_alt: null,
+                mi_caso_es: null
+            };
+            // ===================================================================
+            // FIN DE LA CONSTRUCCIÓN DEL PAYLOAD
+            // ===================================================================
+
             formStatus.textContent = 'Enviando…';
             formStatus.style.color = 'var(--color-text-muted)';
-    
+
             try {
                 const webhookUrl = 'https://n8n-n8n.2gzq2x.easypanel.host/webhook/test_screen';
                 const response = await fetch(webhookUrl, {
@@ -135,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     headers: { 'Content-Type': 'application/json', 'rtl-key': '1234321' },
                     body: JSON.stringify(payload)
                 });
-    
+
                 if (response.ok) {
                     formStatus.innerHTML = '¡Gracias! Tu Manual va en camino.<br><span style="font-size: 0.9em;">(si no ves el correo, revisa tu bandeja de spam)</span>';
                     formStatus.style.color = '#2ecc71'; 
