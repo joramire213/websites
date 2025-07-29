@@ -197,6 +197,19 @@
     transition: background-color 0.3s ease;
 }
 
+.form-status {
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: #eafaf2; /* verde muy claro */
+    color: #1e7e34;
+    border: 1px solid #c3e6cb;
+}
+.form-status:empty {
+  display: none;
+}
+
 .contact-form .submit-button:hover {
     background-color: #008a75;
 }
