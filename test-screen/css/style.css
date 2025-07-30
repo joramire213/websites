@@ -39,9 +39,66 @@ body {
 .nav-links { display: flex; list-style: none; align-items: center; gap: 2rem; }
 .nav-links a { text-decoration: none; color: var(--color-texto); font-weight: 600; padding: 0.5rem 0; position: relative; transition: color 0.3s; }
 .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--color-principal); transition: width 0.3s ease; }
-.nav-links a:hover { color: var(--color-principal); }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-principal);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
 .nav-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; }
+
+/* ========================================================= */
+/* --- NAVEGACIÓN SECUNDARIA PARA CATEGORÍAS (VERSIÓN FINAL) --- */
+/* ========================================================= */
+.subsection-nav {
+    text-align: center;
+    /* Reducimos aún más el margen inferior para máxima compactación */
+    margin-bottom: 0.9rem; 
+}
+
+.subsection-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Esta es la clave para el comportamiento responsive */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.subsection-nav a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #868e96;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.subsection-nav a:hover {
+    color: var(--color-principal);
+}
+
+.subsection-nav a.active {
+    color: var(--color-principal);
+    font-weight: 700;
+    border-bottom-color: var(--color-principal);
+}
+
+/* ========================================================= */
+/* --- INICIO: Optimización para móviles del menú secundario --- */
+/* ========================================================= */
+@media (max-width: 600px) {
+    .subsection-nav ul {
+        /* Reducimos el espacio entre los ítems en pantallas pequeñas */
+        gap: 1.5rem; 
+    }
+}
 
 /* --- Contenido y Footer (sin cambios) --- */
 main { padding: 2rem; }

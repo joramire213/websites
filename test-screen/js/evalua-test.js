@@ -188,20 +188,4 @@ document.addEventListener('DOMContentLoaded', function() {
         showStep(1);
     }
 
-    // =========================================================
-    // INICIO: LÓGICA DEL MENÚ MÓVIL (de muestra.js)
-    // =========================================================
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            // Añade o quita la clase 'nav-active' para mostrar/ocultar el menú
-            navLinks.classList.toggle('nav-active');
-        });
-    }
-    // =========================================================
-    // FIN: LÓGICA DEL MENÚ MÓVIL
-    // =========================================================
-
 });
