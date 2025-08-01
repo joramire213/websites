@@ -1,0 +1,201 @@
+/* ========================================================= */
+/* ESTILOS PARA EL DECK WEB DE SOCIOS (VERSIÓN FINAL)      */
+/* ========================================================= */
+
+/* --- Configuración Base --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* --- Contenedor Principal del Slider --- */
+.deck-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* --- Estilos para cada "Slide" --- */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    box-sizing: border-box;
+    /* QUITAMOS background-size y position de aquí para aplicarlo solo donde se necesite */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.slide-content {
+    max-width: 1000px;
+    text-align: center;
+    color: #333;
+    position: relative; /* Para que el texto esté sobre las capas de fondo */
+    z-index: 2;
+}
+
+/* --- Estilos de Navegación (Flechas) --- */
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.nav-arrow:hover { background-color: rgba(0, 0, 0, 0.6); }
+.nav-arrow.prev { left: 20px; }
+.nav-arrow.next { right: 20px; }
+.nav-arrow.hidden { display: none; }
+
+/* --- Elementos Persistentes --- */
+.persistent-logo {
+    position: fixed;
+    top: 25px;
+    left: 40px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.persistent-logo:hover { transform: scale(1.05); }
+.persistent-logo img { height: 45px; display: block; }
+
+/* --- Estilos de Texto --- */
+.slide-content h1 {
+    font-size: 3.5rem;
+    color: var(--color-principal, #00A98F);
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.slide-content h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ========================================================= */
+/* --- INICIO: FONDOS Y ESTILOS ESPECÍFICOS POR SLIDE --- */
+/* ========================================================= */
+
+/* Slide 1: Portada */
+#slide-1 { 
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/img/socios/portada.jpg');
+    background-size: cover;
+    background-position: center; 
+}
+#slide-1 .slide-content h1, #slide-1 .slide-content h2 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+/* Slide 2: El Reto */
+#slide-2 { 
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('/img/socios/reto.jpg');
+    background-size: cover;
+    background-position: center; 
+}
+
+/* Slides 4, 5, 6, 7 (Ecosistema, Audiencia, Paquetes, Mockups) con textura sutil */
+#slide-4, #slide-5, #slide-6, #slide-7 {
+    background-image: url('/img/socios/textura_fondo.png');
+    background-repeat: repeat; /* La clave para que la textura se repita */
+    /* No añadimos background-size: cover aquí */
+}
+
+/* Slide 8: Cierre/CTA */
+#slide-8 { 
+    background-image: linear-gradient(rgba(0, 169, 143, 0.8), rgba(0, 169, 143, 0.8)), url('/img/socios/cierre.jpg');
+    background-size: cover;
+    background-position: center; 
+}
+#slide-8 .slide-content h1, #slide-8 .slide-content h2 { color: white; text-shadow: none; }
+/* Reemplázala con esta versión completa y mejorada */
+#slide-8 .cta-button-deck {
+    /* Estilos de layout para alinear ícono y texto */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* Espacio entre el ícono y el texto */
+
+    /* Estilos visuales */
+    background-color: white;
+    color: var(--color-principal);
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    /* Transiciones */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#slide-8 .cta-button-deck:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Estilo para el ícono dentro del botón */
+#slide-8 .cta-button-deck .fa-whatsapp {
+    font-size: 1.5rem; /* Hacemos el ícono un poco más grande */
+}
+
+/* --- Estilos para la Tabla de Paquetes --- */
+.packages-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.packages-table th, .packages-table td { padding: 1rem 1.5rem; border: 1px solid #e0e0e0; }
+.packages-table th { background-color: var(--color-acento-claro, #e6f6f4); font-size: 1.2rem; }
+
+/* ========================================================= */
+/* --- RESPONSIVE DESIGN --- */
+/* ========================================================= */
+@media (max-width: 768px) {
+    .slide { padding: 2rem 1rem; }
+    .slide-content h1 { font-size: 2.5rem; }
+    .slide-content h2 { font-size: 1.2rem; }
+    
+    .persistent-logo { top: 15px; left: 15px; padding: 8px 12px; }
+    .persistent-logo img { height: 35px; }
+
+    .packages-table, .packages-table thead, .packages-table tbody, .packages-table th, .packages-table td, .packages-table tr { display: block; }
+    .packages-table thead tr { position: absolute; top: -9999px; left: -9999px; }
+    .packages-table tr { border: 1px solid #ccc; margin-bottom: 1rem; border-radius: 8px; }
+    .packages-table td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; text-align: right; }
+    .packages-table td::before { position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); width: 45%; padding-right: 1rem; white-space: nowrap; text-align: left; font-weight: bold; content: attr(data-label); }
+}
