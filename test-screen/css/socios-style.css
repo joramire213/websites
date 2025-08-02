@@ -145,16 +145,16 @@ html, body {
 
     /* --- INICIO SOLUCIÓN OBJECIÓN 1: Reposicionar flechas --- */
     .nav-arrow {
-        top: 75%; /* Las bajamos a 3/4 de la pantalla */
+        top: 85%; /* Las bajamos aún más, al 85% de la altura */
         width: 45px;
         height: 45px;
     }
     .nav-arrow.prev {
-        left: calc(50% - 50px); /* Las centramos con un espacio en medio */
+        left: calc(50% - 65px); /* Aumentamos la separación (de 50px a 65px) */
         transform: translate(-50%, -50%);
     }
     .nav-arrow.next {
-        left: calc(50% + 50px); /* Las centramos con un espacio en medio */
+        left: calc(50% + 65px); /* Aumentamos la separación (de 50px a 65px) */
         transform: translate(-50%, -50%);
         right: auto; /* Anulamos la regla 'right' de escritorio */
     }
