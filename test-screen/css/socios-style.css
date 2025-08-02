@@ -1,5 +1,5 @@
 /* ========================================================= */
-/* ESTILOS PARA EL DECK WEB DE SOCIOS (VERSIÓN FINAL)      */
+/* ESTILOS PARA EL DECK WEB DE SOCIOS (VERSIÓN FINAL MEJORADA) */
 /* ========================================================= */
 
 /* --- Configuración Base --- */
@@ -31,7 +31,6 @@ html, body {
     flex-direction: column;
     padding: 2rem 4rem;
     box-sizing: border-box;
-    /* QUITAMOS background-size y position de aquí para aplicarlo solo donde se necesite */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
@@ -45,9 +44,10 @@ html, body {
 
 .slide-content {
     max-width: 1000px;
+    width: 100%; /* Asegura que ocupe el ancho disponible */
     text-align: center;
     color: #333;
-    position: relative; /* Para que el texto esté sobre las capas de fondo */
+    position: relative;
     z-index: 2;
 }
 
@@ -65,7 +65,7 @@ html, body {
     height: 50px;
     font-size: 24px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, top 0.3s, left 0.3s, right 0.3s;
 }
 .nav-arrow:hover { background-color: rgba(0, 0, 0, 0.6); }
 .nav-arrow.prev { left: 20px; }
@@ -104,81 +104,24 @@ html, body {
 }
 
 /* ========================================================= */
-/* --- INICIO: FONDOS Y ESTILOS ESPECÍFICOS POR SLIDE --- */
+/* --- FONDOS Y ESTILOS ESPECÍFICOS POR SLIDE --- */
 /* ========================================================= */
 
-/* Slide 1: Portada */
-#slide-1 { 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/img/socios/portada.jpg');
-    background-size: cover;
-    background-position: center; 
-}
+#slide-1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/img/socios/portada.jpg'); background-size: cover; background-position: center; }
 #slide-1 .slide-content h1, #slide-1 .slide-content h2 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
 
-/* Slide 2: El Reto */
-#slide-2 { 
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('/img/socios/reto.jpg');
-    background-size: cover;
-    background-position: center; 
-}
+#slide-2 { background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('/img/socios/reto.jpg'); background-size: cover; background-position: center; }
 
-/* Slides 4, 5, 6, 7 (Ecosistema, Audiencia, Paquetes, Mockups) con textura sutil */
-#slide-4, #slide-5, #slide-6, #slide-7 {
-    background-image: url('/img/socios/textura_fondo.png');
-    background-repeat: repeat; /* La clave para que la textura se repita */
-    /* No añadimos background-size: cover aquí */
-}
+#slide-4, #slide-5, #slide-6, #slide-7 { background-image: url('/img/socios/textura_fondo.png'); background-repeat: repeat; }
 
-/* Slide 8: Cierre/CTA */
-#slide-8 { 
-    background-image: linear-gradient(rgba(0, 169, 143, 0.8), rgba(0, 169, 143, 0.8)), url('/img/socios/cierre.jpg');
-    background-size: cover;
-    background-position: center; 
-}
+#slide-8 { background-image: linear-gradient(rgba(0, 169, 143, 0.8), rgba(0, 169, 143, 0.8)), url('/img/socios/cierre.jpg'); background-size: cover; background-position: center; }
 #slide-8 .slide-content h1, #slide-8 .slide-content h2 { color: white; text-shadow: none; }
-/* Reemplázala con esta versión completa y mejorada */
-#slide-8 .cta-button-deck {
-    /* Estilos de layout para alinear ícono y texto */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem; /* Espacio entre el ícono y el texto */
-
-    /* Estilos visuales */
-    background-color: white;
-    color: var(--color-principal);
-    padding: 1rem 2rem;
-    margin-top: 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-
-    /* Transiciones */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-#slide-8 .cta-button-deck:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-/* Estilo para el ícono dentro del botón */
-#slide-8 .cta-button-deck .fa-whatsapp {
-    font-size: 1.5rem; /* Hacemos el ícono un poco más grande */
-}
+#slide-8 .cta-button-deck { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; background-color: white; color: var(--color-principal); padding: 1rem 2rem; margin-top: 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+#slide-8 .cta-button-deck:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+#slide-8 .cta-button-deck .fa-whatsapp { font-size: 1.5rem; }
 
 /* --- Estilos para la Tabla de Paquetes --- */
-.packages-table {
-    width: 100%;
-    margin-top: 2rem;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-}
+.packages-table { width: 100%; margin-top: 2rem; border-collapse: collapse; background-color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
 .packages-table th, .packages-table td { padding: 1rem 1.5rem; border: 1px solid #e0e0e0; }
 .packages-table th { background-color: var(--color-acento-claro, #e6f6f4); font-size: 1.2rem; }
 
@@ -186,12 +129,36 @@ html, body {
 /* --- RESPONSIVE DESIGN --- */
 /* ========================================================= */
 @media (max-width: 768px) {
-    .slide { padding: 2rem 1rem; }
-    .slide-content h1 { font-size: 2.5rem; }
+    /* --- INICIO SOLUCIÓN OBJECIÓN 2: Habilitar scroll en slides --- */
+    .slide {
+        padding: 6rem 1rem 8rem 1rem; /* Aumentamos padding para dejar espacio arriba y abajo */
+        align-items: flex-start; /* Alineamos contenido arriba */
+        overflow-y: auto; /* ¡LA CLAVE! Habilita el scroll si el contenido es muy largo */
+    }
+    /* --- FIN SOLUCIÓN OBJECIÓN 2 --- */
+
+    .slide-content h1 { font-size: 2.2rem; }
     .slide-content h2 { font-size: 1.2rem; }
     
     .persistent-logo { top: 15px; left: 15px; padding: 8px 12px; }
     .persistent-logo img { height: 35px; }
+
+    /* --- INICIO SOLUCIÓN OBJECIÓN 1: Reposicionar flechas --- */
+    .nav-arrow {
+        top: 75%; /* Las bajamos a 3/4 de la pantalla */
+        width: 45px;
+        height: 45px;
+    }
+    .nav-arrow.prev {
+        left: calc(50% - 50px); /* Las centramos con un espacio en medio */
+        transform: translate(-50%, -50%);
+    }
+    .nav-arrow.next {
+        left: calc(50% + 50px); /* Las centramos con un espacio en medio */
+        transform: translate(-50%, -50%);
+        right: auto; /* Anulamos la regla 'right' de escritorio */
+    }
+    /* --- FIN SOLUCIÓN OBJECIÓN 1 --- */
 
     .packages-table, .packages-table thead, .packages-table tbody, .packages-table th, .packages-table td, .packages-table tr { display: block; }
     .packages-table thead tr { position: absolute; top: -9999px; left: -9999px; }
