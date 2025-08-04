@@ -75,14 +75,466 @@
         #lightbox-next { right: 20px; }
     </style>
 </head>
-<body data-agent-id="main">
-    <!-- El contenido se inyectará aquí. Puedes dejar un mensaje de carga. -->
-    <div style="display:flex; justify-content:center; align-items:center; height:100vh; font-family: 'Inter', sans-serif; font-size: 1.2rem; color: #333;">
-        Cargando la experiencia...
+<body class="bg-stone-50 font-sans text-gray-800">
+
+    <header class="fixed top-0 left-0 w-full bg-stone-50/80 backdrop-blur-sm z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="block">
+                <img src="/img/logo.png" alt="Logo de Saint Martin 201 @ Laureles" class="h-12 w-auto">
+            </a>
+            <div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="flex items-center space-x-8 font-semibold">
+                        <a href="#property" class="hover:text-amber-900 transition-colors"><span data-lang="es">Propiedad</span><span data-lang="en" class="hidden">Property</span><span data-lang="fr" class="hidden">Propriété</span><span data-lang="de" class="hidden">Immobilie</span></a>
+                        <a href="#gallery" class="hover:text-amber-900 transition-colors"><span data-lang="es">Galería</span><span data-lang="en" class="hidden">Gallery</span><span data-lang="fr" class="hidden">Galerie</span><span data-lang="de" class="hidden">Galerie</span></a>
+                        <a href="#contact" class="bg-amber-900 text-white px-4 py-2 rounded-md hover:bg-amber-800 transition-colors"><span data-lang="es">Contactar</span><span data-lang="en" class="hidden">Contact</span><span data-lang="fr" class="hidden">Contacter</span><span data-lang="de" class="hidden">Kontakt</span></a>
+                    </div>
+                    <div class="flex items-center space-x-3 text-sm font-semibold">
+                        <button data-target-lang="es" class="lang-btn active">ES</button>
+                        <button data-target-lang="en" class="lang-btn">EN</button>
+                        <button data-target-lang="fr" class="lang-btn">FR</button>
+                        <button data-target-lang="de" class="lang-btn">DE</button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 rounded-md hover:bg-gray-200 transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 shadow-xl">
+            <div class="px-6 pt-2 pb-4 space-y-3">
+                <a href="#property" class="block text-lg font-semibold hover:text-amber-900 mobile-menu-link"><span data-lang="es">Propiedad</span><span data-lang="en" class="hidden">Property</span><span data-lang="fr" class="hidden">Propriété</span><span data-lang="de" class="hidden">Immobilie</span></a>
+                <a href="#gallery" class="block text-lg font-semibold hover:text-amber-900 mobile-menu-link"><span data-lang="es">Galería</span><span data-lang="en" class="hidden">Gallery</span><span data-lang="fr" class="hidden">Galerie</span><span data-lang="de" class="hidden">Galerie</span></a>
+                <a href="#contact" class="block text-lg font-semibold hover:text-amber-900 mobile-menu-link"><span data-lang="es">Contactar</span><span data-lang="en" class="hidden">Contact</span><span data-lang="fr" class="hidden">Contacter</span><span data-lang="de" class="hidden">Kontakt</span></a>
+            </div>
+            <hr>
+            <div class="px-6 py-4">
+                <p class="font-semibold text-sm text-gray-500 mb-3"><span data-lang="es">Idioma</span><span data-lang="en" class="hidden">Language</span><span data-lang="fr" class="hidden">Langue</span><span data-lang="de" class="hidden">Sprache</span></p>
+                <div class="flex items-center justify-center space-x-4">
+                    <button data-target-lang="es" class="lang-btn active p-2">ES</button>
+                    <button data-target-lang="en" class="lang-btn p-2">EN</button>
+                    <button data-target-lang="fr" class="lang-btn p-2">FR</button>
+                    <button data-target-lang="de" class="lang-btn p-2">DE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ... (SECCIONES HERO, PROPERTY, FEATURES, GALLERY, LIFESTYLE, MAPA, INVESTMENT NO CAMBIAN) ... -->
+        
+        <section id="hero" class="h-screen min-h-[700px] bg-cover bg-center flex items-center" 
+                 style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('img/fachada.png');">
+            <div class="container mx-auto px-6 text-center text-white relative" data-aos="fade-up">
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight">
+                    <span data-lang="es">El Espacio es el Nuevo Lujo</span>
+                    <span data-lang="en" class="hidden">Space is the New Luxury</span>
+                    <span data-lang="fr" class="hidden">L'Espace est le Nouveau Luxe</span>
+                    <span data-lang="de" class="hidden">Raum ist der neue Luxus</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-2xl max-w-3xl mx-auto">
+                    <span data-lang="es">152 m² de diseño renovado en el corazón de Laureles, Medellín.</span>
+                    <span data-lang="en" class="hidden">152m² of renewed design in the heart of Laureles, Medellín.</span>
+                    <span data-lang="fr" class="hidden">152 m² de design rénové au cœur de Laureles, Medellín.</span>
+                    <span data-lang="de" class="hidden">152m² neu gestaltetes Design im Herzen von Laureles, Medellín.</span>
+                </p>
+            </div>
+        </section>
+
+        <section id="property" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+                            <span data-lang="es">Una Residencia Excepcional</span><span data-lang="en" class="hidden">An Exceptional Residence</span><span data-lang="fr" class="hidden">Une Résidence d'Exception</span><span data-lang="de" class="hidden">Eine außergewöhnliche Residenz</span>
+                        </h2>
+                        <p class="mt-6 text-lg leading-relaxed">
+                            <span data-lang="es">Ubicado en el segundo piso de un edificio exclusivo, este apartamento de 152.17 m² fue completamente remodelado hace cinco años, incluyendo sus sistemas eléctrico e hidráulico. El resultado es una fusión perfecta de fiabilidad moderna y diseño atemporal, concebida para quienes no hacen concesiones en calidad de vida y buen gusto.</span>
+                            <span data-lang="en" class="hidden">Located on the second floor of an exclusive building, this 152.17 m² apartment was completely remodeled five years ago, including its electrical and plumbing systems. The result is a perfect fusion of modern reliability and timeless design, conceived for those who make no compromises on quality of life and good taste.</span>
+                            <span data-lang="fr" class="hidden">Situé au deuxième étage d'un immeuble exclusif, cet appartement de 152.17 m² a été entièrement rénové il y a cinq ans, y compris ses systèmes électriques et de plomberie. Le resultado es una fusión perfecta entre fiabilité moderne et design intemporel, conçu pour ceux qui ne font aucun compromis sur la qualité de vie et le bon goût.</span>
+                            <span data-lang="de" class="hidden">Dieses 152,17 m² große Apartment befindet sich im zweiten Stock eines exklusiven Gebäudes und wurde vor fünf Jahren komplett renoviert, einschließlich der Elektro- und Sanitäranlagen. Das Ergebnis ist eine perfekte Mischung aus moderner Zuverlässigkeit und zeitlosem Design, geschaffen für diejenigen, die keine Kompromisse bei Lebensqualität und gutem Geschmack eingehen.</span>
+                        </p>
+                    </div>
+                    <div data-aos="fade-left" class="h-96 md:h-[500px] rounded-lg overflow-hidden shadow-2xl">
+                         <img src="img/sala_deco.jpg" alt="Interior espacioso y luminoso del apartamento" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-20 md:py-32 bg-stone-50">
+            <div class="container mx-auto px-6" data-aos="fade-up">
+                 <h2 class="font-serif text-center text-4xl md:text-5xl font-bold text-gray-900">
+                    <span data-lang="es">Distribución y Detalles</span><span data-lang="en" class="hidden">Layout & Details</span><span data-lang="fr" class="hidden">Distribution & Détails</span><span data-lang="de" class="hidden">Aufteilung & Details</span>
+                </h2>
+                <div class="mt-12 max-w-4xl mx-auto space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-10">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m-9 12v-4.5m0 4.5h4.5m-4.5 0L9 15m12 6h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg></div>
+                        <div><h3 class="font-semibold text-xl">Área Total de 179.56 m²</h3><p class="text-gray-600">152.17 m² de apartamento más 27.39 m² de parqueadero doble lineal y cuarto útil.</p></div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div>
+                        <div><h3 class="font-semibold text-xl">Totalmente Remodelado</h3><p class="text-gray-600">Incluyendo sistemas eléctricos e hidráulicos hace 5 años, para una total tranquilidad.</p></div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" /></svg></div>
+                        <div><h3 class="font-semibold text-xl">3 Habitaciones + Biblioteca</h3><p class="text-gray-600">Principal con vestier, baño y balcón. Una amplia biblioteca ideal para el trabajo o la lectura.</p></div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg></div>
+                        <div><h3 class="font-semibold text-xl">Espacios Sociales Generosos</h3><p class="text-gray-600">Dos salas, comedor independiente y dos balcones que integran el exterior.</p></div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg></div>
+                        <div><h3 class="font-semibold text-xl">Cocina y Zona de Servicios</h3><p class="text-gray-600">Cocina integral con hornos, zona de ropas independiente y closet de linos.</p></div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0"><svg class="h-8 w-8 text-amber-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18A2.25 2.25 0 0 0 6 21h12a2.25 2.25 0 0 0 2.25-2.25V3" /></svg></div>
+                        <div><h3 class="font-semibold text-xl">Edificio con Amenidades</h3><p class="text-gray-600">Vigilancia 24h, turco y salón social en un edificio de solo 10 niveles.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6" data-aos="fade-up">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+                        <span data-lang="es">Explore Cada Rincón</span><span data-lang="en" class="hidden">Explore Every Corner</span><span data-lang="fr" class="hidden">Explorez Chaque Recoin</span><span data-lang="de" class="hidden">Erkunden Sie jede Ecke</span>
+                    </h2>
+                </div>
+                <div id="gallery-tabs" class="flex justify-center flex-wrap gap-x-4 gap-y-2 mb-8 border-b border-gray-200">
+                    <button class="gallery-tab active" data-target="sala"><span data-lang="es">Salas y Comedor</span><span data-lang="en" class="hidden">Living & Dining</span><span data-lang="fr" class="hidden">Salons & Salle à Manger</span><span data-lang="de" class="hidden">Wohn- & Esszimmer</span></button>
+                    <button class="gallery-tab" data-target="cocina"><span data-lang="es">Cocina</span><span data-lang="en" class="hidden">Kitchen</span><span data-lang="fr" class="hidden">Cuisine</span><span data-lang="de" class="hidden">Küche</span></button>
+                    <button class="gallery-tab" data-target="habitaciones"><span data-lang="es">Habitaciones y Vestier</span><span data-lang="en" class="hidden">Bedrooms & Closet</span><span data-lang="fr" class="hidden">Chambres & Dressing</span><span data-lang="de" class="hidden">Schlafzimmer & Ankleide</span></button>
+                    <button class="gallery-tab" data-target="biblioteca"><span data-lang="es">Biblioteca</span><span data-lang="en" class="hidden">Library</span><span data-lang="fr" class="hidden">Bibliothèque</span><span data-lang="de" class="hidden">Bibliothek</span></button>
+                    <button class="gallery-tab" data-target="banos"><span data-lang="es">Baños</span><span data-lang="en" class="hidden">Bathrooms</span><span data-lang="fr" class="hidden">Salles de Bain</span><span data-lang="de" class="hidden">Badezimmer</span></button>
+                    <button class="gallery-tab" data-target="exteriores"><span data-lang="es">Balcones y Zonas</span><span data-lang="en" class="hidden">Balconies & Areas</span><span data-lang="fr" class="hidden">Balcons & Espaces</span><span data-lang="de" class="hidden">Balkone & Bereiche</span></button>
+                </div>
+                <div id="gallery-content">
+                    <div id="panel-sala" class="gallery-panel active grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="img/sala_03.jpg" alt="Sala principal del apartamento" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/sala_04.jpg" alt="Sala secundaria" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/sala_05.jpg" alt="Comedor independiente" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/sala_06.jpg" alt="Vista de la sala y comedor" class="gallery-img rounded-lg shadow-md w-full h-full object-cover">
+                    </div>
+                    <div id="panel-cocina" class="gallery-panel grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="img/cocina_01.jpg" alt="Cocina integral moderna" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/cocina_02.jpg" alt="Detalle de la cocina equipada" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/cocina_03.jpg" alt="Hornos en la cocina" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/cocina_04.jpg" alt="Vista amplia de la cocina" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/cocina_05.jpg" alt="Mesón de la cocina" class="gallery-img rounded-lg shadow-md w-full h-full object-cover">
+                    </div>
+                    <div id="panel-habitaciones" class="gallery-panel grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="img/habitaciones_01.jpg" alt="Habitación principal con balcón" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/habitaciones_02.jpg" alt="Habitación secundaria" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/habitaciones_03.jpg" alt="Vista de habitación con closet" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/habitaciones_04.jpg" alt="Detalle de habitación amplia" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/habitaciones_05.jpg" alt="Otra vista de habitación" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/habitaciones_06.jpg" alt="Tercera habitación" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/vestier_01.jpg" alt="Vestier de la habitación principal" class="gallery-img rounded-lg shadow-md w-full h-full object-cover">
+                    </div>
+                     <div id="panel-biblioteca" class="gallery-panel grid-cols-1 md:grid-cols-2 gap-4">
+                        <img src="img/biblioteca_01.jpg" alt="Amplia biblioteca o estudio" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/biblioteca_02.jpg" alt="Detalle de la biblioteca" class="gallery-img rounded-lg shadow-md w-full h-full object-cover">
+                    </div>
+                    <div id="panel-banos" class="gallery-panel grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="img/bano_01.jpg" alt="Baño principal remodelado" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/bano_02.jpg" alt="Baño social" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/bano_03.jpg" alt="Ducha del baño" class="gallery-img rounded-lg shadow-md w-full h-full object-cover">
+                    </div>
+                    <div id="panel-exteriores" class="gallery-panel grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="img/balcon_01.jpg" alt="Balcón principal" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/balcon_02.jpg" alt="Vista desde el balcón" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/zona_ropas_01.jpg" alt="Zona de ropas independiente" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/zona_ropas_02.jpg" alt="Detalle zona de ropas" class="gallery-img rounded-lg shadow-md w-full h-full object-cover"><img src="img/fachada.png" alt="Fachada del edificio" class="gallery-img rounded-lg shadow-md w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lifestyle" class="py-20 md:py-32 bg-stone-50">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right" class="h-96 md:h-[500px] rounded-lg overflow-hidden shadow-2xl order-last md:order-first">
+                         <img src="https://travisafe.com/ideas/saintmartin201/img/laureles-medellin-colombia.jpg?q=80&w=2940&auto=format&fit=crop" alt="Café en Laureles, Medellín" class="w-full h-full object-cover">
+                    </div>
+                    <div data-aos="fade-left">
+                        <p class="text-amber-900 font-semibold">TIME OUT 2023</p>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-2">
+                            <span data-lang="es">Viva en el Barrio Más Cool del Mundo</span><span data-lang="en" class="hidden">Live in the World's Coolest Neighborhood</span><span data-lang="fr" class="hidden">Vivez dans le Quartier le Plus Cool du Monde</span><span data-lang="de" class="hidden">Wohnen im coolsten Viertel der Welt</span>
+                        </h2>
+                        <p class="mt-6 text-lg leading-relaxed">
+                            <span data-lang="es">
+                                Laureles no es solo una ubicación, es un estilo de vida. 
+                                <a href="https://www.timeout.com/news/its-official-this-is-the-worlds-coolest-neighbourhood-right-now-101723" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4 hover:text-amber-900 transition-colors">Nombrado por TimeOut como el epicentro de lo 'cool'</a>, 
+                                este barrio combina la tranquilidad de sus calles arboladas con una vibrante escena de cafés de especialidad, restaurantes de autor y boutiques de diseño. Todo, a solo unos pasos de su puerta.
+                            </span>
+                            <span data-lang="en" class="hidden">
+                                Laureles is not just a location; it's a lifestyle. 
+                                <a href="https://www.timeout.com/news/its-official-this-is-the-worlds-coolest-neighbourhood-right-now-101723" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4 hover:text-amber-900 transition-colors">Named by TimeOut as the epicenter of 'cool,'</a> 
+                                this neighborhood blends the tranquility of its tree-lined streets with a vibrant scene of specialty coffee shops, signature restaurants, and designer boutiques. Everything, just steps from your door.
+                            </span>
+                            <span data-lang="fr" class="hidden">
+                                Laureles n'est pas seulement un lieu, c'est un style de vie. 
+                                <a href="https://www.timeout.com/news/its-official-this-is-the-worlds-coolest-neighbourhood-right-now-101723" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4 hover:text-amber-900 transition-colors">Nommé par TimeOut comme l'épicentre du 'cool'</a>, 
+                                ce quartier allie la tranquillité de ses rues arborées à une scène vibrante de cafés de spécialité, de restaurants d'auteur et de boutiques de créateurs. Tout cela, à quelques pas de votre porte.
+                            </span>
+                            <span data-lang="de" class="hidden">
+                                Laureles ist nicht nur ein Ort, es ist ein Lebensstil. 
+                                <a href="https://www.timeout.com/news/its-official-this-is-the-worlds-coolest-neighbourhood-right-now-101723" target="_blank" rel="noopener noreferrer" class="font-semibold underline underline-offset-4 hover:text-amber-900 transition-colors">Von TimeOut zum Epizentrum des 'Coolen' ernannt</a>, 
+                                verbindet dieses Viertel die Ruhe seiner von Bäumen gesäumten Straßen mit einer lebendigen Szene von Spezialitätenkaffees, Autorenrestaurants und Designer-Boutiquen. Alles nur wenige Schritte von Ihrer Tür entfernt.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-[500px]">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31725.64503342898!2d-75.61019254067396!3d6.244338276632488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429a177af796b%3A0x77236d5982823631!2sLaureles%2C%20Medell%C3%ADn%2C%20Laureles-Estadio%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1700000000000" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de Laureles, Medellín">
+            </iframe>
+        </section>
+
+        <section id="investment" class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+                    <span data-lang="es">Una Inversión Exclusiva</span><span data-lang="en" class="hidden">An Exclusive Investment</span><span data-lang="fr" class="hidden">Un Investissement Exclusif</span><span data-lang="de" class="hidden">Eine exklusive Investition</span>
+                </h2>
+                <p class="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+                    <span data-lang="es">Una propiedad que define el estándar de vida en la zona más valorada de Medellín.</span><span data-lang="en" class="hidden">A property that defines the standard of living in Medellín's most valued area.</span><span data-lang="fr" class="hidden">Une propriété qui définit le standard de vie dans le quartier le plus prisé de Medellín.</span><span data-lang="de" class="hidden">Eine Immobilie, die den Lebensstandard in der wertvollsten Gegend von Medellín definiert.</span>
+                </p>
+                <div class="mt-8 text-5xl font-serif font-bold text-amber-900">
+                    $1.200.000.000 COP
+                </div>
+
+                <p id="price-usd" class="mt-2 text-2xl text-gray-600 font-sans">
+                    (aprox. <span class="animate-pulse">USD ...</span>)
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!--     INICIO: SECCIÓN DE CONTACTO ACTUALIZADA             -->
+        <!-- ======================================================= -->
+        <section id="contact" class="pt-16 pb-20 md:pt-24 md:pb-32 bg-white">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                 <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900" data-aos="fade-up">
+                    <span data-lang="es">Inicie su Próximo Capítulo</span><span data-lang="en" class="hidden">Begin Your Next Chapter</span><span data-lang="fr" class="hidden">Commencez Votre Prochain Chapitre</span><span data-lang="de" class="hidden">Beginnen Sie Ihr nächstes Kapitel</span>
+                </h2>
+                <p class="mt-4 text-lg text-gray-700" data-aos="fade-up" data-aos-delay="100">
+                    <span data-lang="es">Contáctenos directamente para recibir información detallada, coordinar una visita privada o resolver cualquier inquietud. Estamos listos para atenderle.</span><span data-lang="en" class="hidden">Contact us directly to receive detailed information, schedule a private viewing, or address any questions. We are ready to assist you.</span><span data-lang="fr" class="hidden">Contactez-nous directement pour recevoir des informations détaillées, planifier une visite privée ou répondre à vos questions. Nous sommes prêts à vous aider.</span><span data-lang="de" class="hidden">Kontaktieren Sie uns direkt, um detaillierte Informationen zu erhalten, eine private Besichtigung zu vereinbaren oder Fragen zu klären. Wir sind bereit, Ihnen zu helfen.</span>
+                </p>
+                
+                <div class="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Opción WhatsApp -->
+                    <a href="https://wa.me/573174377238" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group transition-transform hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-5xl md:text-6xl text-amber-900 group-hover:text-amber-800 transition-colors"></i>
+                        <div class="text-left">
+                            <span class="block font-semibold text-lg text-gray-800">
+                                <span data-lang="es">Chatea en WhatsApp</span><span data-lang="en" class="hidden">Chat on WhatsApp</span><span data-lang="fr" class="hidden">Discuter sur WhatsApp</span><span data-lang="de" class="hidden">Chatten auf WhatsApp</span>
+                            </span>
+                            <span class="block text-gray-600">+57 317 437 7238</span>
+                        </div>
+                    </a>
+
+                    <!-- Opción Email -->
+                     <a href="mailto:albertocasta11@gmail.com" class="flex items-center gap-4 group transition-transform hover:scale-105">
+                        <i class="fa-regular fa-envelope text-5xl md:text-6xl text-amber-900 group-hover:text-amber-800 transition-colors"></i>
+                        <div class="text-left">
+                            <span class="block font-semibold text-lg text-gray-800">
+                                <span data-lang="es">Enviar un Correo</span><span data-lang="en" class="hidden">Send an Email</span><span data-lang="fr" class="hidden">Envoyer un E-mail</span><span data-lang="de" class="hidden">E-Mail senden</span>
+                            </span>
+                            <span class="block text-gray-600">albertocasta11@gmail.com</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ======================================================= -->
+        <!--       FIN: SECCIÓN DE CONTACTO ACTUALIZADA              -->
+        <!-- ======================================================= -->
+    </main>
+
+    <footer class="bg-gray-900 text-stone-300">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <a href="#" class="block w-fit mx-auto mb-4">
+                <img src="img/logo_footer.png" alt="Logo de Saint Martin @ Laureles" class="h-12 w-auto">
+            </a>
+            <div class="mt-4 flex justify-center space-x-4 text-sm">
+                 <a href="#property" class="hover:text-white transition-colors"><span data-lang="es">Propiedad</span><span data-lang="en" class="hidden">Property</span><span data-lang="fr" class="hidden">Propriété</span><span data-lang="de" class="hidden">Immobilie</span></a>
+                <a href="#gallery" class="hover:text-white transition-colors"><span data-lang="es">Galería</span><span data-lang="en" class="hidden">Gallery</span><span data-lang="fr" class="hidden">Galerie</span><span data-lang="de" class="hidden">Galerie</span></a>
+                <a href="#contact" class="hover:text-white transition-colors"><span data-lang="es">Contactar</span><span data-lang="en" class="hidden">Contact</span><span data-lang="fr" class="hidden">Contacter</span><span data-lang="de" class="hidden">Kontakt</span></a>
+            </div>
+            <p class="mt-6 text-xs text-stone-400">
+                © <span id="year"></span> Saint Martin @ Laureles. 
+                <span data-lang="es">Todos los derechos reservados. Las imágenes son representaciones artísticas del inmueble real.</span>
+                <span data-lang="en" class="hidden">All rights reserved. Images are artistic representations of the real property.</span>
+                <span data-lang="fr" class="hidden">Tous droits réservés. Les images sont des représentations artistiques du bien immobilier réel.</span>
+                <span data-lang="de" class="hidden">Alle Rechte vorbehalten. Bilder sind künstlerische Darstellungen der realen Immobilie.</span>
+            </p>
+        <div class="mt-8 flex justify-center items-center gap-2">
+            <p class="text-xs font-sans text-stone-400">
+                <span data-lang="es">Un desarrollo de:</span>
+                <span data-lang="en" class="hidden">Powered by:</span>
+                <span data-lang="fr" class="hidden">Développé par:</span>
+                <span data-lang="de" class="hidden">Erstellt von:</span>
+            </p>
+            <a href="https://travisafe.com/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition-opacity duration-300">
+                <img src="https://vivelacity.com/wp-content/uploads/2024/11/Logo_Travi_Connect_Trans_A.webp" alt="Logo Travisafe" class="h-10 w-auto">
+            </a>
+        </div>
+        
+    </div>
+</footer>
+
+    <div id="lightbox">
+        <button id="lightbox-close" class="lightbox-btn">×</button>
+        <button id="lightbox-prev" class="lightbox-btn">❮</button>
+        <img id="lightbox-img" src="" alt="Vista ampliada de la propiedad">
+        <button id="lightbox-next" class="lightbox-btn">❯</button>
     </div>
 
-    <!-- Scripts de la Aplicación -->
-    <script src="agents.js"></script>
-    <script src="loader.js"></script>
+    <script>
+    // --- INITIALIZATIONS ---
+    AOS.init({ duration: 800, once: true });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- DOM ELEMENT SELECTORS ---
+    const htmlTag = document.documentElement;
+    const allLangButtons = document.querySelectorAll('.lang-btn');
+    const translatableElements = document.querySelectorAll('[data-lang]');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuPanel = document.getElementById('mobile-menu');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    // --- MULTILANGUAGE LOGIC ---
+    const seoMetas = {
+        es: { title: "Exclusivo Apartamento en Venta | 152m², Laureles, Medellín", description: "Apartamento de lujo de 152.17m² totalmente remodelado en Laureles. 3 habitaciones, biblioteca, 2 balcones y acabados premium." },
+        en: { title: "Exclusive Apartment for Sale | 152m², Laureles, Medellín", description: "Luxury 152.17m² fully remodeled apartment in Laureles. 3 bedrooms, library, 2 balconies, and premium finishes." },
+        fr: { title: "Appartement Exclusif à Vendre | 152m², Laureles, Medellín", description: "Appartement de luxe de 152.17m² entièrement rénové à Laureles. 3 chambres, bibliothèque, 2 balcons et finitions premium." },
+        de: { title: "Exklusive Wohnung zum Verkauf | 152m², Laureles, Medellín", description: "Komplett renovierte 152,17m² Luxuswohnung in Laureles. 3 Schlafzimmer, Bibliothek, 2 Balkone und hochwertige Ausstattung." }
+    };
+
+    function switchLanguage(targetLang) {
+        htmlTag.lang = targetLang;
+        document.title = seoMetas[targetLang].title;
+        document.querySelector('meta[name="description"]').setAttribute('content', seoMetas[targetLang].description);
+
+        translatableElements.forEach(el => {
+            el.classList.toggle('hidden', el.dataset.lang !== targetLang);
+        });
+
+        allLangButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.targetLang === targetLang);
+        });
+    }
+
+    allLangButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            switchLanguage(button.dataset.targetLang);
+            mobileMenuPanel.classList.add('hidden'); // Cierra el menú si se cambia el idioma desde ahí
+        });
+    });
+
+    // --- MOBILE MENU LOGIC ---
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenuPanel.classList.toggle('hidden');
+    });
+
+    // Cierra el menú al hacer clic en un enlace
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuPanel.classList.add('hidden');
+        });
+    });
+    
+    // --- GALLERY & LIGHTBOX LOGIC ---
+    const galleryTabs = document.querySelectorAll('.gallery-tab');
+    const galleryPanels = document.querySelectorAll('.gallery-panel');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    let currentImageIndex;
+    let visibleImages = [];
+
+    galleryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-target');
+            galleryTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            galleryPanels.forEach(panel => {
+                panel.classList.toggle('active', panel.id === `panel-${target}`);
+            });
+        });
+    });
+
+    function updateVisibleImages() {
+        const activePanel = document.querySelector('.gallery-panel.active');
+        visibleImages = activePanel ? Array.from(activePanel.querySelectorAll('.gallery-img')) : [];
+    }
+
+    function openLightbox(index) {
+        updateVisibleImages();
+        if (index < 0 || index >= visibleImages.length) return;
+        currentImageIndex = index;
+        lightboxImg.src = visibleImages[currentImageIndex].src;
+        lightbox.classList.add('active');
+    }
+
+    document.querySelectorAll('.gallery-img').forEach(img => {
+        img.addEventListener('click', () => {
+            const panelImages = Array.from(img.closest('.gallery-panel').querySelectorAll('.gallery-img'));
+            openLightbox(panelImages.indexOf(img));
+        });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
+    document.getElementById('lightbox-prev').addEventListener('click', () => openLightbox(currentImageIndex - 1));
+    document.getElementById('lightbox-next').addEventListener('click', () => openLightbox(currentImageIndex + 1));
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+        if (e.key === 'ArrowLeft') openLightbox(currentImageIndex - 1);
+        if (e.key === 'ArrowRight') openLightbox(currentImageIndex + 1);
+    });
+
+    // Archivo: index.html (dentro de la etiqueta <script>)
+
+// --- REAL-TIME CURRENCY CONVERSION ---
+async function updateUsdPrice() {
+    // 1. **REEMPLAZA ESTO** con tu clave de API real.
+    const apiKey = 'fd1fd1c2501b2dba70d771da';
+    
+    // 2. Define el precio en COP y el elemento HTML a actualizar.
+    const copPrice = 1200000000;
+    const usdPriceElement = document.getElementById('price-usd');
+    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
+
+    // 3. Usa un bloque try...catch para manejar errores elegantemente.
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('La respuesta de la red no fue correcta.');
+        }
+        const data = await response.json();
+        
+        // 4. Verifica que la API respondió correctamente y tiene la tasa de COP.
+        if (data.result === 'success' && data.conversion_rates.COP) {
+            const copRate = data.conversion_rates.COP;
+            const usdValue = copPrice / copRate;
+            
+            // 5. Formatea el número con estilo de moneda (USD) y sin decimales.
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            });
+            
+            // 6. Actualiza el HTML con el valor formateado.
+            usdPriceElement.innerHTML = `(aprox. ${formatter.format(usdValue)} USD)`;
+        } else {
+            // Si la API no devuelve la tasa, lanza un error.
+            throw new Error('Datos inválidos desde la API de cambio.');
+        }
+    } catch (error) {
+        console.error('Error al obtener los datos de cambio:', error);
+        // En caso de error, simplemente ocultamos el texto para no mostrar información incorrecta.
+        usdPriceElement.style.display = 'none';
+    }
+}
+
+// Llama a la función cuando el contenido de la página se haya cargado.
+document.addEventListener('DOMContentLoaded', updateUsdPrice);
+</script>
 </body>
 </html>

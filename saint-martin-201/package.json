@@ -2,9 +2,20 @@
   "name": "saint-martin-201-website",
   "private": true,
   "scripts": {
-    "start": "serve -l tcp://0.0.0.0:${PORT-80}"
+    "tailwind:init": "tailwindcss init",
+    "tailwind:build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "tailwind:watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "dependencies": {
     "serve": "^14.2.0"
+  },
+  "version": "1.0.0",
+  "main": "agents.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
   }
 }
