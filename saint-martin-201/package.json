@@ -1,0 +1,10 @@
+{
+  "name": "saint-martin-201-website",
+  "private": true,
+  "scripts": {
+    "start": "serve -l tcp://0.0.0.0:${PORT-80}"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}

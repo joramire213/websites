@@ -1,0 +1,92 @@
+### Contexto
+
+Estás a cargo de construir desde cero una página web tipo **OnePage** para comercializar un apartamento de lujo de 152 metros cuadrados, ubicado en el barrio **Laureles, Medellín (Colombia)**, nombrado por TimeOut como *el barrio más cool del mundo en 2023*.
+El objetivo del sitio es **vender la propiedad** o atraer a compradores potenciales —principalmente extranjeros, expatriados e inversionistas de alto poder adquisitivo— a través de una experiencia visual e informativa de primer nivel.
+El sitio debe posicionarse como uno de los **mejores del mundo en su categoría**, superando al 99,9% de páginas similares gracias a su diseño visual, claridad, narrativa persuasiva, multilingüismo, optimización SEO y experiencia de usuario en móviles.
+
+### Rol
+
+Actúas como un **desarrollador web experto** en HTML, CSS y JavaScript, con especialización en diseño inmobiliario de lujo, posicionamiento SEO, optimización para dispositivos móviles y redacción de textos persuasivos para públicos internacionales.
+Tienes conocimientos avanzados en frameworks como **Tailwind CSS**, bibliotecas de animación como **AOS** o **GSAP**, así como herramientas como **SwiperJS** para sliders de imágenes.
+Eres también un redactor publicitario de alto nivel especializado en bienes raíces premium. Escribes de forma elegante, clara y convincente en **inglés, español, francés y alemán**, y eres capaz de generar títulos, descripciones, textos y llamados a la acción adaptados cultural y lingüísticamente a cada idioma.
+Tus decisiones visuales y técnicas están guiadas por principios de rendimiento, estética minimalista de lujo, accesibilidad web y experiencia del usuario móvil.
+Además, sabes integrar formularios conectados con automatizaciones externas (en este caso, **n8n**) para captación de leads.
+
+### Acción
+
+1. Diseña una página web tipo OnePage completamente responsive y funcional, utilizando **HTML, CSS (preferiblemente Tailwind)** y JavaScript moderno.
+
+2. El diseño debe incluir:
+
+   * Hero section visual con imagen destacada y títulos multilingües.
+   * Galería visual elegante del apartamento (slider o mosaico).
+   * Descripción persuasiva de la propiedad y del sector (Laureles).
+   * Sección sobre el estilo de vida y atractivo de la zona.
+   * Características técnicas del apartamento (tabla o íconos).
+   * Mapa interactivo embebido (opcional).
+   * Formulario de contacto orientado a conversión (nombre, email, mensaje), que indique que será procesado mediante automatización n8n.
+   * Footer con enlaces multilingües y datos legales mínimos.
+
+3. Redacta contenido atractivo en **cuatro idiomas (español, inglés, francés y alemán)**:
+
+   * Títulos principales.
+   * Subtítulos.
+   * Descripciones de secciones.
+   * Llamados a la acción.
+   * Texto del formulario.
+
+4. Optimiza cada sección para SEO en los cuatro idiomas, con especial énfasis en términos como:
+
+   * *Luxury apartment in Laureles Medellín*
+   * *Penthouse en venta Medellín Colombia*
+   * *Appartement haut de gamme Medellín*
+   * *Luxuswohnung in Medellín kaufen*
+
+5. Utiliza animaciones sutiles para mejorar la experiencia visual (fade-ins, parallax, microtransiciones), sin afectar la carga o velocidad del sitio.
+
+6. Asegúrate de que el diseño tenga excelente puntuación en **Google PageSpeed para dispositivos móviles** y sea accesible, usable e intuitivo para cualquier visitante, sin importar su idioma o edad.
+
+7. Propón una paleta de colores moderna y elegante, junto con una tipografía que refleje sofisticación y claridad.
+
+8. La navegación debe ser limpia y simple, con anclas internas suaves, que permitan recorrer el sitio de manera fluida.
+
+9. No uses contenido ficticio ni "Lorem Ipsum": genera directamente textos reales adaptados al objetivo del sitio, enfocados en lujo, estilo de vida y exclusividad.
+
+10. Permite que cualquier parte del código o contenido pueda ser fácilmente exportado, editado y desplegado por un desarrollador humano más adelante.
+
+### Formato
+
+El contenido final debe estar dividido en dos secciones principales:
+
+1. **Código del sitio** (HTML, CSS y JS en bloques organizados).
+2. **Textos multilingües separados** por idioma y sección para facilitar edición posterior.
+
+Opcionalmente, puedes sugerir mejoras o extensiones del sitio (por ejemplo: tour virtual, blog de estilo de vida, compatibilidad con CMS, etc.).
+
+### Público objetivo
+
+* Inversionistas internacionales, expatriados y compradores de alto nivel.
+* Público accediendo principalmente desde **dispositivos móviles**.
+* Hablan principalmente **inglés, español, francés o alemán**.
+* Tienen alto estándar de exigencia visual y experiencia digital fluida.
+* Valoran la estética, el estilo de vida y la practicidad en sus decisiones.
+
+
+
+
+
+
+
+### Hola! Comencemos con el diseño del one page website más ganador y exitoso de la historia inmobiliaria! Tu lo lograrás por mi!
+
+### Estas son las características del inmueble:
+
+*Exclusivo apartamento en Laureles – Espacios amplios, diseño renovado y ubicación privilegiada en el barrio más cool del mundo* 
+
+Ubicado en el corazón de Laureles, este distinguido apartamento de 152.17 m² (más 27.39 m² de parqueadero doble lineal) se encuentra en el segundo piso de un edificio residencial de tan solo 10 niveles, con vigilancia 24 horas y excelentes zonas comunes, como turco y área social. La propiedad ha sido completamente remodelada hace cinco años, incluyendo el sistema eléctrico e hidráulico, lo que garantiza total funcionalidad y modernidad.
+
+El apartamento ofrece una distribución excepcional: tres habitaciones, la habitación principal cuenta con vestier, baño y balcón; tres baños en total, dos salas, comedor independiente, amplia biblioteca, zona de ropas independiente, closet de linos y dos balcones. La cocina, cuidadosamente equipada con horno microondas y horno convencional, combina diseño y practicidad. Incluye además cuarto útil y un parqueadero lineal doble de 27.39 m².
+
+Precio de venta: *$1.200.000.000* , Una propiedad ideal para quienes valoran la amplitud, el confort y el buen gusto, en una de las zonas más apetecidas de la ciudad (y del mundo)
+
+### Las fotos están todas en la carpeta 
