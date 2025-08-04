@@ -294,6 +294,10 @@
                 <div class="mt-8 text-5xl font-serif font-bold text-amber-900">
                     $1.200.000.000 COP
                 </div>
+
+                <p id="price-usd" class="mt-2 text-2xl text-gray-600 font-sans">
+                    (aprox. <span class="animate-pulse">USD ...</span>)
+                </p>
             </div>
         </section>
 
@@ -483,7 +487,54 @@
         if (e.key === 'ArrowRight') openLightbox(currentImageIndex + 1);
     });
 
-    // ** ELIMINADO: LÓGICA DEL FORMULARIO DE CONTACTO **
+    // Archivo: index.html (dentro de la etiqueta <script>)
+
+// --- REAL-TIME CURRENCY CONVERSION ---
+async function updateUsdPrice() {
+    // 1. **REEMPLAZA ESTO** con tu clave de API real.
+    const apiKey = 'fd1fd1c2501b2dba70d771da';
+    
+    // 2. Define el precio en COP y el elemento HTML a actualizar.
+    const copPrice = 1200000000;
+    const usdPriceElement = document.getElementById('price-usd');
+    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
+
+    // 3. Usa un bloque try...catch para manejar errores elegantemente.
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('La respuesta de la red no fue correcta.');
+        }
+        const data = await response.json();
+        
+        // 4. Verifica que la API respondió correctamente y tiene la tasa de COP.
+        if (data.result === 'success' && data.conversion_rates.COP) {
+            const copRate = data.conversion_rates.COP;
+            const usdValue = copPrice / copRate;
+            
+            // 5. Formatea el número con estilo de moneda (USD) y sin decimales.
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            });
+            
+            // 6. Actualiza el HTML con el valor formateado.
+            usdPriceElement.innerHTML = `(aprox. ${formatter.format(usdValue)} USD)`;
+        } else {
+            // Si la API no devuelve la tasa, lanza un error.
+            throw new Error('Datos inválidos desde la API de cambio.');
+        }
+    } catch (error) {
+        console.error('Error al obtener los datos de cambio:', error);
+        // En caso de error, simplemente ocultamos el texto para no mostrar información incorrecta.
+        usdPriceElement.style.display = 'none';
+    }
+}
+
+// Llama a la función cuando el contenido de la página se haya cargado.
+document.addEventListener('DOMContentLoaded', updateUsdPrice);
 </script>
 </body>
 </html>
