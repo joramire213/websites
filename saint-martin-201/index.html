@@ -300,10 +300,7 @@
                 </p>
             </div>
         </section>
-
-        <!-- ======================================================= -->
-        <!--     INICIO: SECCIÓN DE CONTACTO ACTUALIZADA             -->
-        <!-- ======================================================= -->
+        
         <section id="contact" class="pt-16 pb-20 md:pt-24 md:pb-32 bg-white">
             <div class="container mx-auto px-6 max-w-3xl text-center">
                  <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900" data-aos="fade-up">
@@ -338,8 +335,36 @@
                 </div>
             </div>
         </section>
+
         <!-- ======================================================= -->
-        <!--       FIN: SECCIÓN DE CONTACTO ACTUALIZADA              -->
+        <!--        INICIO: SECCIÓN COMPARTIR EN REDES (NUEVA)       -->
+        <!-- ======================================================= -->
+        <section id="share" class="pb-20 md:pb-32 bg-white -mt-16">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h3 class="font-serif text-3xl font-bold text-gray-900" data-aos="fade-up">
+                    <span data-lang="es">Compartir esta Oportunidad</span>
+                    <span data-lang="en" class="hidden">Share this Opportunity</span>
+                    <span data-lang="fr" class="hidden">Partager cette Opportunité</span>
+                    <span data-lang="de" class="hidden">Diese Gelegenheit teilen</span>
+                </h3>
+                <div class="mt-8 flex justify-center items-center gap-8 md:gap-10" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Enlace para compartir en WhatsApp -->
+                    <a id="share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp" class="text-amber-900 hover:text-amber-800 transition-all duration-300 transform hover:scale-110">
+                        <i class="fa-brands fa-whatsapp text-4xl md:text-5xl"></i>
+                    </a>
+                    <!-- Enlace para compartir en Facebook -->
+                    <a id="share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Compartir en Facebook" class="text-amber-900 hover:text-amber-800 transition-all duration-300 transform hover:scale-110">
+                        <i class="fa-brands fa-facebook text-4xl md:text-5xl"></i>
+                    </a>
+                    <!-- Enlace para compartir en X (Twitter) -->
+                    <a id="share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Compartir en X / Twitter" class="text-amber-900 hover:text-amber-800 transition-all duration-300 transform hover:scale-110">
+                        <i class="fa-brands fa-x-twitter text-4xl md:text-5xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ======================================================= -->
+        <!--          FIN: SECCIÓN COMPARTIR EN REDES (NUEVA)        -->
         <!-- ======================================================= -->
     </main>
 
@@ -402,6 +427,14 @@
         fr: { title: "Appartement Exclusif à Vendre | 152m², Laureles, Medellín", description: "Appartement de luxe de 152.17m² entièrement rénové à Laureles. 3 chambres, bibliothèque, 2 balcons et finitions premium." },
         de: { title: "Exklusive Wohnung zum Verkauf | 152m², Laureles, Medellín", description: "Komplett renovierte 152,17m² Luxuswohnung in Laureles. 3 Schlafzimmer, Bibliothek, 2 Balkone und hochwertige Ausstattung." }
     };
+    
+    // --- (NUEVO) Mensajes para compartir multi-idioma ---
+    const shareMessages = {
+        es: "Mira este increíble apartamento en Laureles, Medellín:",
+        en: "Check out this incredible apartment in Laureles, Medellín:",
+        fr: "Découvrez cet incroyable appartement à Laureles, Medellín:",
+        de: "Schauen Sie sich diese unglaubliche Wohnung in Laureles, Medellín, an:"
+    };
 
     function switchLanguage(targetLang) {
         htmlTag.lang = targetLang;
@@ -415,6 +448,9 @@
         allLangButtons.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.targetLang === targetLang);
         });
+        
+        // (NUEVO) Actualizar enlaces de compartir al cambiar idioma
+        setupShareLinks();
     }
 
     allLangButtons.forEach(button => {
@@ -429,7 +465,6 @@
         mobileMenuPanel.classList.toggle('hidden');
     });
 
-    // Cierra el menú al hacer clic en un enlace
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuPanel.classList.add('hidden');
@@ -487,54 +522,57 @@
         if (e.key === 'ArrowRight') openLightbox(currentImageIndex + 1);
     });
 
-    // Archivo: index.html (dentro de la etiqueta <script>)
+    // --- REAL-TIME CURRENCY CONVERSION ---
+    async function updateUsdPrice() {
+        const apiKey = 'fd1fd1c2501b2dba70d771da'; // Tu clave de API
+        const copPrice = 1200000000;
+        const usdPriceElement = document.getElementById('price-usd');
+        const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
 
-// --- REAL-TIME CURRENCY CONVERSION ---
-async function updateUsdPrice() {
-    // 1. **REEMPLAZA ESTO** con tu clave de API real.
-    const apiKey = 'fd1fd1c2501b2dba70d771da';
-    
-    // 2. Define el precio en COP y el elemento HTML a actualizar.
-    const copPrice = 1200000000;
-    const usdPriceElement = document.getElementById('price-usd');
-    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
-
-    // 3. Usa un bloque try...catch para manejar errores elegantemente.
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error('La respuesta de la red no fue correcta.');
-        }
-        const data = await response.json();
-        
-        // 4. Verifica que la API respondió correctamente y tiene la tasa de COP.
-        if (data.result === 'success' && data.conversion_rates.COP) {
-            const copRate = data.conversion_rates.COP;
-            const usdValue = copPrice / copRate;
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) throw new Error('Network response was not ok.');
+            const data = await response.json();
             
-            // 5. Formatea el número con estilo de moneda (USD) y sin decimales.
-            const formatter = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0,
-            });
-            
-            // 6. Actualiza el HTML con el valor formateado.
-            usdPriceElement.innerHTML = `(aprox. ${formatter.format(usdValue)} USD)`;
-        } else {
-            // Si la API no devuelve la tasa, lanza un error.
-            throw new Error('Datos inválidos desde la API de cambio.');
+            if (data.result === 'success' && data.conversion_rates.COP) {
+                const usdValue = copPrice / data.conversion_rates.COP;
+                const formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0,
+                });
+                usdPriceElement.innerHTML = `(aprox. ${formatter.format(usdValue)} USD)`;
+            } else {
+                throw new Error('Invalid data from currency API.');
+            }
+        } catch (error) {
+            console.error('Error fetching currency data:', error);
+            usdPriceElement.style.display = 'none';
         }
-    } catch (error) {
-        console.error('Error al obtener los datos de cambio:', error);
-        // En caso de error, simplemente ocultamos el texto para no mostrar información incorrecta.
-        usdPriceElement.style.display = 'none';
     }
-}
+    
+    // --- (NUEVO) DINAMIC SOCIAL SHARE LINKS ---
+    function setupShareLinks() {
+        const pageUrl = encodeURIComponent(window.location.href);
+        const currentLang = document.documentElement.lang || 'es';
+        const shareText = encodeURIComponent(shareMessages[currentLang]);
 
-// Llama a la función cuando el contenido de la página se haya cargado.
-document.addEventListener('DOMContentLoaded', updateUsdPrice);
+        // WhatsApp
+        const whatsappLink = document.getElementById('share-whatsapp');
+        whatsappLink.href = `https://api.whatsapp.com/send?text=${shareText}%20${pageUrl}`;
+
+        // Facebook
+        const facebookLink = document.getElementById('share-facebook');
+        facebookLink.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+        // X (Twitter)
+        const twitterLink = document.getElementById('share-twitter');
+        twitterLink.href = `https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}`;
+    }
+
+    // Llama a las funciones cuando el contenido de la página se haya cargado.
+    document.addEventListener('DOMContentLoaded', () => {
+        updateUsdPrice();
+        setupShareLinks();
+    });
 </script>
 </body>
 </html>
