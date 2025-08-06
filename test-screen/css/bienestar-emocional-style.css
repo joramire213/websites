@@ -85,7 +85,7 @@
     gap: 1.5rem;
 }
 
-.partner-logo {
+.partner-card .partner-logo {
     max-width: 250px;
     height: auto;
     display: block;

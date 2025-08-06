@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', function () {
-    
-    // =========================================================
-    // LÓGICA DEL MENÚ MÓVIL
-    // =========================================================
+// /js/script.js
+
+/**
+ * Añade la funcionalidad de 'toggle' al menú hamburguesa para móviles.
+ * Esta función es llamada desde layout.js después de que el header ha sido insertado.
+ */
+function initializeMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -10,37 +12,40 @@ document.addEventListener('DOMContentLoaded', function () {
         navToggle.addEventListener('click', function() {
             navLinks.classList.toggle('nav-active');
         });
+    } else {
+        // Un pequeño mensaje en consola para depuración, por si algo falla.
+        // console.warn('No se encontraron los elementos para el menú móvil.');
     }
+}
 
-    // =========================================================
-    // LÓGICA PARA MARCAR ENLACE ACTIVO EN MENÚ PRINCIPAL
-    // =========================================================
-    function setActiveNavLink() {
-        const currentPath = window.location.pathname;
-        const mainNavLinks = document.querySelectorAll('.main-nav .nav-links a');
+/**
+ * Marca como 'activo' el enlace de la navegación principal que corresponde a la página actual.
+ * Esta función es llamada desde layout.js después de que el header ha sido insertado.
+ */
+function setActiveNavLink() {
+    const currentPath = window.location.pathname; // Ej: "/aprende/02.html" o "/"
+    const mainNavLinks = document.querySelectorAll('.main-nav .nav-links a');
 
-        // Reiniciar todos los enlaces
-        mainNavLinks.forEach(link => link.classList.remove('active'));
+    mainNavLinks.forEach(link => {
+        const linkPath = link.pathname; // Ej: "/aprende/" o "/"
 
-        let linkFound = false;
-        mainNavLinks.forEach(link => {
-            const linkPath = link.pathname;
-            // Condición estricta para subpáginas: /actua/ o /aprende/
-            if (currentPath.startsWith(linkPath) && linkPath !== '/') {
+        // Reiniciamos por si acaso
+        link.classList.remove('active');
+
+        // CASO 1: Es el enlace a la página de inicio ("/")
+        if (linkPath === '/') {
+            if (currentPath === '/') {
                 link.classList.add('active');
-                linkFound = true;
             }
-        });
-
-        // Si después de revisar todas las subpáginas no encontramos coincidencia,
-        // y estamos en la página de inicio, marcamos el enlace de inicio.
-        const homeLink = document.querySelector('.main-nav .nav-links a[href="/"]');
-        if (!linkFound && currentPath === '/' && homeLink) {
-            homeLink.classList.add('active');
+        } 
+        // CASO 2: Es un enlace a una sección (ej: "/aprende/")
+        else {
+            if (currentPath.startsWith(linkPath)) {
+                link.classList.add('active');
+            }
         }
-    }
+    });
+}
 
-    // Ejecutamos la función al cargar la página
-    setActiveNavLink();
-
-});
+// Nota: Ya no hay un `DOMContentLoaded` aquí. Las funciones son como "motores apagados"
+// esperando a que layout.js les dé la orden de arrancar.

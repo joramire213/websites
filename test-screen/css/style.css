@@ -176,6 +176,59 @@ blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; background-color: var(--col
     /* ¡ELIMINADO! Quitamos el fondo en el hover para un look más limpio */
 }
 
+/* /css/style.css */
+
+/* ========================================================= */
+/* --- ESTILOS PARA EL NUEVO FOOTER CON SOCIOS           --- */
+/* ========================================================= */
+
+/* Contenedor principal que agrupa a los socios */
+.footer-partners {
+    display: flex; /* La base para el layout de columnas */
+    justify-content: center; /* Centra los items horizontalmente */
+    align-items: center; /* Alinea los items verticalmente */
+    gap: 4rem; /* Espacio generoso entre los logos en desktop */
+    margin-top: 2rem; /* Espacio para separar de la sección de copyright */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+}
+
+/* Estilos para cada bloque de socio (texto + logo) */
+.partner-item {
+    text-align: center; /* Centra el texto y el logo dentro de su bloque */
+}
+
+/* Estilo para el texto "Un desarrollo de:" y "Coordinado por:" */
+.partner-label {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 600;
+}
+
+/* Estilo unificado para los logos de los socios */
+.partner-logo {
+    height: 50px; /* Mantenemos la misma altura que tenías antes */
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover {
+    opacity: 0.8;
+}
+
+/* ========================================================= */
+/* --- AJUSTE RESPONSIVE PARA EL FOOTER (MÓVILES)      --- */
+/* ========================================================= */
+
+/* Aplicamos estos estilos en pantallas de 600px o menos */
+@media (max-width: 600px) {
+    .footer-partners {
+        /* Cambiamos la dirección de flexbox a columna para apilarlos */
+        flex-direction: column;
+        /* Reducimos el espacio entre ellos en la vista móvil */
+        gap: 2rem;
+    }
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     main { padding: 1rem; }
