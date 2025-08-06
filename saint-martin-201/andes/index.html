@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encuentro de Encuentros | Propuesta de Activos Digitales</title>
+  
+  <!-- FAVICON DEL SITIO: Ícono 'user-group' en color dorado de la marca -->
+  <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3e%3cpath fill='%23D4AF37' d='M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64c13.3 0 24 10.7 24 24v64c0 13.3-10.7 24-24 24s-24-10.7-24-24zM448 480h32c17.7 0 32-14.3 32-32s-14.3-32-32-32H448v64zM640 368c0 53-43 96-96 96h-32v-64h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V280c53 0 96 43 96 96zM344 128a120 120 0 1 0 -240 0 120 120 0 1 0 240 0z'/%3e%3c/svg%3e">
+  
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <style>
+    :root {
+      --bg-color: #1a1a1d; --primary-glow: #D4AF37; --secondary-glow: #FFC107; --text-primary: #f0f0f0; --text-secondary: #a0a0a0;
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+    #particles-js { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+    
+    .hero-bg {
+        background: linear-gradient(rgba(26, 26, 29, 0.85), rgba(26, 26, 29, 0.85)), url('img/hero.png') no-repeat center center;
+        background-size: cover;
+    }
+    
+    .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; transition: all 0.4s ease-in-out; transform: translateY(-100%); }
+    .main-header.scrolled { transform: translateY(0); background: rgba(26, 26, 29, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .nav-link { position: relative; transition: color 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow)); transition: width 0.3s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-link.active, .nav-link:hover { color: white; }
+    
+    .text-gradient { background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
+    .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .glass-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.4); }
+    .glow-button { background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow)); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+    .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .custom-list li { padding-left: 2rem; position: relative; margin-bottom: 0.5rem; }
+    .custom-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary-glow); font-size: 1.2rem; line-height: 1.5rem; }
+    
+    .hamburger { cursor: pointer; width: 24px; height: 24px; transition: all 0.25s; position: relative; }
+    .hamburger-top, .hamburger-middle, .hamburger-bottom { position: absolute; top: 0; left: 0; width: 24px; height: 2px; background: var(--text-primary); transition: all 0.5s; }
+    .hamburger-middle { transform: translateY(7px); } .hamburger-bottom { transform: translateY(14px); }
+    .open .hamburger-top { transform: rotate(45deg) translateY(6px) translateX(6px); } .open .hamburger-middle { display: none; } .open .hamburger-bottom { transform: rotate(-45deg) translateY(6px) translateX(-6px); }
+    .mobile-menu { position: fixed; inset: 0; z-index: 100; background-color: rgba(26, 26, 29, 0.95); backdrop-filter: blur(10px); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease-in-out; }
+    .mobile-menu.active { opacity: 1; pointer-events: auto; }
+    .mobile-menu .nav-link-mobile { color: var(--text-secondary); font-weight: 700; font-size: 1.5rem; padding: 1rem; opacity: 0; transform: translateY(15px); animation: fadeInLink 0.5s ease forwards; }
+    .mobile-menu:not(.active) .nav-link-mobile { animation: none; } .mobile-menu .nav-link-mobile:hover { color: var(--primary-glow); }
+    @keyframes fadeInLink { to { opacity: 1; transform: translateY(0); } }
+    .mobile-menu.active .nav-link-mobile:nth-child(1) { animation-delay: 0.1s; } .mobile-menu.active .nav-link-mobile:nth-child(2) { animation-delay: 0.2s; } .mobile-menu.active .nav-link-mobile:nth-child(3) { animation-delay: 0.3s; } .mobile-menu.active .nav-link-mobile:nth-child(4) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="antialiased">
+  
+  <div id="particles-js"></div>
+
+  <!-- HEADER Y BOTÓN DE MENÚ -->
+  <header class="main-header">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="text-lg font-bold text-gradient z-[110]">Encuentro de Encuentros</a>
+      <div class="hidden md:flex space-x-8">
+          <a href="#landing" class="nav-link text-gray-300">Landing Page</a>
+          <a href="#facebook" class="nav-link text-gray-300">Facebook</a>
+          <a href="#instagram" class="nav-link text-gray-300">Instagram</a>
+          <a href="#pagos" class="nav-link text-gray-300">Plataforma Pagos</a>
+      </div>
+      <div class="md:hidden z-[110]">
+          <button id="menu-btn" type="button" class="hamburger focus:outline-none"><span class="hamburger-top"></span><span class="hamburger-middle"></span><span class="hamburger-bottom"></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTENEDOR DEL MENÚ MÓVIL -->
+  <div id="menu" class="mobile-menu">
+      <a href="#landing" class="nav-link-mobile">Landing Page</a>
+      <a href="#facebook" class="nav-link-mobile">Facebook</a>
+      <a href="#instagram" class="nav-link-mobile">Instagram</a>
+      <a href="#pagos" class="nav-link-mobile">Plataforma Pagos</a>
+  </div>
+  
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero-bg min-h-screen flex flex-col justify-center items-center text-center px-6">
+      <h1 class="text-5xl md:text-7xl font-black mb-4 leading-tight">Encuentro de <span class="text-gradient">Encuentros</span></h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto text-text-secondary mb-10">
+        Propuesta de desarrollo de activos digitales
+      </p>
+      <a href="#landing" class="glow-button text-black font-semibold px-10 py-4 rounded-full shadow-lg text-lg">Ver Cotización</a>
+    </section>
+
+    <!-- ENTREGABLE 1: LANDING PAGE -->
+    <section id="landing" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Landing Page</h2>
+            <p class="text-lg text-text-secondary mb-10">Es el "centro de operaciones" de la estrategia digital. En ella se expondrá toda la información detallada del evento, se realizará la venta de boletería y se podrá ejecutar la dinámica de viralización, permitiendo a los usuarios subir videos y fotos para el challenge de referidos. También funcionará como galería post-evento.</p>
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-white mb-6">Entregables Incluidos:</h3>
+                <ul class="custom-list text-text-secondary">
+                    <li>Nombre de Dominio propio (.com, .co, etc.).</li>
+                    <li>Hosting en servidor dedicado (incluido por un año).</li>
+                    <li>Desarrollo web estático, moderno y responsive.</li>
+                    <li>Implementación de la función para cargar y publicar fotos y videos de usuarios.</li>
+                </ul>
+                <div class="mt-8 pt-6 border-t border-white/10 text-right">
+                    <span class="text-text-secondary text-lg mr-4">Valor del servicio:</span>
+                    <span class="text-4xl font-bold text-gradient">$990.000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENTREGABLE 2: GRUPO EN FACEBOOK -->
+    <section id="facebook" class="py-24 px-6 bg-black/20">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Grupo en Facebook</h2>
+            <p class="text-lg text-text-secondary mb-10">Concentrará las acciones en redes sociales, sirviendo como puente entre los diferentes grupos relacionados con el pueblo (Andes) y permitiendo el posteo de mensajes. Hará link con la landing page para la venta de boletas y la carga de fotos y videos. Además, servirá para publicar desde ahí a Instagram.</p>
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-white mb-6">Entregables Incluidos:</h3>
+                <ul class="custom-list text-text-secondary">
+                    <li>Creación y configuración del Grupo/Página oficial.</li>
+                    <li>Redacción de la sección de información general y bienvenida.</li>
+                    <li>Diseño del hero (foto de portada) y foto de perfil.</li>
+                    <li>Publicación de las dos primeras imágenes o posts de lanzamiento.</li>
+                </ul>
+                <div class="mt-8 pt-6 border-t border-white/10 text-right">
+                    <span class="text-text-secondary text-lg mr-4">Valor del servicio:</span>
+                    <span class="text-4xl font-bold text-gradient">$150.000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENTREGABLE 3: PERFIL EN INSTAGRAM -->
+    <section id="instagram" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Perfil en Instagram</h2>
+            <p class="text-lg text-text-secondary mb-10">Será el canal visual por excelencia, alimentado con contenido desde la estrategia de Facebook (Reels y Shorts) para mantener la consistencia y optimizar esfuerzos, enfocado en el storytelling visual y la nostalgia.</p>
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-white mb-6">Entregables Incluidos:</h3>
+                <ul class="custom-list text-text-secondary">
+                    <li>Creación y configuración del Perfil de Instagram.</li>
+                    <li>Redacción de la biografía optimizada con link a la landing page.</li>
+                    <li>Diseño de la foto de perfil y plantilla para highlights (historias destacadas).</li>
+                    <li>Publicación de las dos primeras imágenes o posts de lanzamiento.</li>
+                </ul>
+                <div class="mt-8 pt-6 border-t border-white/10 text-right">
+                    <span class="text-text-secondary text-lg mr-4">Valor del servicio:</span>
+                    <span class="text-4xl font-bold text-gradient">$100.000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENTREGABLE 4: PLATAFORMA DE PAGOS -->
+    <section id="pagos" class="py-24 px-6 bg-black/20">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Plataforma de Pagos</h2>
+            <p class="text-lg text-text-secondary mb-10">Se creará una plataforma segura y confiable para la compra de boletas a través de Wompi (Bancolombia), aceptando todo tipo de tarjetas débito y crédito. A los compradores se les generará una factura electrónica, con la cual reclamarán sus boletas físicas. El costo fijo inicial permite repetir el evento a futuro sin volver a incurrir en este gasto.</p>
+            <div class="glass-card rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-white mb-6">Operación y Entregables:</h3>
+                <ul class="custom-list text-text-secondary">
+                    <li>Integración completa de la pasarela de pagos Wompi.</li>
+                    <li>Generación automática de factura electrónica por cada compra.</li>
+                    <li>Envío de informe de boletería vendida cada 3 días con la respectiva entrega de dinero.</li>
+                    <li>Costo variable (9,9%) incluye: Comisión de Wompi, Retefuente, 4x1.000, comisión de gestión y factura electrónica.</li>
+                </ul>
+                <div class="mt-8 pt-6 border-t border-white/10 text-right">
+                    <span class="text-text-secondary text-lg mr-4">Valor del servicio:</span>
+                    <span class="text-4xl font-bold text-gradient">$200.000 + 9,9%</span>
+                    <p class="text-text-secondary mt-1">sobre el valor de la boletería vendida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="text-center py-10 border-t border-white/10 mt-16">
+    <p class="text-sm text-text-secondary">Propuesta de Desarrollo de Activos Digitales para "Encuentro de Encuentros"</p>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // El script para partículas, scroll-reveal, header y menú móvil sigue siendo el mismo.
+    tsParticles.load("particles-js",{fpsLimit:60,interactivity:{events:{onHover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,links:{opacity:.8}}}},particles:{color:{value:"#ffffff"},links:{color:"#ffffff",distance:150,enable:!0,opacity:.1,width:1},collisions:{enable:!1},move:{direction:"none",enable:!0,outModes:{default:"bounce"},random:!1,speed:.5,straight:!1},number:{density:{enable:!0,area:800},value:40},opacity:{value:.2},shape:{type:"circle"},size:{value:{min:1,max:2}}},detectRetina:!0});
+    const revealObserver=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add("active")})},{threshold:.1});document.querySelectorAll(".reveal").forEach(e=>{revealObserver.observe(e)});
+    const header=document.querySelector(".main-header");window.addEventListener("scroll",()=>{window.scrollY>50?header.classList.add("scrolled"):header.classList.remove("scrolled")});
+    const sections=document.querySelectorAll("section[id]"),desktopNavLinks=document.querySelectorAll("header .nav-link"),activateNavObserver=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&desktopNavLinks.forEach(t=>{t.classList.toggle("active",t.getAttribute("href").substring(1)===e.target.id)})})},{rootMargin:"-50% 0px -50% 0px"});sections.forEach(e=>{activateNavObserver.observe(e)});
+    const btn=document.getElementById("menu-btn"),menu=document.getElementById("menu"),mobileNavLinks=document.querySelectorAll(".nav-link-mobile");function toggleMenu(){btn.classList.toggle("open"),menu.classList.toggle("active"),document.body.classList.toggle("overflow-hidden")}btn.addEventListener("click",toggleMenu),mobileNavLinks.forEach(e=>{e.addEventListener("click",toggleMenu)});
+});
+</script>
+
+</body>
+</html>
