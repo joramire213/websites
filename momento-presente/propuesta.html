@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Integral — Momento Presente</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <!-- Reutilizamos las fuentes y estilos del proyecto principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Estilos específicos para esta página de propuesta -->
+    <style>
+        body {
+            background-color: var(--bg-soft); /* Usamos el fondo suave para toda la página */
+        }
+        .proposal-header {
+            padding: 40px 0;
+            text-align: center;
+            background-color: var(--bg);
+        }
+        .proposal-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+        }
+        .proposal-section {
+            background-color: var(--bg);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .proposal-section h3 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .proposal-section ul {
+            list-style-position: inside;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+        .investment-card {
+            background-color: var(--bg-soft);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .investment-card .price {
+            font-size: 1.5rem;
+            font-family: var(--font-titulos);
+            color: var(--primary);
+            font-weight: 800;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.1rem;
+        }
+        .summary-item strong {
+            font-family: var(--font-titulos);
+        }
+        .next-step {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EN: propuesta.html (Alrededor de la línea 46) -->
+
+    <header class="proposal-header">
+        <div class="container">
+        
+            <!-- ===== INICIO DEL CÓDIGO AÑADIDO ===== -->
+            <img src="img/logo.png" alt="Logo Momento Presente" style="height: 60px; margin: 0 auto 20px auto;">
+            <!-- ===== FIN DEL CÓDIGO AÑADIDO ===== -->
+
+            <h1>📄 Propuesta Integral</h1>
+            <p>Página Web + Estrategia Digital</p>
+        </div>
+    </header>
+
+    <main style="padding: 40px 0;">
+        <div class="container">
+
+            <div class="proposal-section">
+                <div style="display: flex; justify-content: space-between; color: var(--muted); margin-bottom: 20px;">
+                    <span><strong>Cliente:</strong> Nataly Galeano - Momento Presente</span>
+                    <span><strong>Fecha:</strong> 13/08/2025</span>
+                </div>
+                <hr style="border: 0; height: 1px; background: #e2e8f0; margin-bottom: 30px;">
+
+                <!-- 1. Desarrollo Web -->
+                <h3>1. Desarrollo de Página Web</h3>
+                <ul>
+                    <li>Diseño profesional, moderno y adaptado a dispositivos móviles.</li>
+                    <li>Enfoque en transmitir confianza y cercanía a padres y niños.</li>
+                    <li>Incluye formularios de contacto y conexión a WhatsApp.</li>
+                    <li>Optimizada para aparecer en buscadores (SEO básico).</li>
+                </ul>
+                <div class="investment-card">
+                    <span>Inversión</span>
+                    <p class="price">COP $690.000 <small>(pago único)</small></p>
+                </div>
+            </div>
+
+            <!-- 2. Publicidad Digital -->
+            <div class="proposal-section">
+                <h3>2. Estrategia de Publicidad Digital</h3>
+                <p><strong>Objetivo:</strong> Atraer nuevos clientes y dar a conocer el servicio.<br><strong>Canales:</strong> Google Ads + Redes Sociales (Facebook / Instagram).</p>
+                <ul>
+                  <li>Creación y configuración de campañas publicitarias.</li>
+                  <li>Segmentación para llegar a padres con hijos en edad escolar.</li>
+                  <li>Seguimiento semanal y ajustes para mejorar resultados.</li>
+                  <li>Reporte mensual sencillo con métricas clave.</li>
+                </ul>
+                <div class="investment-card">
+                    <span>Inversión por gestión</span>
+                    <p class="price">COP $250.000 <small>mensuales</small></p>
+                    <small style="color: var(--muted); display: block; margin-top: 10px;">(No incluye creación de piezas gráficas ni presupuesto de anuncios)</small>
+                </div>
+            </div>
+
+            <!-- 3, 4 y 5. Otros Costos -->
+            <div class="proposal-section">
+                <h3>3. Presupuesto de Anuncios y Otros Costos</h3>
+                <div class="summary-item">
+                    <span>Presupuesto de Anuncios (pago a plataformas)</span>
+                    <strong>Recomendación: $300.000 - $400.000 / mes</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Hosting Web (anual)</span>
+                    <strong>$120.000</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Registro de Dominio (primer año, según opción)</span>
+                    <strong>Desde $80.000</strong>
+                </div>
+            </div>
+
+            <!-- Resumen -->
+            <div class="proposal-section">
+                <h3>Resumen de Inversión Inicial</h3>
+                <div class="summary-item">
+                    <span>Página Web (único pago)</span>
+                    <strong>$690.000</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Hosting (anual)</span>
+                    <strong>$120.000</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Dominio (aprox. primer año)</span>
+                    <strong>$80.000</strong>
+                </div>
+                <div class="summary-item" style="background: var(--bg-soft); padding: 15px; border-radius: 12px; margin-top: 10px;">
+                    <strong>Inversión Inicial Total (sin publicidad)</strong>
+                    <strong style="color: var(--primary); font-size: 1.5rem;">890.000</strong>
+                </div>
+                 <div class="summary-item" style="border: none; padding-top: 20px;">
+                    <span>Costos Mensuales Recurrentes</span>
+                    <strong>$250.000 (Gestión) + Presupuesto de Anuncios</strong>
+                </div>
+            </div>
+            
+            <!-- Próximo Paso -->
+            <div class="proposal-section next-step">
+                <p>📌 <strong>Próximo paso:</strong> Confirmar para agendar la reunión inicial y tener tu web y campañas listas en pocas semanas.</p>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
