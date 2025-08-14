@@ -225,6 +225,18 @@ h2 {
     box-shadow: var(--shadow);
 }
 
+.nosotros-logo-wrapper {
+    margin-top: 30px; /* Espacio generoso entre el texto y el logo */
+}
+
+.nosotros-logo {
+    height: 80px; /* Un tamaño notablemente más grande que los 50px del header */
+    width: auto;  /* Mantiene la proporción */
+    border: 1px solid var(--text); /* Borde de 2px con el color de texto principal */
+    border-radius: var(--radius-sm); /* Esquinas redondeadas usando nuestra variable (12px) */
+    background-color: var(--bg);
+}
+
 /* ------------------- */
 /* SERVICIOS SECTION */
 /* ------------------- */
@@ -609,6 +621,12 @@ h2 {
         /* Hacemos que la imagen aparezca antes que el texto en móvil */
         order: -1; 
     }
+
+    .nosotros-logo-wrapper {
+        /* Centramos el logo en la vista móvil */
+        display: flex;
+        justify-content: center;
+    }    
 
     /* SERVICIOS */
     .servicios-grid {
