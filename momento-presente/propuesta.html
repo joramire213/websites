@@ -12,66 +12,114 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Estilos específicos para esta página de propuesta -->
-    <style>
-        body {
-            background-color: var(--bg-soft); /* Usamos el fondo suave para toda la página */
-        }
-        .proposal-header {
-            padding: 40px 0;
-            text-align: center;
-            background-color: var(--bg);
-        }
+    <!-- Reemplaza todo tu bloque <style> con este código -->
+<style>
+    body {
+        background-color: var(--bg-soft);
+    }
+    .proposal-header {
+        padding: 40px 0;
+        text-align: center;
+        background-color: var(--bg);
+    }
+    .proposal-header h1 {
+        font-size: 2.8rem;
+        color: var(--primary);
+    }
+    .proposal-section {
+        background-color: var(--bg);
+        padding: 40px;
+        margin-bottom: 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+    }
+    .proposal-section h3 {
+        font-size: 1.8rem;
+        border-bottom: 2px solid var(--secondary);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .proposal-section ul {
+        list-style-position: inside;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+    .investment-card {
+        background-color: var(--bg-soft);
+        padding: 20px;
+        border-radius: var(--radius);
+        text-align: center;
+        border: 1px solid #e2e8f0;
+    }
+    .investment-card .price {
+        font-size: 1.5rem;
+        font-family: var(--font-titulos);
+        color: var(--primary);
+        font-weight: 800;
+    }
+    .summary-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Centramos verticalmente */
+        padding: 15px 0;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 1.1rem;
+    }
+    .summary-item strong {
+        font-family: var(--font-titulos);
+    }
+    .next-step {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    /* ======================================= */
+    /* === RESPONSIVE PARA LA PROPUESTA    === */
+    /* ======================================= */
+    @media (max-width: 768px) {
+        /* --- Ajustamos tamaños de fuente --- */
         .proposal-header h1 {
-            font-size: 2.8rem;
-            color: var(--primary);
-        }
-        .proposal-section {
-            background-color: var(--bg);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            font-size: 2.2rem;
         }
         .proposal-section h3 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .proposal-section ul {
-            list-style-position: inside;
-            padding-left: 10px;
-            margin-bottom: 20px;
-        }
-        .investment-card {
-            background-color: var(--bg-soft);
-            padding: 20px;
-            border-radius: var(--radius);
-            text-align: center;
-            border: 1px solid #e2e8f0;
+            font-size: 1.6rem;
         }
         .investment-card .price {
-            font-size: 1.5rem;
-            font-family: var(--font-titulos);
-            color: var(--primary);
-            font-weight: 800;
+            font-size: 1.4rem;
         }
         .summary-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 1.1rem;
+            font-size: 1rem;
+        }
+
+        /* --- Ajustamos el espaciado --- */
+        .proposal-header {
+            padding: 30px 15px; /* Añadimos padding horizontal */
+        }
+        main {
+            padding: 20px 0 !important;
+        }
+        .proposal-section {
+            padding: 25px 20px;
+            margin-bottom: 20px;
+        }
+
+        /* --- Apilamos los elementos horizontales --- */
+        .proposal-section > div:first-child {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .summary-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
         }
         .summary-item strong {
-            font-family: var(--font-titulos);
+            font-size: 1.1rem;
         }
-        .next-step {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
@@ -174,7 +222,7 @@
             
             <!-- Próximo Paso -->
             <div class="proposal-section next-step">
-                <p>📌 <strong>Próximo paso:</strong> Confirmar para agendar la reunión inicial y tener tu web y campañas listas en pocas semanas.</p>
+                <p>📌 <strong>Próximo paso:</strong> Confirmar para agendar la reunión inicial y tener tu web y campañas listas en pocos días.</p>
             </div>
 
         </div>
