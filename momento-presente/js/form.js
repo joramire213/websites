@@ -31,14 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             celular: leadData.celular || null,
             email: leadData.email || null,
             origen: 'Momento Presente',
-            mi_caso_es: leadData.caso || null,
-            // Campos no aplicables en este formulario
-            score: null,
-            nivel: null,
-            sintomas: null,
-            action_plan: null,
-            color: null,
-            cta_alt: null
+            mi_caso_es: leadData.caso || null
         };
 
         // 5. Envío al webhook
