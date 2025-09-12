@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // 1. Animación de "Revelado al hacer Scroll"
-    const elementsToAnimate = document.querySelectorAll('.nosotros-content, .servicios-grid, .metodo-grid, .contacto-wrapper');
+    const elementsToAnimate = document.querySelectorAll(
+      '.nosotros-content, .servicios-grid, .metodo-grid, .contacto-wrapper, .faq-list'
+    );
     if (elementsToAnimate.length > 0) {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
