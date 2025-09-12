@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 5. Envío al webhook
         try {
-            const webhookUrl = 'https://n8n-n8n.2gzq2x.easypanel.host/webhook/test_screen';
+            const webhookUrl = 'https://n8n-n8n.2gzq2x.easypanel.host/webhook/Momento_Formulario';
             const response = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
