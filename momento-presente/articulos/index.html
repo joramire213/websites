@@ -25,6 +25,13 @@
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
 
+  <!-- Microestilos puntuales para meta de lectura y tags -->
+  <style>
+    .meta-read { margin:.25rem 0 0; color:#334155; font-size:.95rem; }
+    .meta-tags { margin:.15rem 0 0; color:#64748b; font-size:.85rem; }
+    .meta-tags .label { color:#64748b; font-weight:400; } /* “Temas” sin negrilla */
+  </style>
+
   <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
@@ -71,7 +78,8 @@
       </div>
     </section>
 
-    <!-- Filtros -->
+    <!-- Filtros (ocultos temporalmente) -->
+    <!--
     <section>
       <div class="container">
         <h2>Explora los temas</h2>
@@ -107,8 +115,9 @@
         </div>
       </div>
     </section>
+    -->
 
-    <!-- Tarjetas -->
+    <!-- Tarjetas directamente bajo el título -->
     <section>
       <div class="container">
         <div class="servicios-grid" id="postsGrid">
@@ -117,10 +126,11 @@
                    data-tags="regulacion-emocional familia neurodesarrollo"
                    data-title="Así se Construye el Cerebro de Tu Hijo"
                    data-date="2025-09-15">
-            <i data-lucide="book-open-text" aria-hidden="true"></i>
+            <!-- ÍCONO REMOVIDO -->
             <h3><a class="card-link" href="./asi-se-construye-el-cerebro-de-tu-hijo.html">Así se Construye el Cerebro de Tu Hijo</a></h3>
             <p>Guía cálida y científica para entender cómo se forma el cerebro infantil y cómo acompañarlo día a día.</p>
-            <p class="testimonial-author">Lectura: 12–14 min · Neurodesarrollo</p>
+            <p class="meta-read">Lectura: 12–14 min</p>
+            <p class="meta-tags"><span class="label">Temas:</span> neurodesarrollo · familia · regulación emocional</p>
           </article>
 
           <!-- Artículo 2 -->
@@ -128,10 +138,11 @@
                    data-tags="habilidades-sociales escuela"
                    data-title="Amistades en primaria: guías para padres"
                    data-date="2025-08-28">
-            <i data-lucide="users-round" aria-hidden="true"></i>
+            <!-- ÍCONO REMOVIDO -->
             <h3><a class="card-link" href="./amistades-en-primaria.html">Amistades en primaria: guías para padres</a></h3>
             <p>Cómo apoyar la integración social, poner límites sanos y resolver conflictos con amabilidad y firmeza.</p>
-            <p class="testimonial-author">Lectura: 7 min · Habilidades sociales</p>
+            <p class="meta-read">Lectura: 7 min</p>
+            <p class="meta-tags"><span class="label">Temas:</span> habilidades sociales · escuela</p>
           </article>
 
           <!-- Artículo 3 -->
@@ -139,10 +150,11 @@
                    data-tags="familia regulacion-emocional"
                    data-title="Rutinas nocturnas sin luchas"
                    data-date="2025-08-15">
-            <i data-lucide="moon-star" aria-hidden="true"></i>
+            <!-- ÍCONO REMOVIDO -->
             <h3><a class="card-link" href="./rutinas-nocturnas-sin-luchas.html">Rutinas nocturnas sin luchas</a></h3>
             <p>Un paso a paso para que las noches sean predecibles, amables y realmente reparadoras.</p>
-            <p class="testimonial-author">Lectura: 5 min · Familia</p>
+            <p class="meta-read">Lectura: 5 min</p>
+            <p class="meta-tags"><span class="label">Temas:</span> familia · regulación emocional</p>
           </article>
         </div>
 
@@ -158,6 +170,9 @@
 
   <!-- JS -->
   <script src="../js/main.js"></script>
+
+  <!-- Script de filtros/búsqueda desactivado temporalmente -->
+  <!--
   <script>
   (function(){
     const grid = document.getElementById('postsGrid');
@@ -225,5 +240,6 @@
     init();
   })();
   </script>
+  -->
 </body>
 </html>

@@ -10,7 +10,8 @@
   <meta name="theme-color" content="#fffaf1">
 
   <!-- Medición -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
 
@@ -43,17 +44,73 @@
   </script>
 
   <style>
-    /* Microestilos puntuales (sin hero, impacto inmediato) */
-    .article-header{padding:28px 0 8px;}
-    .kicker{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 Poppins,system-ui;background:#eef6ff;padding:.35rem .6rem;border-radius:999px;border:1px solid rgba(2,6,23,.06);}
-    .title-wrap{margin:.6rem 0 1rem;}
-    .title-wrap h1{margin:0;font-size:clamp(1.8rem,4.2vw,2.6rem);line-height:1.15;}
-    .lede{font-size:1.05rem;color:#334155;margin:.4rem 0 0;}
-    .meta-row{display:flex;gap:1rem;align-items:center;color:#475569;font-size:.92rem;margin-top:.6rem;}
+    /* ===== Lectura consistente: un solo contenedor ===== */
+    .reading{
+      /* Usa tu .container base y afina el ancho de lectura aquí */
+      max-width: 960px;  /* ancho equilibrado entre cabecera y artículo */
+      margin-inline: auto;
+      padding-inline: 16px;
+    }
+
+    /* ===== Cabecera del artículo ===== */
+    .article-header{padding:24px 0 8px;}
+    .kicker{
+      display:inline-flex;align-items:center;gap:.4rem;
+      font:600 .8rem/1 Poppins,system-ui;
+      background:#eef6ff;padding:.35rem .6rem;border-radius:999px;
+      border:1px solid rgba(2,6,23,.06);
+    }
+    .title-wrap{margin:.5rem 0 .75rem;}
+    .title-wrap h1{margin:0;font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.15;color:#0f172a;}
+    .lede{font-size:1.04rem;color:#334155;margin:.35rem 0 0;}
+
+    /* Meta + compartir alineados en la misma fila */
+    .meta-share{
+      display:flex; align-items:center; gap:1rem; margin-top:.6rem;
+      color:#475569; font-size:.94rem; flex-wrap:wrap;
+    }
+    .meta-left{display:flex; align-items:center; gap:1rem;}
     .dot{width:4px;height:4px;background:#94a3b8;border-radius:50%;display:inline-block;margin:0 .35rem;}
-    .share-row{display:flex;gap:.5rem;align-items:center;margin-top:10px}
-    .share-row a{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .6rem;border-radius:10px;border:1px solid rgba(2,6,23,.08);text-decoration:none;color:inherit}
-    .article-body h2{scroll-margin-top:90px}
+    .share-row{
+      margin-left:auto; display:flex; gap:.35rem; align-items:center;
+    }
+    .share-row a{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:34px; height:34px; border-radius:10px;
+      border:1px solid rgba(2,6,23,.08); background:#fff; text-decoration:none; color:inherit;
+    }
+    .share-row a:focus-visible{outline:2px solid #1b2a3a; outline-offset:2px;}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+    /* ===== Tipografía de cuerpo ===== */
+    .article-body{padding: 4px 0 24px;}
+    .article-body p{
+      margin: 0 0 1.05rem;      /* ESPACIADO entre párrafos */
+      color:#0f172a; line-height:1.65; font-size:1.02rem;
+    }
+
+    /* ===== Subtítulos (h2) más sobrios ===== */
+    .article-body h2{
+      color:#334155;            /* menos contraste que el título */
+      font-weight:700;
+      font-size: clamp(1.2rem, 2.8vw, 1.5rem);  /* más discreto */
+      line-height:1.25;
+      /* Espaciado: MÁS antes, MENOS después */
+      margin: 1.9rem 0 .55rem;  /* más aire antes del h2; ajusta post según feedback */
+      scroll-margin-top: 90px;
+    }
+
+    /* Listas un poco más compactas */
+    .article-body ul{ margin: .4rem 0 1.05rem 1.1rem; }
+    .article-body li{ margin: .2rem 0; }
+
+    /* Separador y navegación final */
+    .divider{margin:36px 0;border:none;border-top:1px solid rgba(2,6,23,.08);}
+    .nav-grid{display:grid; grid-template-columns:1fr; gap:1rem;}
+    .nav-grid .service-card{display:block;text-decoration:none;color:inherit;}
+    @media (min-width: 720px){
+      .nav-grid{grid-template-columns:1fr 1fr;}
+    }
   </style>
 </head>
 <body>
@@ -63,116 +120,130 @@
   <div id="site-header"></div>
 
   <main>
-    <!-- Migas concisas -->
-    <nav aria-label="Breadcrumb" class="container" style="margin-top: 12px;">
-      <p><a href="./">Artículos</a> / <span>Así se Construye el Cerebro de Tu Hijo</span></p>
-    </nav>
+    <!-- ===== UN SOLO CONTENEDOR PARA TODO ===== -->
+    <div class="container reading">
 
-    <!-- CABECERA DEL ARTÍCULO · SIN HERO -->
-    <header class="container article-header" aria-labelledby="art-title">
-      <span class="kicker"><i data-lucide="brain" aria-hidden="true"></i> Neurodesarrollo</span>
-      <div class="title-wrap">
-        <h1 id="art-title">Así se Construye el Cerebro de Tu Hijo</h1>
-        <p class="lede">Guía cálida y científica para potenciar su desarrollo día a día —con hábitos simples y basados en evidencia.</p>
-      </div>
-      <div class="meta-row">
-        <span><i data-lucide="calendar" aria-hidden="true"></i> <time datetime="2025-09-15">15 Sep 2025</time></span>
-        <span class="dot" aria-hidden="true"></span>
-        <span><i data-lucide="clock-3" aria-hidden="true"></i> Lectura: ~12–14 min</span>
-      </div>
-      <div class="share-row" aria-label="Compartir">
-        <a id="share-wsp" href="#" rel="noopener"><i data-lucide="message-circle"></i> WhatsApp</a>
-        <a id="share-x" href="#" rel="noopener"><i data-lucide="twitter"></i> X</a>
-        <a id="share-ln" href="#" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
-      </div>
-    </header>
-
-    <!-- CONTENIDO · visible de inmediato -->
-    <article class="container article-body" style="max-width: 880px;">
-      <!-- === CONTENIDO === -->
-      <p>Queridas madres y queridos padres,</p>
-      <p>en la cabeza de sus hijos late un universo en expansión. No es un chip que “viene instalado”, sino una obra viva que se edifica minuto a minuto con experiencias, afectos y oportunidades. Desde antes de nacer y hasta bien entrada la juventud —aproximadamente los 25 años—, cada caricia, cada juego, cada conversación y cada reto adecuado dejan una huella real en la arquitectura cerebral. Este artículo es un mapa claro y humano para comprender esa construcción y, sobre todo, para acompañarla con intuición y ciencia.</p>
-      <p>Encontrarán aquí una síntesis accesible de lo que sabemos hoy acerca del desarrollo cerebral, libre de mitos y cargada de ideas prácticas. La promesa es sencilla: si entendemos cómo aprende y se organiza el cerebro infantil, podremos regalarles a nuestros hijos el contexto más poderoso para crecer con calma, curiosidad, autocontrol y esperanza.</p>
-
-      <h2>1. Lo que ocurre “dentro”: un mapa rápido del cerebro en construcción</h2>
-      <p>El cerebro infantil no es una versión pequeña del cerebro adulto; es un sistema en obra negra que va cableándose, aislándose (mielinizándose) y optimizándose a ritmo vertiginoso. Las cifras ayudan a dimensionar: el cerebro representa cerca del 2% del peso corporal, pero consume en torno al 20% del oxígeno que respiramos; contiene alrededor de <em>86 mil millones</em> de neuronas (Herculano-Houzel, 2009) que se comunican a través de sinapsis —conexiones microscópicas— capaces de reorganizarse con el uso. Hacia los seis años, el volumen cerebral se aproxima al 90% del adulto, pero “volumen” no es sinónimo de “madurez”: la finísima coordinación entre regiones tarda mucho más en consolidarse.</p>
-      <p>La historia nos legó pistas fundamentales. Broca y Wernicke en el siglo XIX mostraron que el lenguaje se asocia a redes especializadas; Cajal demostró la individualidad de la neurona y la existencia de sinapsis; y, con las neuroimágenes, comprendimos que el cerebro funciona como orquesta: múltiples secciones tocando juntas, ajustándose unas a otras. Esa orquestación —la integración entre emoción, memoria, atención y control— es la diferencia silenciosa entre reaccionar y responder.</p>
-      <p><strong>Mitos que conviene dejar atrás:</strong> no usamos “solo el 10% del cerebro”; el aprendizaje dura toda la vida (aunque cambia su ritmo); sí existe neurogénesis en regiones específicas durante la adultez (p. ej., hipocampo); y “perder” algunas conexiones no es malo: la poda sináptica es el arte de afinar la orquesta para que suene mejor.</p>
-
-      <h2>2. Del vientre al mundo: cimientos invisibles y los primeros mil días</h2>
-      <p>La construcción empieza antes de ver la luz. Desde la tercera semana de gestación ya hay un sistema nervioso en boceto, y el tercer trimestre es una explosión de crecimiento y conexiones. Cuidar el embarazo —nutrición, descanso, controles, evitar alcohol y sustancias, manejo del estrés— no es un gesto “higiénico”: es ingeniería fina del desarrollo cerebral (Shonkoff & Phillips, 2000; OMS).</p>
-      <p>El nacimiento introduce un mundo ruidoso y luminoso a un organismo inmaduro. Los humanos somos <em>altriciales</em>: dependemos del cuidado para sobrevivir y terminar de madurar. Aquí aparece la palabra clave: <strong>apego</strong>. Un vínculo predecible, sensible y protector regula el estrés, organiza la emoción y sienta las bases del autocontrol. La “sintonía” —miradas, tono de voz, pausas, contención— se traduce en hormonas menos tóxicas, mejor sueño y un cerebro que aprende con mayor facilidad (Ainsworth; Center on the Developing Child, Harvard).</p>
-      <p>Entre el nacimiento y los tres años ocurre una sinfonía: un pico enorme de <em>sinaptogénesis</em> seguido de poda y refinamiento (Huttenlocher). Este periodo incluye varios “tiempos sensibles” (hoy preferimos ese término a “críticos”): la visión exige estimulación muy temprana (Hubel & Wiesel), el lenguaje tiene una ventana amplísima pero más fértil en los primeros cinco años (Kuhl), y la regulación emocional se fortalece en contextos de juego, sueño suficiente y rutinas amables. Nombrar emociones con los niños, poner palabras al cuerpo y a lo que sienten, es ejercicio de “<em>mentalización</em>” que literalmente reorganiza rutas entre la corteza prefrontal y regiones límbicas.</p>
-      <p>Un apunte especial: el <strong>juego libre</strong> —con objetos simples, al aire libre, con otros niños y con adultos presentes— es el gimnasio natural del cerebro. Ensaya atención, flexibilidad, memoria de trabajo, lenguaje, negociación y creatividad, todo a la vez, en entornos de bajo riesgo y alta motivación.</p>
-
-      <h2>3. Plasticidad: el cerebro que se esculpe con la experiencia</h2>
-      <p><em>Plasticidad</em> significa capacidad de cambiar la forma y el funcionamiento con la práctica. La imagen es simple: el cerebro no es mármol, es arcilla. Cada experiencia relevante “graba” patrones que facilitan su repetición futura; por eso, lo que se practica se fortalece.</p>
-      <p>La ciencia lo ha mostrado de maneras asombrosas. Los <strong>taxistas de Londres</strong> exhiben hipocampos más voluminosos cuanto más años pasan navegando la ciudad (Maguire et&nbsp;al., 2000). En <strong>músicos</strong> que iniciaron temprano, la corteza auditiva es mayor y responde de forma más fina a los tonos (Pantev et&nbsp;al.). Personas <strong>ciegas o sordas</strong> reorganizan áreas visuales o de lenguaje para otras tareas (Neville; Bavelier). Jóvenes que aprendieron <strong>malabares</strong> mostraron incremento temporal en regiones que procesan el movimiento; al dejar la práctica, esas áreas volvieron a su línea base (Draganski).</p>
-      <p>Detrás de escena operan dos procesos coreográficos:</p>
-      <ul>
-        <li><strong>Sinaptogénesis</strong>: se crean nuevas conexiones que amplían la red.</li>
-        <li><strong>Poda sináptica</strong>: se “limpian” conexiones menos útiles para ganar eficiencia. La regla es clara: <em>úsalo o piérdelo</em>.</li>
-      </ul>
-      <p>Esta lógica no es un tecnicismo. Si un niño practica resolver conflictos solo a gritos, esa ruta se fortalece; si habitualmente encuentra adultos que modelan pausa, respiración y acuerdo, la ruta del autocontrol gana carril rápido. Por eso ustedes, con su ejemplo repetido, son los escultores más influyentes.</p>
-
-      <h2>4. Adolescencia: un cerebro en obras (y cómo acompañarlo sin perder la calma)</h2>
-      <p>La adolescencia no es un accidente: es una remodelación planificada. Entre los 10 y los 20 y tantos, hay una “segunda oleada” de conexiones seguida de poda intensa, con especial énfasis en la <strong>corteza prefrontal</strong> —planificación, atención sostenida, inhibición de impulsos— (Giedd; Casey). Mientras esa red termina de mielinizarse, regiones de recompensa y emoción (<em>cerebro caliente</em>) pueden tener ventaja, lo que explica la preferencia por la novedad, la búsqueda de sensaciones y la influencia poderosa del grupo.</p>
-      <p>Esto no significa resignarse. Significa ajustar las expectativas y el estilo de acompañamiento: límites claros y consistentes, consecuencias previsibles, dormir lo suficiente (sí, <em>realmente</em> hace diferencia), deporte regular, proyecto de vida conversado, adultos que escuchan más y sermonean menos. Practicar funciones ejecutivas —priorizar, organizar, planear— en problemas reales de la vida cotidiana es mejor que mil hojas de ejercicios. Y el reconocimiento genuino (no el halago vacío) libera motivación sin inflación del ego.</p>
-      <p>Un apunte inevitable: <strong>pantallas</strong>. La evidencia sugiere priorizar calidad sobre cantidad, evitar dispositivos en dormitorio y durante comidas, y favorecer contenidos activos, creativos y compartidos. La Asociación Americana de Pediatría (AAP) propone planes familiares de medios adaptados por edad; la clave es deliberación, no demonización.</p>
-
-      <h2>5. Genes, ambiente y epigenética: una danza a dos voces</h2>
-      <p>“¿Qué pesa más, la herencia o el entorno?”. Donald Hebb lo explicaba con un rectángulo: base y altura importan por igual. Los genes trazan predisposiciones; el ambiente les da oportunidad (o freno) para expresarse. La <strong>epigenética</strong> muestra cómo experiencias de cuidado o de estrés regulan interruptores moleculares que activan o silencian genes (Meaney & Szyf). En modelos animales, el lamido y acicalamiento materno modifica la respuesta al estrés de por vida; en humanos, el apoyo sensible se asocia a cambios medibles en estructuras como el hipocampo (Luby et&nbsp;al.).</p>
-      <p>También sabemos, por trabajos clásicos con entornos enriquecidos (Greenough), que los cerebros “estimulados con sentido” —ruedas, rampas, compañeros, objetos que invitan a explorar— desarrollan una corteza más compleja y una mejor resiliencia al estrés. La moraleja no es llenar la agenda de talleres, sino <em>cuidar la calidad</em> de lo cotidiano: tiempo al aire libre, lectura compartida, juego simbólico, conversaciones que abren mundos, responsabilidades según la edad.</p>
-      <p>En el extremo opuesto, la <strong>privación</strong> y la ausencia de relación dejan cicatrices hondas. Los casos de “niños salvajes” o de institucionalizaciones prolongadas documentan pérdidas en lenguaje, regulación y vínculo cuando las ventanas sensibles se cierran sin experiencias humanas suficientes. De nuevo, la conclusión invita a la esperanza realista: cuanto antes llegue el buen trato sistemático, mejores son las posibilidades de reparación.</p>
-
-      <h2>6. Guía práctica: 12 hábitos cotidianos que fortalecen el cerebro (según la ciencia)</h2>
-      <ul>
-        <li><strong>Rutinas que calman.</strong> Horarios previsibles para dormir, comer y jugar reducen estrés tóxico y mejoran la atención (Harvard, “Toxic Stress”).</li>
-        <li><strong>Juego libre a diario.</strong> No es “tiempo muerto”: es laboratorio de funciones ejecutivas, lenguaje y creatividad.</li>
-        <li><strong>Hablar y leer en voz alta.</strong> Narrar el día, cantar, contar cuentos y hacer preguntas abiertas acelera lenguaje y comprensión (Kuhl; Hart & Risley).</li>
-        <li><strong>Nombrar emociones.</strong> “Veo que estás frustrado, respiremos y buscamos juntos” conecta amígdala y corteza prefrontal.</li>
-        <li><strong>Movimiento y sol.</strong> Actividad física moderada y juego exterior mejoran estado de ánimo y memoria (Hillman).</li>
-        <li><strong>Alimentación real.</strong> Priorizar frutas, verduras, legumbres, agua; limitar ultraprocesados y azúcares ayuda a la autorregulación.</li>
-        <li><strong>Sueño suficiente.</strong> El sueño consolida memoria y limpia “ruido” metabólico; proteger la hora de dormir vale oro.</li>
-        <li><strong>Modelar autocontrol.</strong> Los niños aprenden más de lo que <em>ven</em> que de lo que oyen; el ejemplo arrastra.</li>
-        <li><strong>Responsabilidades y autonomía graduadas.</strong> Encargos pequeños fortalecen la corteza prefrontal y el sentido de eficacia.</li>
-        <li><strong>Pantallas con criterio.</strong> Nada de dispositivos encendidos como niñera; co-ver, conversar y escoger calidad.</li>
-        <li><strong>Trato firme y amable.</strong> Límites claros, consecuencias razonables y afecto explícito son el trípode del orden interior.</li>
-        <li><strong>Red de apoyo.</strong> Cuidar a quien cuida: padres descansados y sostenidos emocionalmente cuidan mejor.</li>
-      </ul>
-      <p>Si su hijo tiene necesidades particulares —por ejemplo, señales de trastornos del neurodesarrollo—, estos hábitos no sustituyen la atención profesional; son el lienzo cotidiano sobre el que las intervenciones especializadas pintan mejor.</p>
-
-      <h2>7. Mitos frecuentes y señales de alerta: qué creer y cuándo pedir ayuda</h2>
-      <p><strong>Cuatro mitos para soltar ya:</strong></p>
-      <ul>
-        <li><strong>“Mientras más estimulación, mejor”.</strong> La sobrecarga estresa; lo que sirve es la <em>estimulación con sentido</em> y tiempo para aburrirse e imaginar.</li>
-        <li><strong>“Si no habló antes de los 2 años, perdimos la ventana”.</strong> El lenguaje tiene una franja sensible amplia; temprana detección y apoyo cambian trayectorias.</li>
-        <li><strong>“La inteligencia es fija”.</strong> Las funciones cognitivas son entrenables; el esfuerzo bien guiado transforma desempeños (Dweck).</li>
-        <li><strong>“Las emociones se doman con regaños”.</strong> Se regulan con co-regulación: presencia, nombre, pausa y límites consistentes.</li>
-      </ul>
-      <p><strong>Señales que justifican consulta profesional temprana</strong> (pediatría del desarrollo, fonoaudiología, terapia ocupacional, psicología):</p>
-      <ul>
-        <li>A los 6–9 meses: escaso contacto visual, nula respuesta a la sonrisa social, muy poca vocalización.</li>
-        <li>A los 12–18 meses: no señala, no balbucea variado, no responde a su nombre, ausencia de juego funcional simple.</li>
-        <li>Entre 2 y 3 años: no aparecen palabras funcionales, pérdida de habilidades ya adquiridas, juego extremadamente repetitivo sin variación.</li>
-        <li>En cualquier edad: regresiones mantenidas, crisis de conducta que no ceden con rutinas y contención, selectividad sensorial que limita la vida diaria.</li>
-      </ul>
-      <p>Pedir apoyo no es etiquetar a su hijo: es abrir ventanas a tiempo. La intervención temprana no “medicaliza” la infancia; la vuelve más justa y amable con los ritmos de cada niño.</p>
-
-      <h2>Referencias y lecturas recomendadas</h2>
-      <p>Ramón y Cajal (finales s. XIX); Broca & Wernicke; Herculano-Houzel (2009) sobre el número de neuronas; Huttenlocher sobre sinaptogénesis y poda; Maguire et&nbsp;al. (2000) hipocampo en taxistas; Pantev et&nbsp;al. música y corteza auditiva; Neville & Bavelier neuroplasticidad en sordera/ceguera; Draganski malabares; Giedd y Casey maduración prefrontal; Kuhl adquisición del lenguaje; Greenough ambientes enriquecidos; Meaney & Szyf epigenética del cuidado; Luby et&nbsp;al. apoyo parental e hipocampo; Shonkoff & Phillips (2000), <em>From Neurons to Neighborhoods</em>; Center on the Developing Child (Harvard) sobre estrés tóxico; AAP sobre medios digitales y planes familiares.</p>
-
-      <hr style="margin:40px 0">
-
-      <!-- Navegación -->
-      <nav class="servicios-grid" aria-label="Navegación de artículos" style="grid-template-columns:1fr 1fr;">
-        <a class="service-card" href="./" aria-label="Volver a Artículos">
-          <i data-lucide="arrow-left" aria-hidden="true"></i>
-          <h3>Volver a Artículos</h3>
-          <p>Explora más lecturas prácticas para la familia.</p>
-        </a>
+      <!-- Migas -->
+      <nav aria-label="Breadcrumb" style="margin-top: 12px;">
+        <p><a href="./">Artículos</a> / <span>Así se Construye el Cerebro de Tu Hijo</span></p>
       </nav>
-    </article>
+
+      <!-- Cabecera -->
+      <header class="article-header" aria-labelledby="art-title">
+        <span class="kicker"><i data-lucide="brain" aria-hidden="true"></i> Neurodesarrollo</span>
+        <div class="title-wrap">
+          <h1 id="art-title">Así se Construye el Cerebro de Tu Hijo</h1>
+          <p class="lede">Guía cálida y científica para potenciar su desarrollo día a día —con hábitos simples y basados en evidencia.</p>
+        </div>
+
+        <!-- Meta + compartir (iconos pequeños a la derecha) -->
+        <div class="meta-share">
+          <div class="meta-left">
+            <span><i data-lucide="calendar" aria-hidden="true"></i> <time datetime="2025-09-15">15 Sep 2025</time></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span><i data-lucide="clock-3" aria-hidden="true"></i> Lectura: ~12–14 min</span>
+          </div>
+          <div class="share-row" aria-label="Compartir">
+            <a id="share-wsp" href="#" rel="noopener" aria-label="Compartir en WhatsApp">
+              <i data-lucide="message-circle"></i><span class="sr-only">WhatsApp</span>
+            </a>
+            <a id="share-x" href="#" rel="noopener" aria-label="Compartir en X (Twitter)">
+              <i data-lucide="twitter"></i><span class="sr-only">X (Twitter)</span>
+            </a>
+            <a id="share-ln" href="#" rel="noopener" aria-label="Compartir en LinkedIn">
+              <i data-lucide="linkedin"></i><span class="sr-only">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Contenido -->
+      <article class="article-body">
+        <!-- === CONTENIDO ORIGINAL === -->
+        <p>Queridas madres y queridos padres,</p>
+        <p>en la cabeza de sus hijos late un universo en expansión. No es un chip que “viene instalado”, sino una obra viva que se edifica minuto a minuto con experiencias, afectos y oportunidades. Desde antes de nacer y hasta bien entrada la juventud —aproximadamente los 25 años—, cada caricia, cada juego, cada conversación y cada reto adecuado dejan una huella real en la arquitectura cerebral. Este artículo es un mapa claro y humano para comprender esa construcción y, sobre todo, para acompañarla con intuición y ciencia.</p>
+        <p>Encontrarán aquí una síntesis accesible de lo que sabemos hoy acerca del desarrollo cerebral, libre de mitos y cargada de ideas prácticas. La promesa es sencilla: si entendemos cómo aprende y se organiza el cerebro infantil, podremos regalarles a nuestros hijos el contexto más poderoso para crecer con calma, curiosidad, autocontrol y esperanza.</p>
+
+        <h2>1. Lo que ocurre “dentro”: un mapa rápido del cerebro en construcción</h2>
+        <p>El cerebro infantil no es una versión pequeña del cerebro adulto; es un sistema en obra negra que va cableándose, aislándose (mielinizándose) y optimizándose a ritmo vertiginoso. Las cifras ayudan a dimensionar: el cerebro representa cerca del 2% del peso corporal, pero consume en torno al 20% del oxígeno que respiramos; contiene alrededor de <em>86 mil millones</em> de neuronas (Herculano-Houzel, 2009) que se comunican a través de sinapsis —conexiones microscópicas— capaces de reorganizarse con el uso. Hacia los seis años, el volumen cerebral se aproxima al 90% del adulto, pero “volumen” no es sinónimo de “madurez”: la finísima coordinación entre regiones tarda mucho más en consolidarse.</p>
+        <p>La historia nos legó pistas fundamentales. Broca y Wernicke en el siglo XIX mostraron que el lenguaje se asocia a redes especializadas; Cajal demostró la individualidad de la neurona y la existencia de sinapsis; y, con las neuroimágenes, comprendimos que el cerebro funciona como orquesta: múltiples secciones tocando juntas, ajustándose unas a otras. Esa orquestación —la integración entre emoción, memoria, atención y control— es la diferencia silenciosa entre reaccionar y responder.</p>
+        <p><strong>Mitos que conviene dejar atrás:</strong> no usamos “solo el 10% del cerebro”; el aprendizaje dura toda la vida (aunque cambia su ritmo); sí existe neurogénesis en regiones específicas durante la adultez (p. ej., hipocampo); y “perder” algunas conexiones no es malo: la poda sináptica es el arte de afinar la orquesta para que suene mejor.</p>
+
+        <h2>2. Del vientre al mundo: cimientos invisibles y los primeros mil días</h2>
+        <p>La construcción empieza antes de ver la luz. Desde la tercera semana de gestación ya hay un sistema nervioso en boceto, y el tercer trimestre es una explosión de crecimiento y conexiones. Cuidar el embarazo —nutrición, descanso, controles, evitar alcohol y sustancias, manejo del estrés— no es un gesto “higiénico”: es ingeniería fina del desarrollo cerebral (Shonkoff & Phillips, 2000; OMS).</p>
+        <p>El nacimiento introduce un mundo ruidoso y luminoso a un organismo inmaduro. Los humanos somos <em>altriciales</em>: dependemos del cuidado para sobrevivir y terminar de madurar. Aquí aparece la palabra clave: <strong>apego</strong>. Un vínculo predecible, sensible y protector regula el estrés, organiza la emoción y sienta las bases del autocontrol. La “sintonía” —miradas, tono de voz, pausas, contención— se traduce en hormonas menos tóxicas, mejor sueño y un cerebro que aprende con mayor facilidad (Ainsworth; Center on the Developing Child, Harvard).</p>
+        <p>Entre el nacimiento y los tres años ocurre una sinfonía: un pico enorme de <em>sinaptogénesis</em> seguido de poda y refinamiento (Huttenlocher). Este periodo incluye varios “tiempos sensibles” (hoy preferimos ese término a “críticos”): la visión exige estimulación muy temprana (Hubel & Wiesel), el lenguaje tiene una ventana amplísima pero más fértil en los primeros cinco años (Kuhl), y la regulación emocional se fortalece en contextos de juego, sueño suficiente y rutinas amables. Nombrar emociones con los niños, poner palabras al cuerpo y a lo que sienten, es ejercicio de “<em>mentalización</em>” que literalmente reorganiza rutas entre la corteza prefrontal y regiones límbicas.</p>
+        <p>Un apunte especial: el <strong>juego libre</strong> —con objetos simples, al aire libre, con otros niños y con adultos presentes— es el gimnasio natural del cerebro. Ensaya atención, flexibilidad, memoria de trabajo, lenguaje, negociación y creatividad, todo a la vez, en entornos de bajo riesgo y alta motivación.</p>
+
+        <h2>3. Plasticidad: el cerebro que se esculpe con la experiencia</h2>
+        <p><em>Plasticidad</em> significa capacidad de cambiar la forma y el funcionamiento con la práctica. La imagen es simple: el cerebro no es mármol, es arcilla. Cada experiencia relevante “graba” patrones que facilitan su repetición futura; por eso, lo que se practica se fortalece.</p>
+        <p>La ciencia lo ha mostrado de maneras asombrosas. Los <strong>taxistas de Londres</strong> exhiben hipocampos más voluminosos cuanto más años pasan navegando la ciudad (Maguire et&nbsp;al., 2000). En <strong>músicos</strong> que iniciaron temprano, la corteza auditiva es mayor y responde de forma más fina a los tonos (Pantev et&nbsp;al.). Personas <strong>ciegas o sordas</strong> reorganizan áreas visuales o de lenguaje para otras tareas (Neville; Bavelier). Jóvenes que aprendieron <strong>malabares</strong> mostraron incremento temporal en regiones que procesan el movimiento; al dejar la práctica, esas áreas volvieron a su línea base (Draganski).</p>
+        <p>Detrás de escena operan dos procesos coreográficos:</p>
+        <ul>
+          <li><strong>Sinaptogénesis</strong>: se crean nuevas conexiones que amplían la red.</li>
+          <li><strong>Poda sináptica</strong>: se “limpian” conexiones menos útiles para ganar eficiencia. La regla es clara: <em>úsalo o piérdelo</em>.</li>
+        </ul>
+        <p>Esta lógica no es un tecnicismo. Si un niño practica resolver conflictos solo a gritos, esa ruta se fortalece; si habitualmente encuentra adultos que modelan pausa, respiración y acuerdo, la ruta del autocontrol gana carril rápido. Por eso ustedes, con su ejemplo repetido, son los escultores más influyentes.</p>
+
+        <h2>4. Adolescencia: un cerebro en obras (y cómo acompañarlo sin perder la calma)</h2>
+        <p>La adolescencia no es un accidente: es una remodelación planificada. Entre los 10 y los 20 y tantos, hay una “segunda oleada” de conexiones seguida de poda intensa, con especial énfasis en la <strong>corteza prefrontal</strong> —planificación, atención sostenida, inhibición de impulsos— (Giedd; Casey). Mientras esa red termina de mielinizarse, regiones de recompensa y emoción (<em>cerebro caliente</em>) pueden tener ventaja, lo que explica la preferencia por la novedad, la búsqueda de sensaciones y la influencia poderosa del grupo.</p>
+        <p>Esto no significa resignarse. Significa ajustar las expectativas y el estilo de acompañamiento: límites claros y consistentes, consecuencias previsibles, dormir lo suficiente (sí, <em>realmente</em> hace diferencia), deporte regular, proyecto de vida conversado, adultos que escuchan más y sermonean menos. Practicar funciones ejecutivas —priorizar, organizar, planear— en problemas reales de la vida cotidiana es mejor que mil hojas de ejercicios. Y el reconocimiento genuino (no el halago vacío) libera motivación sin inflación del ego.</p>
+        <p>Un apunte inevitable: <strong>pantallas</strong>. La evidencia sugiere priorizar calidad sobre cantidad, evitar dispositivos en dormitorio y durante comidas, y favorecer contenidos activos, creativos y compartidos. La Asociación Americana de Pediatría (AAP) propone planes familiares de medios adaptados por edad; la clave es deliberación, no demonización.</p>
+
+        <h2>5. Genes, ambiente y epigenética: una danza a dos voces</h2>
+        <p>“¿Qué pesa más, la herencia o el entorno?”. Donald Hebb lo explicaba con un rectángulo: base y altura importan por igual. Los genes trazan predisposiciones; el ambiente les da oportunidad (o freno) para expresarse. La <strong>epigenética</strong> muestra cómo experiencias de cuidado o de estrés regulan interruptores moleculares que activan o silencian genes (Meaney & Szyf). En modelos animales, el lamido y acicalamiento materno modifica la respuesta al estrés de por vida; en humanos, el apoyo sensible se asocia a cambios medibles en estructuras como el hipocampo (Luby et&nbsp;al.).</p>
+        <p>También sabemos, por trabajos clásicos con entornos enriquecidos (Greenough), que los cerebros “estimulados con sentido” —ruedas, rampas, compañeros, objetos que invitan a explorar— desarrollan una corteza más compleja y una mejor resiliencia al estrés. La moraleja no es llenar la agenda de talleres, sino <em>cuidar la calidad</em> de lo cotidiano: tiempo al aire libre, lectura compartida, juego simbólico, conversaciones que abren mundos, responsabilidades según la edad.</p>
+        <p>En el extremo opuesto, la <strong>privación</strong> y la ausencia de relación dejan cicatrices hondas. Los casos de “niños salvajes” o de institucionalizaciones prolongadas documentan pérdidas en lenguaje, regulación y vínculo cuando las ventanas sensibles se cierran sin experiencias humanas suficientes. De nuevo, la conclusión invita a la esperanza realista: cuanto antes llegue el buen trato sistemático, mejores son las posibilidades de reparación.</p>
+
+        <h2>6. Guía práctica: 12 hábitos cotidianos que fortalecen el cerebro (según la ciencia)</h2>
+        <ul>
+          <li><strong>Rutinas que calman.</strong> Horarios previsibles para dormir, comer y jugar reducen estrés tóxico y mejoran la atención (Harvard, “Toxic Stress”).</li>
+          <li><strong>Juego libre a diario.</strong> No es “tiempo muerto”: es laboratorio de funciones ejecutivas, lenguaje y creatividad.</li>
+          <li><strong>Hablar y leer en voz alta.</strong> Narrar el día, cantar, contar cuentos y hacer preguntas abiertas acelera lenguaje y comprensión (Kuhl; Hart & Risley).</li>
+          <li><strong>Nombrar emociones.</strong> “Veo que estás frustrado, respiremos y buscamos juntos” conecta amígdala y corteza prefrontal.</li>
+          <li><strong>Movimiento y sol.</strong> Actividad física moderada y juego exterior mejoran estado de ánimo y memoria (Hillman).</li>
+          <li><strong>Alimentación real.</strong> Priorizar frutas, verduras, legumbres, agua; limitar ultraprocesados y azúcares ayuda a la autorregulación.</li>
+          <li><strong>Sueño suficiente.</strong> El sueño consolida memoria y limpia “ruido” metabólico; proteger la hora de dormir vale oro.</li>
+          <li><strong>Modelar autocontrol.</strong> Los niños aprenden más de lo que <em>ven</em> que de lo que oyen; el ejemplo arrastra.</li>
+          <li><strong>Responsabilidades y autonomía graduadas.</strong> Encargos pequeños fortalecen la corteza prefrontal y el sentido de eficacia.</li>
+          <li><strong>Pantallas con criterio.</strong> Nada de dispositivos encendidos como niñera; co-ver, conversar y escoger calidad.</li>
+          <li><strong>Trato firme y amable.</strong> Límites claros, consecuencias razonables y afecto explícito son el trípode del orden interior.</li>
+          <li><strong>Red de apoyo.</strong> Cuidar a quien cuida: padres descansados y sostenidos emocionalmente cuidan mejor.</li>
+        </ul>
+        <p>Si su hijo tiene necesidades particulares —por ejemplo, señales de trastornos del neurodesarrollo—, estos hábitos no sustituyen la atención profesional; son el lienzo cotidiano sobre el que las intervenciones especializadas pintan mejor.</p>
+
+        <h2>7. Mitos frecuentes y señales de alerta: qué creer y cuándo pedir ayuda</h2>
+        <p><strong>Cuatro mitos para soltar ya:</strong></p>
+        <ul>
+          <li><strong>“Mientras más estimulación, mejor”.</strong> La sobrecarga estresa; lo que sirve es la <em>estimulación con sentido</em> y tiempo para aburrirse e imaginar.</li>
+          <li><strong>“Si no habló antes de los 2 años, perdimos la ventana”.</strong> El lenguaje tiene una franja sensible amplia; temprana detección y apoyo cambian trayectorias.</li>
+          <li><strong>“La inteligencia es fija”.</strong> Las funciones cognitivas son entrenables; el esfuerzo bien guiado transforma desempeños (Dweck).</li>
+          <li><strong>“Las emociones se doman con regaños”.</strong> Se regulan con co-regulación: presencia, nombre, pausa y límites consistentes.</li>
+        </ul>
+        <p><strong>Señales que justifican consulta profesional temprana</strong> (pediatría del desarrollo, fonoaudiología, terapia ocupacional, psicología):</p>
+        <ul>
+          <li>A los 6–9 meses: escaso contacto visual, nula respuesta a la sonrisa social, muy poca vocalización.</li>
+          <li>A los 12–18 meses: no señala, no balbucea variado, no responde a su nombre, ausencia de juego funcional simple.</li>
+          <li>Entre 2 y 3 años: no aparecen palabras funcionales, pérdida de habilidades ya adquiridas, juego extremadamente repetitivo sin variación.</li>
+          <li>En cualquier edad: regresiones mantenidas, crisis de conducta que no ceden con rutinas y contención, selectividad sensorial que limita la vida diaria.</li>
+        </ul>
+        <p>Pedir apoyo no es etiquetar a su hijo: es abrir ventanas a tiempo. La intervención temprana no “medicaliza” la infancia; la vuelve más justa y amable con los ritmos de cada niño.</p>
+
+        <h2>Referencias y lecturas recomendadas</h2>
+        <p>Ramón y Cajal (finales s. XIX); Broca & Wernicke; Herculano-Houzel (2009) sobre el número de neuronas; Huttenlocher sobre sinaptogénesis y poda; Maguire et&nbsp;al. (2000) hipocampo en taxistas; Pantev et&nbsp;al. música y corteza auditiva; Neville & Bavelier neuroplasticidad en sordera/ceguera; Draganski malabares; Giedd y Casey maduración prefrontal; Kuhl adquisición del lenguaje; Greenough ambientes enriquecidos; Meaney & Szyf epigenética del cuidado; Luby et&nbsp;al. apoyo parental e hipocampo; Shonkoff & Phillips (2000), <em>From Neurons to Neighborhoods</em>; Center on the Developing Child (Harvard) sobre estrés tóxico; AAP sobre medios digitales y planes familiares.</p>
+
+        <hr class="divider">
+
+        <!-- Navegación -->
+        <nav class="nav-grid" aria-label="Navegación de artículos">
+          <a class="service-card" href="./" aria-label="Volver a Artículos">
+            <i data-lucide="arrow-left" aria-hidden="true"></i>
+            <h3>Volver a Artículos</h3>
+            <p>Explora más lecturas prácticas para la familia.</p>
+          </a>
+        </nav>
+      </article>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -181,9 +252,9 @@
   <!-- Scripts -->
   <script src="../js/main.js"></script>
   <script>
-    // Compartir
+    // Compartir (iconos a la derecha)
     (function(){
-      const url = encodeURIComponent(window.location.href);
+      const url  = encodeURIComponent(window.location.href);
       const text = encodeURIComponent(document.title + ' — Momento Presente');
       const W = document.getElementById('share-wsp');
       const X = document.getElementById('share-x');
@@ -191,6 +262,8 @@
       if (W) W.href = `https://wa.me/?text=${text}%0A${url}`;
       if (X) X.href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
       if (L) L.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+      // render icons
+      if (window.lucide && typeof lucide.createIcons==='function'){ lucide.createIcons(); }
     })();
   </script>
 </body>
