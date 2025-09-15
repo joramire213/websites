@@ -24,6 +24,8 @@
     + '        <li><a href="' + base + 'index.html#testimonios">Testimonios</a></li>'
     + '        <li><a href="' + base + 'index.html#faq">FAQ</a></li>'
     + '        <li><a href="' + base + 'index.html#contacto">Contacto</a></li>'
+    + '        <li><a href="' + base + 'articulos/">Artículos</a></li>'
+    + '        <li><a href="' + base + 'podcasts/">Podcast</a></li>'
     + '      </ul>'
     + '    </nav>'
     + '    <button class="burger-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">'
@@ -37,6 +39,8 @@
     + '    <a href="' + base + 'index.html#testimonios">Testimonios</a>'
     + '    <a href="' + base + 'index.html#faq">FAQ</a>'
     + '    <a href="' + base + 'index.html#contacto" class="btn btn-primary">Agendar Cita</a>'
+    + '    <a href="' + base + 'articulos/">Artículos</a>'
+    + '    <a href="' + base + 'podcasts/">Podcast</a>'
     + '  </div>'
     + '</header>';
 

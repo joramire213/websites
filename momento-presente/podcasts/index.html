@@ -7,173 +7,12 @@
   <title>Podcast | Momento Presente</title>
   <meta name="description" content="Episodios breves para familias: pautas de crianza, regulación emocional y bienestar infantil." />
   <link rel="canonical" href="https://momentopresentekids.com/podcasts/" />
-
-  <!-- GTM / GA -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
-
-  <!-- Fuentes + Iconos -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- CSS -->
-  <link rel="icon" href="../img/favicon.png" type="image/png">
-  <link rel="stylesheet" href="../css/style.css">
-  <script defer src="../js/layout.js"></script>
-
-  <!-- Datos estructurados: listado de podcasts -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"CollectionPage",
-    "name":"Podcast",
-    "url":"https://momentopresentekids.com/podcasts/",
-    "about":{"@type":"Thing","name":"Psicología infantil"}
-  }
-  </script>
-</head>
-<body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W92DWBFZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <!-- Header inyectado por js/layout.js -->
-  <div id="site-header"></div>
-
-  <main>
-    <!-- Hero -->
-    <section id="hero" style="background-image:url('../img/hero.jpg');">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <h1>Podcast</h1>
-        <p>Episodios breves y accionables para tu día a día en familia.</p>
-      </div>
-    </section>
-
-    <!-- Buscador -->
-    <section>
-      <div class="container reveal-on-scroll">
-        <h2>Encuentra un episodio</h2>
-        <div class="contacto-wrapper" style="grid-template-columns:1fr;">
-          <div class="contacto-form-wrapper">
-            <form class="contact-form" id="podcast-filters" onsubmit="return false;">
-              <div class="form-group full-width">
-                <label for="q2">Buscar</label>
-                <input id="q2" type="search" placeholder="Palabras clave (ej: sueño, límites, ansiedad)">
-              </div>
-              <div class="form-group">
-                <label for="tag2">Etiqueta</label>
-                <select id="tag2">
-                  <option value="">Todas</option>
-                  <option value="regulacion-emocional">Regulación emocional</option>
-                  <option value="habilidades-sociales">Habilidades sociales</option>
-                  <option value="familia">Familia</option>
-                  <option value="plasticidad-cerebral">Plasticidad Cerebral</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="orden2">Ordenar</label>
-                <select id="orden2">
-                  <option value="recientes">Más recientes</option>
-                  <option value="titulo">Título (A–Z)</option>
-                </select>
-              </div>
-              <button class="submit-button" id="applyFilters2">Aplicar filtros</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Grilla de episodios -->
-    <section>
-      <div class="container">
-        <div class="servicios-grid reveal-on-scroll" id="episodesGrid">
-          <!-- Episodio 1 -->
-          <article class="service-card" data-tags="regulacion-emocional plasticidad-cerebral" data-title="Desarrollo del Cerebro Infantil y adolescente" data-date="2025-09-15">
-            <i data-lucide="headphones"></i>
-            <h3><a href="./audio/desarrollo_cerebro_infantil.mp4">Desarrollo del Cerebro Infantil y adolescente</a></h3>
-            <p>Claves para padres y educadores.</p>
-            <!-- Player opcional (coloca tu archivo real en /podcasts/audio/ ) -->
-            <!-- <audio controls preload="none"><source src="./audio/desarrollo_cerebro_infantil.mp4" type="audio/mpeg"></audio> -->
-            <p class="testimonial-author">Duración: 23:04 · Plasticidad Cerebral</p>
-          </article>
-
-          <!-- Episodio 2 -->
-          <article class="service-card" data-tags="habilidades-sociales escuela" data-title="Cuando mi hijo no quiere ir a clase" data-date="2025-08-30">
-            <i data-lucide="headphones"></i>
-            <h3><a href="./cuando-no-quiere-ir-a-clase.html">Cuando mi hijo no quiere ir a clase</a></h3>
-            <p>Ideas para detectar causas y acordar pasos pequeños que funcionan.</p>
-            <p class="testimonial-author">Duración: 10:12 · Habilidades sociales</p>
-          </article>
-
-          <!-- Episodio 3 -->
-          <article class="service-card" data-tags="familia regulacion-emocional" data-title="Rutinas de la mañana sin carreras" data-date="2025-08-18">
-            <i data-lucide="headphones"></i>
-            <h3><a href="./rutinas-manana-sin-carreras.html">Rutinas de la mañana sin carreras</a></h3>
-            <p>Checklist ágil para lograr salidas más tranquilas.</p>
-            <p class="testimonial-author">Duración: 7:05 · Familia</p>
-          </article>
-
-          <!-- Agrega más episodios siguiendo el mismo patrón -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer inyectado por js/layout.js -->
-  <div id="site-footer"></div>
-
-  <!-- JS -->
-  <script src="../js/main.js"></script>
-  <script>
-    // Filtro sencillo en cliente para episodios
-    (function(){
-      const grid = document.getElementById('episodesGrid');
-      const q = document.getElementById('q2');
-      const tag = document.getElementById('tag2');
-      const orden = document.getElementById('orden2');
-      const btn = document.getElementById('applyFilters2');
-
-      function apply() {
-        const term = (q.value || '').toLowerCase().trim();
-        const t = tag.value;
-        const cards = Array.from(grid.children);
-
-        cards.forEach(card => {
-          const title = (card.dataset.title || '').toLowerCase();
-          const tags = (card.dataset.tags || '').split(' ');
-          const matchesText = !term || title.includes(term);
-          const matchesTag = !t || tags.includes(t);
-          card.style.display = (matchesText && matchesTag) ? '' : 'none';
-        });
-
-        const visible = cards.filter(c => c.style.display !== 'none');
-        visible.sort((a,b) => {
-          if (orden.value === 'titulo') return a.dataset.title.localeCompare(b.dataset.title);
-          return (b.dataset.date || '').localeCompare(a.dataset.date || '');
-        });
-        visible.forEach(el => grid.appendChild(el));
-      }
-
-      btn.addEventListener('click', apply);
-    })();
-  </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Podcast | Momento Presente</title>
-  <meta name="description" content="Episodios breves para familias: pautas de crianza, regulación emocional y bienestar infantil." />
-  <link rel="canonical" href="https://momentopresentekids.com/podcasts/" />
   <meta name="theme-color" content="#fffaf1">
 
-  <!-- GTM / GA -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <!-- Google Tag Manager / Analytics -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
 
@@ -186,7 +25,7 @@
   <!-- CSS del sitio -->
   <link rel="icon" href="../img/favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="preload" as="image" href="../img/hero.jpg" imagesrcset="../img/hero.jpg" />
+  <link rel="preload" as="image" href="../img/hero.jpg" imagesrcset="../img/hero.jpg" fetchpriority="high">
   <script defer src="../js/layout.js"></script>
 
   <!-- Datos estructurados: listado de podcasts -->
@@ -201,22 +40,22 @@
       {
         "@type":"AudioObject",
         "name":"Desarrollo del Cerebro Infantil y Adolescente",
-        "url":"https://momentopresentekids.com/podcasts/audio/desarrollo_cerebro_infantil.mp3",
-        "encodingFormat":"audio/mpeg",
+        "url":"https://momentopresentekids.com/podcasts/audio/desarrollo_cerebro_infantil.mp4",
+        "encodingFormat":"audio/mp4",
         "uploadDate":"2025-09-15"
       },
       {
         "@type":"AudioObject",
         "name":"Cuando mi hijo no quiere ir a clase",
-        "url":"https://momentopresentekids.com/podcasts/audio/cuando_no_quiere_ir_a_clase.mp3",
-        "encodingFormat":"audio/mpeg",
+        "url":"https://momentopresentekids.com/podcasts/audio/cuando_no_quiere_ir_a_clase.mp4",
+        "encodingFormat":"audio/mp4",
         "uploadDate":"2025-08-30"
       },
       {
         "@type":"AudioObject",
         "name":"Rutinas de la mañana sin carreras",
-        "url":"https://momentopresentekids.com/podcasts/audio/rutinas_manana_sin_carreras.mp3",
-        "encodingFormat":"audio/mpeg",
+        "url":"https://momentopresentekids.com/podcasts/audio/rutinas_manana_sin_carreras.mp4",
+        "encodingFormat":"audio/mp4",
         "uploadDate":"2025-08-18"
       }
     ]
@@ -230,17 +69,12 @@
   <div id="site-header"></div>
 
   <main>
-    <!-- Hero con imagen LCP explícita -->
-    <section id="hero">
+    <!-- Hero SIEMPRE por CSS background-image -->
+    <section id="hero" style="background-image:url('../img/hero.jpg');">
+      <div class="hero-overlay"></div>
       <div class="container hero-content">
         <h1>Podcast</h1>
         <p>Episodios breves y accionables para tu día a día en familia.</p>
-        <img src="../img/hero.jpg"
-             alt=""
-             fetchpriority="high"
-             decoding="async"
-             width="1600" height="650"
-             style="width:100%;height:auto;border-radius:16px;object-fit:cover;display:block;margin-top:1rem;" />
       </div>
     </section>
 
@@ -292,24 +126,22 @@
                    data-title="Desarrollo del Cerebro Infantil y Adolescente"
                    data-date="2025-09-15"
                    tabindex="0" role="button" aria-label="Reproducir: Desarrollo del Cerebro Infantil y Adolescente">
-            <div class="player-row" style="display:flex;align-items:center;gap:.75rem;">
-              <button class="play-btn" aria-label="Reproducir" title="Reproducir" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid #e3e7ef;background:#fff;">
+            <div class="player-row">
+              <button class="play-btn" aria-label="Reproducir" title="Reproducir">
                 <i data-lucide="play" aria-hidden="true"></i>
               </button>
               <div style="flex:1;">
                 <h3 style="margin:0 0 .25rem;"><span class="card-link">Desarrollo del Cerebro Infantil y Adolescente</span></h3>
                 <p style="margin:.25rem 0 .5rem;">Claves para padres y educadores.</p>
                 <div class="progress-wrap" aria-label="Progreso" style="display:flex;align-items:center;gap:.5rem;">
-                  <div class="progress" style="flex:1;height:6px;background:#eef3f9;border-radius:999px;overflow:hidden;">
-                    <div class="bar" style="height:100%;width:0%;background:#1b2a3a;"></div>
-                  </div>
+                  <div class="progress"><div class="bar"></div></div>
                   <small class="time" aria-live="off">0:00</small>
                 </div>
                 <p class="testimonial-author" style="margin-top:.5rem;">Duración: 23:04 · Plasticidad cerebral</p>
               </div>
             </div>
             <audio preload="none" class="audio">
-              <source src="./audio/desarrollo_cerebro_infantil.mp3" type="audio/mpeg"/>
+              <source src="./audio/desarrollo_cerebro_infantil.mp4" type="audio/mp4"/>
             </audio>
           </article>
 
@@ -319,24 +151,22 @@
                    data-title="Cuando mi hijo no quiere ir a clase"
                    data-date="2025-08-30"
                    tabindex="0" role="button" aria-label="Reproducir: Cuando mi hijo no quiere ir a clase">
-            <div class="player-row" style="display:flex;align-items:center;gap:.75rem;">
-              <button class="play-btn" aria-label="Reproducir" title="Reproducir" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid #e3e7ef;background:#fff;">
+            <div class="player-row">
+              <button class="play-btn" aria-label="Reproducir" title="Reproducir">
                 <i data-lucide="play" aria-hidden="true"></i>
               </button>
               <div style="flex:1;">
                 <h3 style="margin:0 0 .25rem;"><span class="card-link">Cuando mi hijo no quiere ir a clase</span></h3>
                 <p style="margin:.25rem 0 .5rem;">Ideas para detectar causas y acordar pasos pequeños que funcionan.</p>
                 <div class="progress-wrap" aria-label="Progreso" style="display:flex;align-items:center;gap:.5rem;">
-                  <div class="progress" style="flex:1;height:6px;background:#eef3f9;border-radius:999px;overflow:hidden;">
-                    <div class="bar" style="height:100%;width:0%;background:#1b2a3a;"></div>
-                  </div>
+                  <div class="progress"><div class="bar"></div></div>
                   <small class="time" aria-live="off">0:00</small>
                 </div>
                 <p class="testimonial-author" style="margin-top:.5rem;">Duración: 10:12 · Habilidades sociales</p>
               </div>
             </div>
             <audio preload="none" class="audio">
-              <source src="./audio/cuando_no_quiere_ir_a_clase.mp3" type="audio/mpeg"/>
+              <source src="./audio/cuando_no_quiere_ir_a_clase.mp4" type="audio/mp4"/>
             </audio>
           </article>
 
@@ -346,28 +176,26 @@
                    data-title="Rutinas de la mañana sin carreras"
                    data-date="2025-08-18"
                    tabindex="0" role="button" aria-label="Reproducir: Rutinas de la mañana sin carreras">
-            <div class="player-row" style="display:flex;align-items:center;gap:.75rem;">
-              <button class="play-btn" aria-label="Reproducir" title="Reproducir" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid #e3e7ef;background:#fff;">
+            <div class="player-row">
+              <button class="play-btn" aria-label="Reproducir" title="Reproducir">
                 <i data-lucide="play" aria-hidden="true"></i>
               </button>
               <div style="flex:1;">
                 <h3 style="margin:0 0 .25rem;"><span class="card-link">Rutinas de la mañana sin carreras</span></h3>
                 <p style="margin:.25rem 0 .5rem;">Checklist ágil para lograr salidas más tranquilas.</p>
                 <div class="progress-wrap" aria-label="Progreso" style="display:flex;align-items:center;gap:.5rem;">
-                  <div class="progress" style="flex:1;height:6px;background:#eef3f9;border-radius:999px;overflow:hidden;">
-                    <div class="bar" style="height:100%;width:0%;background:#1b2a3a;"></div>
-                  </div>
+                  <div class="progress"><div class="bar"></div></div>
                   <small class="time" aria-live="off">0:00</small>
                 </div>
                 <p class="testimonial-author" style="margin-top:.5rem;">Duración: 7:05 · Familia</p>
               </div>
             </div>
             <audio preload="none" class="audio">
-              <source src="./audio/rutinas_manana_sin_carreras.mp3" type="audio/mpeg"/>
+              <source src="./audio/rutinas_manana_sin_carreras.mp4" type="audio/mp4"/>
             </audio>
           </article>
 
-          <!-- Agrega más episodios siguiendo el mismo patrón -->
+          <!-- Más episodios siguiendo el mismo patrón -->
         </div>
 
         <div class="no-results" id="noResults2" role="status" aria-live="polite" style="display:none;margin-top:1rem;">
@@ -461,10 +289,12 @@
     }
 
     function updateCardUI(card, playing){
-      const btn = card.querySelector('.play-btn i');
-      if (!btn) return;
-      btn.setAttribute('data-lucide', playing ? 'pause' : 'play');
-      if (window.lucide) lucide.createIcons();
+      const icon = card.querySelector('.play-btn i');
+      if (!icon) return;
+      icon.setAttribute('data-lucide', playing ? 'pause' : 'play');
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
     }
 
     function attachPlayer(card){
@@ -493,7 +323,7 @@
 
       // Click en botón
       btn.addEventListener('click', (e)=>{ e.stopPropagation(); toggle(); });
-      // Click/Enter/Space en tarjeta
+      // Click/Enter/Espacio en tarjeta
       card.addEventListener('click', (e)=>{ if (e.target.closest('.play-btn')) return; toggle(); });
       card.addEventListener('keydown', (e)=>{ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }});
 
