@@ -110,7 +110,7 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 
 /* Estado al hacer scroll: un poco más sólido y con sombra */
 .main-header.is-scrolled {
-  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  background: var(--bg);        /* Fondo sólido */
   border-bottom-color: rgba(2,6,23,.10);
   box-shadow: var(--shadow);
 }
@@ -253,7 +253,7 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
   border:1px solid rgba(2,6,23,.06);
   display:flex; flex-direction:column;
 }
-.service-card:hover{
+.service-card:hover:not(.player-card){
   transform:translateY(-8px);
   box-shadow:0 14px 34px rgba(2,6,23,.12);
   background:linear-gradient(180deg, #ffffff 0%, #eef6ff 100%);
