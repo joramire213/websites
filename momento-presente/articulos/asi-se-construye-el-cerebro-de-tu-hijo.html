@@ -9,10 +9,8 @@
   <link rel="canonical" href="https://momentopresentekids.com/articulos/asi-se-construye-el-cerebro-de-tu-hijo.html" />
   <meta name="theme-color" content="#fffaf1">
 
-  <!-- Medición (coherente con el sitio) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <!-- Medición -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
 
@@ -22,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Estilos y layout -->
+  <!-- Estilos + Layout -->
   <link rel="icon" href="../img/favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
@@ -45,20 +43,14 @@
   </script>
 
   <style>
-    /* Microestilos puntuales para “impacto inmediato” sin tocar tu CSS global */
-    .article-header{padding:32px 0 8px;}
+    /* Microestilos puntuales (sin hero, impacto inmediato) */
+    .article-header{padding:28px 0 8px;}
     .kicker{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 Poppins,system-ui;background:#eef6ff;padding:.35rem .6rem;border-radius:999px;border:1px solid rgba(2,6,23,.06);}
     .title-wrap{margin:.6rem 0 1rem;}
     .title-wrap h1{margin:0;font-size:clamp(1.8rem,4.2vw,2.6rem);line-height:1.15;}
-    .lede{font-size:1.1rem;color:var(--text-muted,#334155);margin:.4rem 0 0;}
+    .lede{font-size:1.05rem;color:#334155;margin:.4rem 0 0;}
     .meta-row{display:flex;gap:1rem;align-items:center;color:#475569;font-size:.92rem;margin-top:.6rem;}
     .dot{width:4px;height:4px;background:#94a3b8;border-radius:50%;display:inline-block;margin:0 .35rem;}
-    .takeaways{margin:18px 0 28px;display:grid;gap:12px;}
-    .takeaways .card{background:linear-gradient(180deg,#ffffff 0%,#fbfcff 100%);border:1px solid rgba(2,6,23,.06);border-radius:16px;box-shadow:var(--shadow,0 6px 18px rgba(2,6,23,.06));padding:16px 18px;display:flex;gap:.6rem;align-items:flex-start}
-    .takeaways .card i{flex:0 0 auto}
-    .takeaways .card p{margin:0}
-    .progress-track{position:sticky;top:0;height:6px;background:#eef3f9;z-index:20}
-    .progress-bar{height:100%;width:0%;background:#1b2a3a;transition:width .1s linear}
     .share-row{display:flex;gap:.5rem;align-items:center;margin-top:10px}
     .share-row a{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .6rem;border-radius:10px;border:1px solid rgba(2,6,23,.08);text-decoration:none;color:inherit}
     .article-body h2{scroll-margin-top:90px}
@@ -67,37 +59,27 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W92DWBFZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- Header inyectado por js/layout.js -->
+  <!-- Header -->
   <div id="site-header"></div>
 
-  <!-- Barra de progreso de lectura -->
-  <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="readProgress"></div></div>
-
   <main>
-    <!-- CABECERA DEL ARTÍCULO · SIN HERO, impacto inmediato -->
+    <!-- Migas concisas -->
+    <nav aria-label="Breadcrumb" class="container" style="margin-top: 12px;">
+      <p><a href="./">Artículos</a> / <span>Así se Construye el Cerebro de Tu Hijo</span></p>
+    </nav>
+
+    <!-- CABECERA DEL ARTÍCULO · SIN HERO -->
     <header class="container article-header" aria-labelledby="art-title">
       <span class="kicker"><i data-lucide="brain" aria-hidden="true"></i> Neurodesarrollo</span>
       <div class="title-wrap">
         <h1 id="art-title">Así se Construye el Cerebro de Tu Hijo</h1>
         <p class="lede">Guía cálida y científica para potenciar su desarrollo día a día —con hábitos simples y basados en evidencia.</p>
       </div>
-
       <div class="meta-row">
         <span><i data-lucide="calendar" aria-hidden="true"></i> <time datetime="2025-09-15">15 Sep 2025</time></span>
         <span class="dot" aria-hidden="true"></span>
         <span><i data-lucide="clock-3" aria-hidden="true"></i> Lectura: ~12–14 min</span>
-        <span class="dot" aria-hidden="true"></span>
-        <nav aria-label="Migas"><a href="./">Artículos</a> / <span>Así se Construye…</span></nav>
       </div>
-
-      <!-- “Explota” con valor: 3 claves arriba -->
-      <div class="takeaways">
-        <div class="card"><i data-lucide="sparkles"></i><p><strong>Plasticidad real:</strong> lo que se practica se fortalece; el cerebro es arcilla, no mármol.</p></div>
-        <div class="card"><i data-lucide="heart-handshake"></i><p><strong>Apego y rutina:</strong> vínculos predecibles y hábitos simples regulan emoción y atención.</p></div>
-        <div class="card"><i data-lucide="goal"></i><p><strong>Pequeñas acciones diarias:</strong> sueño, juego libre y lenguaje compartido cambian trayectorias.</p></div>
-      </div>
-
-      <!-- Compartir -->
       <div class="share-row" aria-label="Compartir">
         <a id="share-wsp" href="#" rel="noopener"><i data-lucide="message-circle"></i> WhatsApp</a>
         <a id="share-x" href="#" rel="noopener"><i data-lucide="twitter"></i> X</a>
@@ -105,8 +87,9 @@
       </div>
     </header>
 
-    <!-- CUERPO -->
-    <article class="container article-body reveal-on-scroll" style="max-width: 880px;">
+    <!-- CONTENIDO · visible de inmediato -->
+    <article class="container article-body" style="max-width: 880px;">
+      <!-- === CONTENIDO === -->
       <p>Queridas madres y queridos padres,</p>
       <p>en la cabeza de sus hijos late un universo en expansión. No es un chip que “viene instalado”, sino una obra viva que se edifica minuto a minuto con experiencias, afectos y oportunidades. Desde antes de nacer y hasta bien entrada la juventud —aproximadamente los 25 años—, cada caricia, cada juego, cada conversación y cada reto adecuado dejan una huella real en la arquitectura cerebral. Este artículo es un mapa claro y humano para comprender esa construcción y, sobre todo, para acompañarla con intuición y ciencia.</p>
       <p>Encontrarán aquí una síntesis accesible de lo que sabemos hoy acerca del desarrollo cerebral, libre de mitos y cargada de ideas prácticas. La promesa es sencilla: si entendemos cómo aprende y se organiza el cerebro infantil, podremos regalarles a nuestros hijos el contexto más poderoso para crecer con calma, curiosidad, autocontrol y esperanza.</p>
@@ -179,52 +162,35 @@
       <h2>Referencias y lecturas recomendadas</h2>
       <p>Ramón y Cajal (finales s. XIX); Broca & Wernicke; Herculano-Houzel (2009) sobre el número de neuronas; Huttenlocher sobre sinaptogénesis y poda; Maguire et&nbsp;al. (2000) hipocampo en taxistas; Pantev et&nbsp;al. música y corteza auditiva; Neville & Bavelier neuroplasticidad en sordera/ceguera; Draganski malabares; Giedd y Casey maduración prefrontal; Kuhl adquisición del lenguaje; Greenough ambientes enriquecidos; Meaney & Szyf epigenética del cuidado; Luby et&nbsp;al. apoyo parental e hipocampo; Shonkoff & Phillips (2000), <em>From Neurons to Neighborhoods</em>; Center on the Developing Child (Harvard) sobre estrés tóxico; AAP sobre medios digitales y planes familiares.</p>
 
-      <h2>Reflexión final para madres y padres</h2>
-      <p>Ustedes son el clima emocional donde el cerebro de sus hijos florece. No necesitan ser expertos en neurociencia ni padres perfectos: necesitan <em>presencia</em>, curiosidad por comprender, y el valor sereno de repetir lo bueno cada día. Cuando arropan, escuchan, ponen límites con amabilidad, juegan en el piso, apagan la pantalla para mirarse a los ojos o aceptan pedir ayuda a tiempo, están colocando ladrillos invisibles en la estructura que sostendrá su vida. Educar es, en el fondo, un acto de esperanza paciente: creen que ese pequeño —con sus risas, enojos, preguntas y silencios— puede llegar a ser una persona íntegra. El cerebro hace el resto, si le damos el contexto. Paso a paso, abrazo a abrazo, palabra a palabra, ustedes están construyendo futuro.</p>
-
       <hr style="margin:40px 0">
 
-      <!-- Navegación entre artículos -->
+      <!-- Navegación -->
       <nav class="servicios-grid" aria-label="Navegación de artículos" style="grid-template-columns:1fr 1fr;">
         <a class="service-card" href="./" aria-label="Volver a Artículos">
           <i data-lucide="arrow-left" aria-hidden="true"></i>
           <h3>Volver a Artículos</h3>
           <p>Explora más lecturas prácticas para la familia.</p>
         </a>
-        <!-- Siguiente artículo cuando exista -->
-        <!-- <a class="service-card" href="./otro-articulo.html"><i data-lucide="arrow-right" aria-hidden="true"></i><h3>Siguiente: Título…</h3><p>Resumen corto.</p></a> -->
       </nav>
     </article>
   </main>
 
-  <!-- Footer inyectado por js/layout.js -->
+  <!-- Footer -->
   <div id="site-footer"></div>
 
-  <!-- Scripts del sitio -->
+  <!-- Scripts -->
   <script src="../js/main.js"></script>
   <script>
-    // Progreso de lectura + compartir
+    // Compartir
     (function(){
-      const bar = document.getElementById('readProgress');
-      const shareW = document.getElementById('share-wsp');
-      const shareX = document.getElementById('share-x');
-      const shareL = document.getElementById('share-ln');
-
-      function onScroll(){
-        const h = document.documentElement;
-        const scrollTop = h.scrollTop || document.body.scrollTop;
-        const scrollHeight = (h.scrollHeight - h.clientHeight) || 1;
-        const p = Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100));
-        if (bar) bar.style.width = p + '%';
-      }
-      document.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-
       const url = encodeURIComponent(window.location.href);
       const text = encodeURIComponent(document.title + ' — Momento Presente');
-      if (shareW) shareW.href = `https://wa.me/?text=${text}%0A${url}`;
-      if (shareX) shareX.href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-      if (shareL) shareL.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+      const W = document.getElementById('share-wsp');
+      const X = document.getElementById('share-x');
+      const L = document.getElementById('share-ln');
+      if (W) W.href = `https://wa.me/?text=${text}%0A${url}`;
+      if (X) X.href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+      if (L) L.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
     })();
   </script>
 </body>

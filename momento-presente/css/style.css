@@ -531,6 +531,8 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 
 .player-card { cursor:pointer; }
 
+.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+
 /* ------------------- */
 /* RESPONSIVE DESIGN */
 /* ------------------- */

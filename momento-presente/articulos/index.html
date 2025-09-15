@@ -9,10 +9,8 @@
   <link rel="canonical" href="https://momentopresentekids.com/articulos/" />
   <meta name="theme-color" content="#fffaf1">
 
-  <!-- GTM / GA -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <!-- Medición -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
 
@@ -22,12 +20,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- CSS del sitio -->
+  <!-- CSS + Layout -->
   <link rel="icon" href="../img/favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
 
-  <!-- Datos estructurados: listado de artículos -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,7 +59,7 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W92DWBFZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- Header inyectado por js/layout.js -->
+  <!-- Header -->
   <div id="site-header"></div>
 
   <main>
@@ -73,9 +71,9 @@
       </div>
     </section>
 
-    <!-- Controles: buscador + filtros -->
+    <!-- Filtros -->
     <section>
-      <div class="container reveal-on-scroll">
+      <div class="container">
         <h2>Explora los temas</h2>
         <div class="contacto-wrapper" style="grid-template-columns:1fr;">
           <div class="contacto-form-wrapper">
@@ -103,19 +101,17 @@
                 </select>
               </div>
               <button class="submit-button" id="applyFilters">Aplicar filtros</button>
-              <button type="button" class="submit-button" id="clearFilters" style="background:#e9eef5;color:#1b2a3a;margin-left:.5rem;">
-                Limpiar filtros
-              </button>
+              <button type="button" class="submit-button" id="clearFilters" style="background:#e9eef5;color:#1b2a3a;margin-left:.5rem;">Limpiar filtros</button>
             </form>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Grilla de tarjetas (reutiliza .servicios-grid / .service-card) -->
+    <!-- Tarjetas -->
     <section>
       <div class="container">
-        <div class="servicios-grid reveal-on-scroll" id="postsGrid">
+        <div class="servicios-grid" id="postsGrid">
           <!-- Artículo 1 -->
           <article class="service-card"
                    data-tags="regulacion-emocional familia neurodesarrollo"
@@ -148,8 +144,6 @@
             <p>Un paso a paso para que las noches sean predecibles, amables y realmente reparadoras.</p>
             <p class="testimonial-author">Lectura: 5 min · Familia</p>
           </article>
-
-          <!-- Agrega más artículos siguiendo el mismo patrón -->
         </div>
 
         <div class="no-results" id="noResults" role="status" aria-live="polite" style="display:none;margin-top:1rem;">
@@ -159,98 +153,77 @@
     </section>
   </main>
 
-  <!-- Footer inyectado por js/layout.js -->
+  <!-- Footer -->
   <div id="site-footer"></div>
 
-  <!-- JS del sitio -->
+  <!-- JS -->
   <script src="../js/main.js"></script>
   <script>
-    (function(){
-      const grid = document.getElementById('postsGrid');
-      const q = document.getElementById('q');
-      const tag = document.getElementById('tag');
-      const orden = document.getElementById('orden');
-      const btn = document.getElementById('applyFilters');
-      const clear = document.getElementById('clearFilters');
-      const noResults = document.getElementById('noResults');
+  (function(){
+    const grid = document.getElementById('postsGrid');
+    const q = document.getElementById('q');
+    const tag = document.getElementById('tag');
+    const orden = document.getElementById('orden');
+    const btn = document.getElementById('applyFilters');
+    const clear = document.getElementById('clearFilters');
+    const noResults = document.getElementById('noResults');
 
-      function readQuery() {
-        const p = new URLSearchParams(window.location.search);
-        if (p.has('q')) q.value = p.get('q');
-        if (p.has('tag')) tag.value = p.get('tag');
-        if (p.has('sort')) orden.value = p.get('sort');
-      }
+    function readQuery() {
+      const p = new URLSearchParams(window.location.search);
+      if (p.has('q')) q.value = p.get('q');
+      if (p.has('tag')) tag.value = p.get('tag');
+      if (p.has('sort')) orden.value = p.get('sort');
+    }
+    function writeQuery() {
+      const p = new URLSearchParams();
+      if (q.value.trim()) p.set('q', q.value.trim());
+      if (tag.value)       p.set('tag', tag.value);
+      if (orden.value)     p.set('sort', orden.value);
+      const url = window.location.pathname + (p.toString() ? '?' + p.toString() : '');
+      window.history.replaceState({}, '', url);
+    }
+    function apply() {
+      const term = (q.value || '').toLowerCase().trim();
+      const t = tag.value;
+      const cards = Array.from(grid.children);
+      let visibleCount = 0;
 
-      function writeQuery() {
-        const p = new URLSearchParams();
-        if (q.value.trim()) p.set('q', q.value.trim());
-        if (tag.value)       p.set('tag', tag.value);
-        if (orden.value)     p.set('sort', orden.value);
-        const url = window.location.pathname + (p.toString() ? '?' + p.toString() : '');
-        window.history.replaceState({}, '', url);
-      }
+      cards.forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const tags = (card.dataset.tags || '').split(' ');
+        const matchesText = !term || title.includes(term);
+        const matchesTag  = !t || tags.includes(t);
+        const show = matchesText && matchesTag;
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
 
-      function apply() {
-        const term = (q.value || '').toLowerCase().trim();
-        const t = tag.value;
-        const cards = Array.from(grid.children);
+      const visible = cards.filter(c => c.style.display !== 'none');
+      visible.sort((a,b) => {
+        if (orden.value === 'titulo') return a.dataset.title.localeCompare(b.dataset.title);
+        return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+      });
+      visible.forEach(el => grid.appendChild(el));
 
-        // Filtrado
-        let visibleCount = 0;
-        cards.forEach(card => {
-          const title = (card.dataset.title || '').toLowerCase();
-          const tags = (card.dataset.tags || '').split(' ');
-          const matchesText = !term || title.includes(term);
-          const matchesTag  = !t || tags.includes(t);
-          const show = (matchesText && matchesTag);
-          card.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
-
-        // Orden
-        const visible = cards.filter(c => c.style.display !== 'none');
-        visible.sort((a,b) => {
-          if (orden.value === 'titulo') {
-            return a.dataset.title.localeCompare(b.dataset.title);
-          }
-          // recientes (ISO YYYY-MM-DD)
-          return (b.dataset.date || '').localeCompare(a.dataset.date || '');
-        });
-        visible.forEach(el => grid.appendChild(el));
-
-        // Sin resultados
-        if (noResults) noResults.style.display = visibleCount ? 'none' : 'block';
-
-        // Persistir querystring
-        writeQuery();
-      }
-
-      function clearAll() {
-        q.value = '';
-        tag.value = '';
-        orden.value = 'recientes';
-        apply();
-      }
-
-      function init() {
-        readQuery();
-        apply(); // estado inicial por query
-
-        btn.addEventListener('click', apply);
-        clear && clear.addEventListener('click', clearAll);
-
-        // Enter en input q activa aplicar
-        q.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') { e.preventDefault(); apply(); }
-        });
-
-        // Cambios inmediatos con teclado/mouse
-        tag.addEventListener('change', apply);
-        orden.addEventListener('change', apply);
-      }
-
-      init();
-    })();
+      if (noResults) noResults.style.display = visibleCount ? 'none' : 'block';
+      writeQuery();
+    }
+    function clearAll() {
+      q.value = '';
+      tag.value = '';
+      orden.value = 'recientes';
+      apply();
+    }
+    function init(){
+      readQuery(); apply();
+      btn.addEventListener('click', apply);
+      clear && clear.addEventListener('click', clearAll);
+      q.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') { e.preventDefault(); apply(); }});
+      tag.addEventListener('change', apply);
+      orden.addEventListener('change', apply);
+    }
+    init();
+  })();
   </script>
 </body>
 </html>
