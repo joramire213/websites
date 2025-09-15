@@ -7,9 +7,12 @@
   <title>Así se Construye el Cerebro de Tu Hijo | Momento Presente</title>
   <meta name="description" content="Guía cálida y científica para entender cómo se construye el cerebro infantil y cómo potenciar su desarrollo día a día con hábitos simples y basados en evidencia." />
   <link rel="canonical" href="https://momentopresentekids.com/articulos/asi-se-construye-el-cerebro-de-tu-hijo.html" />
+  <meta name="theme-color" content="#fffaf1">
 
   <!-- Medición (coherente con el sitio) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
 
@@ -17,12 +20,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Estilos del sitio -->
+  <!-- Estilos y layout -->
   <link rel="icon" href="../img/favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="preload" as="image" href="../img/hero.jpg">
   <script defer src="../js/layout.js"></script>
 
   <!-- Datos estructurados (Article) -->
@@ -41,6 +43,26 @@
     "keywords": "desarrollo cerebral infantil, plasticidad, poda sináptica, apego, adolescencia"
   }
   </script>
+
+  <style>
+    /* Microestilos puntuales para “impacto inmediato” sin tocar tu CSS global */
+    .article-header{padding:32px 0 8px;}
+    .kicker{display:inline-flex;align-items:center;gap:.4rem;font:600 .8rem/1 Poppins,system-ui;background:#eef6ff;padding:.35rem .6rem;border-radius:999px;border:1px solid rgba(2,6,23,.06);}
+    .title-wrap{margin:.6rem 0 1rem;}
+    .title-wrap h1{margin:0;font-size:clamp(1.8rem,4.2vw,2.6rem);line-height:1.15;}
+    .lede{font-size:1.1rem;color:var(--text-muted,#334155);margin:.4rem 0 0;}
+    .meta-row{display:flex;gap:1rem;align-items:center;color:#475569;font-size:.92rem;margin-top:.6rem;}
+    .dot{width:4px;height:4px;background:#94a3b8;border-radius:50%;display:inline-block;margin:0 .35rem;}
+    .takeaways{margin:18px 0 28px;display:grid;gap:12px;}
+    .takeaways .card{background:linear-gradient(180deg,#ffffff 0%,#fbfcff 100%);border:1px solid rgba(2,6,23,.06);border-radius:16px;box-shadow:var(--shadow,0 6px 18px rgba(2,6,23,.06));padding:16px 18px;display:flex;gap:.6rem;align-items:flex-start}
+    .takeaways .card i{flex:0 0 auto}
+    .takeaways .card p{margin:0}
+    .progress-track{position:sticky;top:0;height:6px;background:#eef3f9;z-index:20}
+    .progress-bar{height:100%;width:0%;background:#1b2a3a;transition:width .1s linear}
+    .share-row{display:flex;gap:.5rem;align-items:center;margin-top:10px}
+    .share-row a{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .6rem;border-radius:10px;border:1px solid rgba(2,6,23,.08);text-decoration:none;color:inherit}
+    .article-body h2{scroll-margin-top:90px}
+  </style>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W92DWBFZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -48,34 +70,43 @@
   <!-- Header inyectado por js/layout.js -->
   <div id="site-header"></div>
 
+  <!-- Barra de progreso de lectura -->
+  <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="readProgress"></div></div>
+
   <main>
-    <!-- Hero de artículo con imagen LCP explícita -->
-    <section id="hero">
-      <div class="container hero-content">
-        <h1>Así se Construye el Cerebro de Tu Hijo</h1>
-        <p>Guía cálida y científica para potenciar su desarrollo día a día.</p>
-        <img src="../img/hero.jpg"
-             alt=""
-             fetchpriority="high"
-             decoding="async"
-             width="1600" height="650"
-             style="width:100%;height:auto;border-radius:16px;object-fit:cover;display:block;margin-top:1rem;" />
+    <!-- CABECERA DEL ARTÍCULO · SIN HERO, impacto inmediato -->
+    <header class="container article-header" aria-labelledby="art-title">
+      <span class="kicker"><i data-lucide="brain" aria-hidden="true"></i> Neurodesarrollo</span>
+      <div class="title-wrap">
+        <h1 id="art-title">Así se Construye el Cerebro de Tu Hijo</h1>
+        <p class="lede">Guía cálida y científica para potenciar su desarrollo día a día —con hábitos simples y basados en evidencia.</p>
       </div>
-    </section>
 
-    <!-- Migas -->
-    <nav aria-label="Breadcrumb" class="container" style="margin-top: 20px;">
-      <p><a href="../articulos/">Artículos</a> / <span>Así se Construye el Cerebro de Tu Hijo</span></p>
-    </nav>
+      <div class="meta-row">
+        <span><i data-lucide="calendar" aria-hidden="true"></i> <time datetime="2025-09-15">15 Sep 2025</time></span>
+        <span class="dot" aria-hidden="true"></span>
+        <span><i data-lucide="clock-3" aria-hidden="true"></i> Lectura: ~12–14 min</span>
+        <span class="dot" aria-hidden="true"></span>
+        <nav aria-label="Migas"><a href="./">Artículos</a> / <span>Así se Construye…</span></nav>
+      </div>
 
-    <!-- Contenido -->
-    <article class="container reveal-on-scroll" style="max-width: 880px;">
-      <header style="margin: 16px 0 32px;">
-        <p class="testimonial-author">Publicado: <time datetime="2025-09-15">15 Sep 2025</time> · Lectura: ~12–14 min</p>
-      </header>
+      <!-- “Explota” con valor: 3 claves arriba -->
+      <div class="takeaways">
+        <div class="card"><i data-lucide="sparkles"></i><p><strong>Plasticidad real:</strong> lo que se practica se fortalece; el cerebro es arcilla, no mármol.</p></div>
+        <div class="card"><i data-lucide="heart-handshake"></i><p><strong>Apego y rutina:</strong> vínculos predecibles y hábitos simples regulan emoción y atención.</p></div>
+        <div class="card"><i data-lucide="goal"></i><p><strong>Pequeñas acciones diarias:</strong> sueño, juego libre y lenguaje compartido cambian trayectorias.</p></div>
+      </div>
 
-      <!-- === CONTENIDO === -->
-      <p class="h1" aria-hidden="true">Así se Construye el Cerebro de Tu Hijo: Guía Cálida y Científica para Potenciar su Desarrollo Día a Día</p>
+      <!-- Compartir -->
+      <div class="share-row" aria-label="Compartir">
+        <a id="share-wsp" href="#" rel="noopener"><i data-lucide="message-circle"></i> WhatsApp</a>
+        <a id="share-x" href="#" rel="noopener"><i data-lucide="twitter"></i> X</a>
+        <a id="share-ln" href="#" rel="noopener"><i data-lucide="linkedin"></i> LinkedIn</a>
+      </div>
+    </header>
+
+    <!-- CUERPO -->
+    <article class="container article-body reveal-on-scroll" style="max-width: 880px;">
       <p>Queridas madres y queridos padres,</p>
       <p>en la cabeza de sus hijos late un universo en expansión. No es un chip que “viene instalado”, sino una obra viva que se edifica minuto a minuto con experiencias, afectos y oportunidades. Desde antes de nacer y hasta bien entrada la juventud —aproximadamente los 25 años—, cada caricia, cada juego, cada conversación y cada reto adecuado dejan una huella real en la arquitectura cerebral. Este artículo es un mapa claro y humano para comprender esa construcción y, sobre todo, para acompañarla con intuición y ciencia.</p>
       <p>Encontrarán aquí una síntesis accesible de lo que sabemos hoy acerca del desarrollo cerebral, libre de mitos y cargada de ideas prácticas. La promesa es sencilla: si entendemos cómo aprende y se organiza el cerebro infantil, podremos regalarles a nuestros hijos el contexto más poderoso para crecer con calma, curiosidad, autocontrol y esperanza.</p>
@@ -160,7 +191,7 @@
           <h3>Volver a Artículos</h3>
           <p>Explora más lecturas prácticas para la familia.</p>
         </a>
-        <!-- Opcional: Siguiente artículo cuando exista -->
+        <!-- Siguiente artículo cuando exista -->
         <!-- <a class="service-card" href="./otro-articulo.html"><i data-lucide="arrow-right" aria-hidden="true"></i><h3>Siguiente: Título…</h3><p>Resumen corto.</p></a> -->
       </nav>
     </article>
@@ -171,5 +202,30 @@
 
   <!-- Scripts del sitio -->
   <script src="../js/main.js"></script>
+  <script>
+    // Progreso de lectura + compartir
+    (function(){
+      const bar = document.getElementById('readProgress');
+      const shareW = document.getElementById('share-wsp');
+      const shareX = document.getElementById('share-x');
+      const shareL = document.getElementById('share-ln');
+
+      function onScroll(){
+        const h = document.documentElement;
+        const scrollTop = h.scrollTop || document.body.scrollTop;
+        const scrollHeight = (h.scrollHeight - h.clientHeight) || 1;
+        const p = Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100));
+        if (bar) bar.style.width = p + '%';
+      }
+      document.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(document.title + ' — Momento Presente');
+      if (shareW) shareW.href = `https://wa.me/?text=${text}%0A${url}`;
+      if (shareX) shareX.href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+      if (shareL) shareL.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    })();
+  </script>
 </body>
 </html>
