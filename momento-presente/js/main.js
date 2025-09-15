@@ -126,4 +126,29 @@ document.addEventListener('DOMContentLoaded', function () {
   if (window.lucide && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
   }
+
+  // 6) Header: solidificar al hacer scroll + scroll-to-top en clic de logo si ya estás en el home
+  const headerEl = document.querySelector('.main-header');
+  function toggleHeaderSolid() {
+    if (!headerEl) return;
+    const y = window.scrollY || window.pageYOffset || 0;
+    if (y > 4) headerEl.classList.add('is-scrolled');
+    else headerEl.classList.remove('is-scrolled');
+  }
+  toggleHeaderSolid();
+  window.addEventListener('scroll', toggleHeaderSolid, { passive: true });
+
+  // Clic en logo: si ya estamos en el home, hacer scroll al tope en vez de recargar
+  document.querySelectorAll('.logo-link').forEach((logo) => {
+    logo.addEventListener('click', (e) => {
+      // ¿Estamos ya en el home?
+      const path = (window.location.pathname || '').replace(/\/+$/, '');
+      const isHome = path.endsWith('/index.html') || path === '' || path === '/' ;
+
+      if (isHome) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
 });

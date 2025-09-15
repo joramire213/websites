@@ -88,15 +88,28 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 }
 
 /* ------------------- */
-/* HEADER */
+/* HEADER sticky translúcido con blur*/
 /* ------------------- */
 .main-header {
-  background-color: var(--bg);
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  /* Transparencia + blur al estilo “glass” */
+  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+
+  border-bottom: 1px solid rgba(2,6,23,.06);
+  transition: background var(--trans), border-color var(--trans), box-shadow var(--trans);
+  /* Quita sombra fuerte por defecto (se aplicará al hacer scroll) */
+  box-shadow: none;
+}
+
+/* Estado al hacer scroll: un poco más sólido y con sombra */
+.main-header.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  border-bottom-color: rgba(2,6,23,.10);
   box-shadow: var(--shadow);
 }
 

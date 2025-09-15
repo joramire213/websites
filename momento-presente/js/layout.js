@@ -13,7 +13,7 @@
   var headerHTML = ''
     + '<header class="main-header">'
     + '  <div class="container header-container">'
-    + '    <a href="' + base + 'index.html#hero" class="logo-link">'
+    + '    <a href="' + base + 'index.html" class="logo-link">'
     + '      <img src="' + base + 'img/logo.png" alt="Logo Momento Presente" class="logo">'
     + '    </a>'
     + '    <nav class="main-nav" aria-label="Navegación principal">'
