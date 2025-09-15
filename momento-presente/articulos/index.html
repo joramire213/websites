@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Artículos | Momento Presente</title>
+  <meta name="description" content="Artículos sobre desarrollo infantil, regulación emocional y orientación para familias. Lecturas claras y prácticas." />
+  <link rel="canonical" href="https://momentopresentekids.com/articulos/" />
+  <meta name="theme-color" content="#fffaf1">
+
+  <!-- GTM / GA (mismos IDs del sitio) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
+
+  <!-- Fuentes + Iconos (coherente con home) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- CSS del sitio -->
+  <link rel="icon" href="../img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preload" as="image" href="../img/hero.jpg" imagesrcset="../img/hero.jpg" />
+  <script defer src="../js/layout.js"></script>
+
+  <!-- Datos estructurados: listado de artículos -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Artículos",
+    "url": "https://momentopresentekids.com/articulos/",
+    "about": { "@type": "Thing", "name": "Psicología infantil" },
+    "hasPart": [
+      {
+        "@type": "Article",
+        "headline": "Así se Construye el Cerebro de Tu Hijo",
+        "url": "https://momentopresentekids.com/articulos/asi-se-construye-el-cerebro-de-tu-hijo.html",
+        "datePublished": "2025-09-15"
+      },
+      {
+        "@type": "Article",
+        "headline": "Amistades en primaria: guías para padres",
+        "url": "https://momentopresentekids.com/articulos/amistades-en-primaria.html",
+        "datePublished": "2025-08-28"
+      },
+      {
+        "@type": "Article",
+        "headline": "Rutinas nocturnas sin luchas",
+        "url": "https://momentopresentekids.com/articulos/rutinas-nocturnas-sin-luchas.html",
+        "datePublished": "2025-08-15"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W92DWBFZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Header inyectado por js/layout.js -->
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Hero simple de sección -->
+    <section id="hero">
+      <div class="container hero-content">
+        <h1>Artículos</h1>
+        <p>Lecturas prácticas y basadas en evidencia para acompañarte en el día a día.</p>
+        <img src="../img/hero.jpg"
+             alt=""
+             fetchpriority="high"
+             decoding="async"
+             width="1600" height="650"
+             style="width:100%;height:auto;border-radius:16px;object-fit:cover;display:block;margin-top:1rem;" />
+      </div>
+    </section>
+
+    <!-- Controles: buscador + filtro etiquetas -->
+    <section>
+      <div class="container reveal-on-scroll">
+        <h2>Explora los temas</h2>
+        <div class="contacto-wrapper" style="grid-template-columns:1fr;">
+          <div class="contacto-form-wrapper">
+            <form class="contact-form" id="blog-filters" role="search" aria-label="Filtros de artículos" onsubmit="return false;">
+              <div class="form-group full-width">
+                <label for="q">Buscar</label>
+                <input id="q" type="search" placeholder="Palabras clave (ej: rabietas, sueño, ansiedad)">
+              </div>
+              <div class="form-group">
+                <label for="tag">Etiqueta</label>
+                <select id="tag">
+                  <option value="">Todas</option>
+                  <option value="regulacion-emocional">Regulación emocional</option>
+                  <option value="habilidades-sociales">Habilidades sociales</option>
+                  <option value="familia">Familia</option>
+                  <option value="escuela">Escuela</option>
+                  <option value="neurodesarrollo">Neurodesarrollo</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="orden">Ordenar</label>
+                <select id="orden">
+                  <option value="recientes">Más recientes</option>
+                  <option value="titulo">Título (A–Z)</option>
+                </select>
+              </div>
+              <button class="submit-button" id="applyFilters">Aplicar filtros</button>
+              <button type="button" class="submit-button" id="clearFilters" style="background:#e9eef5;color:#1b2a3a;margin-left:.5rem;">
+                Limpiar filtros
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grilla de tarjetas (reutilizamos .servicios-grid / .service-card) -->
+    <section>
+      <div class="container">
+        <div class="servicios-grid reveal-on-scroll" id="postsGrid">
+          <!-- NUEVO · Artículo: Así se Construye el Cerebro de Tu Hijo -->
+          <article class="service-card"
+                   data-tags="regulacion-emocional familia neurodesarrollo"
+                   data-title="Así se Construye el Cerebro de Tu Hijo"
+                   data-date="2025-09-15">
+            <i data-lucide="book-open-text" aria-hidden="true"></i>
+            <h3><a class="card-link" href="./asi-se-construye-el-cerebro-de-tu-hijo.html">Así se Construye el Cerebro de Tu Hijo</a></h3>
+            <p>Guía cálida y científica para entender cómo se forma el cerebro infantil y cómo acompañarlo día a día.</p>
+            <p class="testimonial-author">Lectura: 12–14 min · Neurodesarrollo</p>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="service-card" data-tags="habilidades-sociales escuela" data-title="Amistades en primaria: guías para padres" data-date="2025-08-28">
+            <i data-lucide="users-round" aria-hidden="true"></i>
+            <h3><a class="card-link" href="./amistades-en-primaria.html">Amistades en primaria: guías para padres</a></h3>
+            <p>Cómo apoyar la integración social, límites sanos y resolución de conflictos.</p>
+            <p class="testimonial-author">Lectura: 7 min · Habilidades sociales</p>
+          </article>
+
+          <!-- Tarjeta 3 -->
+          <article class="service-card" data-tags="familia regulacion-emocional" data-title="Rutinas nocturnas sin luchas" data-date="2025-08-15">
+            <i data-lucide="moon-star" aria-hidden="true"></i>
+            <h3><a class="card-link" href="./rutinas-nocturnas-sin-luchas.html">Rutinas nocturnas sin luchas</a></h3>
+            <p>Un paso a paso para que las noches sean predecibles, amables y reparadoras.</p>
+            <p class="testimonial-author">Lectura: 5 min · Familia</p>
+          </article>
+
+          <!-- Agrega más artículos siguiendo el mismo patrón -->
+        </div>
+        <div class="no-results" id="noResults" role="status" aria-live="polite" style="display:none;margin-top:1rem;">
+          <p>No encontramos artículos con tus filtros. Prueba limpiar o usar otras palabras.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer inyectado por js/layout.js -->
+  <div id="site-footer"></div>
+
+  <!-- JS del sitio -->
+  <script src="../js/main.js"></script>
+  <script>
+    (function(){
+      const grid = document.getElementById('postsGrid');
+      const q = document.getElementById('q');
+      const tag = document.getElementById('tag');
+      const orden = document.getElementById('orden');
+      const btn = document.getElementById('applyFilters');
+      const clear = document.getElementById('clearFilters');
+      const noResults = document.getElementById('noResults');
+
+      function readQuery() {
+        const p = new URLSearchParams(window.location.search);
+        if (p.has('q')) q.value = p.get('q');
+        if (p.has('tag')) tag.value = p.get('tag');
+        if (p.has('sort')) orden.value = p.get('sort');
+      }
+
+      function writeQuery() {
+        const p = new URLSearchParams();
+        if (q.value.trim()) p.set('q', q.value.trim());
+        if (tag.value)       p.set('tag', tag.value);
+        if (orden.value)     p.set('sort', orden.value);
+        const url = window.location.pathname + (p.toString() ? '?' + p.toString() : '');
+        window.history.replaceState({}, '', url);
+      }
+
+      function apply() {
+        const term = (q.value || '').toLowerCase().trim();
+        const t = tag.value;
+        const cards = Array.from(grid.children);
+
+        // Filtrado
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const title = (card.dataset.title || '').toLowerCase();
+          const tags = (card.dataset.tags || '').split(' ');
+          const matchesText = !term || title.includes(term);
+          const matchesTag  = !t || tags.includes(t);
+          const show = (matchesText && matchesTag);
+          card.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+
+        // Orden
+        const visible = cards.filter(c => c.style.display !== 'none');
+        visible.sort((a,b) => {
+          if (orden.value === 'titulo') {
+            return a.dataset.title.localeCompare(b.dataset.title);
+          }
+          // recientes (ISO YYYY-MM-DD)
+          return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+        });
+        visible.forEach(el => grid.appendChild(el));
+
+        // Sin resultados
+        if (noResults) noResults.style.display = visibleCount ? 'none' : 'block';
+
+        // Persistir querystring
+        writeQuery();
+      }
+
+      function clearAll() {
+        q.value = '';
+        tag.value = '';
+        orden.value = 'recientes';
+        apply();
+      }
+
+      function init() {
+        readQuery();
+        apply(); // aplicar estado inicial por query
+
+        btn.addEventListener('click', apply);
+        clear && clear.addEventListener('click', clearAll);
+
+        // Enter en input q activa aplicar
+        q.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') { e.preventDefault(); apply(); }
+        });
+
+        // Cambios inmediatos con teclado/mouse
+        tag.addEventListener('change', apply);
+        orden.addEventListener('change', apply);
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>

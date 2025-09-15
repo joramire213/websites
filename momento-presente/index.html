@@ -37,12 +37,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload de la imagen principal del hero para mejorar LCP -->
+    <link rel="preload" as="image" href="img/hero.jpg" imagesrcset="img/hero.jpg 1280w" imagesizes="100vw" fetchpriority="high">
     
     <!-- Lucide Icons (lo mantenemos por ahora) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Nuestro CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/layout.js"></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -93,6 +96,17 @@
     "areaServed": "CO",
     "availableLanguage": ["es"],
     "telephone": "+57 3006813088"
+  }
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "@id":"https://momentopresentekids.com/#website",
+  "url":"https://momentopresentekids.com/",
+  "name":"Momento Presente",
+  "inLanguage":"es-CO",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://momentopresentekids.com/?s={search_term_string}",
+    "query-input":"required name=search_term_string"
   }
 }
 </script>
@@ -159,38 +173,8 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-    <header class="main-header">
-        <div class="container header-container">
-            <a href="#hero" class="logo-link">
-                <img src="img/logo.png" alt="Logo Momento Presente" class="logo">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#metodo">Método</a></li> <!-- AÑADIDO -->
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li> <!-- AÑADIDO -->
-                    <li><a href="#faq">FAQ</a></li> <!-- AÑADIDO -->
-                    <li><a href="#contacto">Contacto</a></li> <!-- AÑADIDO -->
-                </ul>
-            </nav>
-        
-            <!-- ELEMENTO NUEVO: Botón Hamburguesa -->
-            <button class="burger-menu" aria-label="Abrir menú" aria-expanded="false">
-                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </div>
-    
-        <!-- ELEMENTO NUEVO: Contenedor del Menú Móvil -->
-        <div class="mobile-nav-container">
-            <a href="#nosotros">Nosotros</a>
-            <a href="#metodo">Método</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#testimonios">Testimonios</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contacto" class="btn btn-primary">Agendar Cita</a>
-        </div>
-    </header>
+    <!-- Header inyectado por js/layout.js -->
+    <div id="site-header"></div>
 
     <main>
         <section id="hero">
@@ -212,11 +196,11 @@
                         <p>Estamos ubicados en el corazón de Medellín, listos para recibirte.</p>
                 
                         <div class="nosotros-logo-wrapper">
-                           <img src="img/logo_momento_presente.png" alt="Logo de Momento Presente" class="nosotros-logo">
+                           <img src="img/logo_momento_presente.png" alt="Logo de Momento Presente" class="nosotros-logo" loading="lazy" decoding="async" width="320" height="320">
                         </div>
                     </div>
                     <div class="nosotros-img">
-                    <img src="https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de la terapeuta Nataly Galeano">
+                    <img src="https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto de la terapeuta Nataly Galeano" loading="lazy" decoding="async" width="1260" height="750">
                     </div>
                 </div>
             </div>
@@ -240,19 +224,19 @@
                 <div class="servicios-grid reveal-on-scroll">
                     <!-- Tarjeta de Servicio 1 -->
                     <div class="service-card">
-                        <i data-lucide="smile-plus"></i>
+                        <i aria-hidden="true" data-lucide="smile-plus"></i>
                         <h3>Terapia Individual</h3>
                         <p>Un espacio uno a uno para que el niño exprese sus emociones, miedos y alegrías de forma segura.</p>
                     </div>
                     <!-- Tarjeta de Servicio 2 -->
                     <div class="service-card">
-                        <i data-lucide="users"></i>
+                        <i aria-hidden="true" data-lucide="users"></i>
                         <h3>Orientación Familiar</h3>
                         <p>Brindamos herramientas y estrategias a los padres para fortalecer los vínculos familiares y manejar desafíos.</p>
                     </div>
                     <!-- Tarjeta de Servicio 3 -->
                     <div class="service-card">
-                        <i data-lucide="puzzle"></i>
+                        <i aria-hidden="true" data-lucide="puzzle"></i>
                         <h3>Evaluación y Diagnóstico</h3>
                         <p>Identificamos las necesidades específicas de cada niño para crear un plan de acompañamiento a medida.</p>
                     </div>
@@ -339,13 +323,13 @@
                         <h3>Contacto Directo</h3>
                         <p>La forma más rápida de hablar con nosotros. ¡Escríbenos por WhatsApp!</p>
                         <a href="https://wa.me/573006813088" target="_blank" class="btn-whatsapp">
-                            <i data-lucide="message-circle"></i> Chatear en WhatsApp
+                            <i aria-hidden="true" data-lucide="message-circle"></i> Chatear en WhatsApp
                         </a>
                         <div class="social-links">
                             <p>Síguenos en nuestras redes:</p>
-                            <a href="https://www.facebook.com/profile.php?id=100086572137490" target="_blank" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-                            <a href="https://www.instagram.com/MomentoPresente22" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                            <a href="https://www.tiktok.com/@momentopresente" target="_blank" aria-label="TikTok"><i data-lucide="music-4"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100086572137490" target="_blank" aria-label="Facebook"><i aria-hidden="true" data-lucide="facebook"></i></a>
+                            <a href="https://www.instagram.com/MomentoPresente22" target="_blank" aria-label="Instagram"><i aria-hidden="true" data-lucide="instagram"></i></a>
+                            <a href="https://www.tiktok.com/@momentopresente" target="_blank" aria-label="TikTok"><i aria-hidden="true" data-lucide="music-4"></i></a>
                         </div>
                     </div>
 
@@ -385,20 +369,8 @@
         </section>
     </main>
     
-    <footer class="main-footer">
-        <div class="container footer-container">
-            <div class="copyright-info">
-                <p>&copy; 2025 Momento Presente</p>
-                <p>Acompañamiento Terapéutico | Medellín, Colombia</p>
-            </div>
-            <div class="credits-info">
-                <p class="credits-text">Diseñado y desarrollado con ❤️ por:</p>
-                <a href="https://travisafe.com/" target="_blank" class="travisafe-logo-link">
-                    <img src="https://vivelacity.com/wp-content/uploads/2024/11/Logo_Travi_Connect_Trans_A.webp" alt="Logo Travisafe" class="footer-logo">
-                </a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer inyectado por js/layout.js -->
+    <div id="site-footer"></div>
     
     <!-- Nuestros Scripts (al final para mejor rendimiento) -->
     <script src="js/main.js"></script>
