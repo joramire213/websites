@@ -1,67 +1,89 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. Selección de los elementos del DOM
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (!contactForm) {
-        return;
+// form.js – envío accesible y robusto del formulario de contacto
+'use strict';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.querySelector('.contact-form');
+  if (!contactForm) return;
+
+  const submitButton = contactForm.querySelector('.submit-button');
+  const statusMessage = document.getElementById('form-status'); // ideal: role="status" aria-live="polite" en HTML
+
+  function setStatus(text, color) {
+    if (!statusMessage) return;
+    statusMessage.textContent = text || '';
+    if (color) statusMessage.style.color = color;
+  }
+
+  async function sendForm(payload) {
+    const webhookUrl = 'https://n8n-n8n.2gzq2x.easypanel.host/webhook/Momento_Formulario';
+    const ctrl = new AbortController();
+    const timeoutId = setTimeout(() => ctrl.abort(), 10000); // 10s timeout
+
+    try {
+      const res = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+          // No expongas secretos en el cliente (mover a servidor si se requiere)
+        },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal,
+        keepalive: true,
+        referrerPolicy: 'strict-origin-when-cross-origin',
+        credentials: 'omit',
+        cache: 'no-store',
+      });
+      return res;
+    } finally {
+      clearTimeout(timeoutId);
     }
+  }
 
-    const submitButton = contactForm.querySelector('.submit-button');
-    const statusMessage = document.getElementById('form-status');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (submitButton.disabled) return; // evita dobles envíos rápidos
 
-    // 2. Añadir el listener al evento 'submit' del formulario
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+    // Estado de envío accesible
+    submitButton.disabled = true;
+    submitButton.setAttribute('aria-disabled', 'true');
+    contactForm.setAttribute('aria-busy', 'true');
+    submitButton.textContent = 'Enviando…';
+    setStatus('', 'var(--color-texto)');
 
-        submitButton.disabled = true;
-        submitButton.textContent = 'Enviando...';
-        statusMessage.textContent = '';
-        statusMessage.style.color = 'var(--color-texto)';
+    // Datos
+    const formData = new FormData(contactForm);
+    const leadData = Object.fromEntries(formData.entries());
+    const payload = {
+      created_at: new Date().toISOString(),
+      nombre: leadData.nombre || null,
+      apellido: leadData.apellido || null,
+      celular: leadData.celular || null,
+      email: leadData.email || null,
+      origen: 'Momento Presente',
+      mi_caso_es: leadData.caso || null,
+    };
 
-        // 3. Recopilación de datos del formulario
-        const formData = new FormData(contactForm);
-        const leadData = Object.fromEntries(formData.entries());
+    try {
+      const response = await sendForm(payload);
 
-        // 4. Payload alineado con Postgres
-        const payload = {
-            created_at: new Date().toISOString(),
-            nombre: leadData.nombre || null,
-            apellido: leadData.apellido || null,
-            celular: leadData.celular || null,
-            email: leadData.email || null,
-            origen: 'Momento Presente',
-            mi_caso_es: leadData.caso || null
-        };
-
-        // 5. Envío al webhook
-        try {
-            const webhookUrl = 'https://n8n-n8n.2gzq2x.easypanel.host/webhook/Momento_Formulario';
-            const response = await fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'rtl-key': '1234321'
-                },
-                body: JSON.stringify(payload)
-            });
-
-            if (response.ok) {
-                statusMessage.textContent = '¡Gracias! Tus datos fueron enviados. Pronto se pondrán en contacto contigo.';
-                statusMessage.style.color = '#2ecc71';
-                contactForm.reset();
-            } else {
-                statusMessage.textContent = `Hubo un problema con el envío (Error: ${response.status}). Por favor, intenta de nuevo.`;
-                statusMessage.style.color = '#e74c3c';
-            }
-
-        } catch (error) {
-            console.error('Error de red al enviar el formulario:', error);
-            statusMessage.textContent = 'No se pudo conectar con el servidor. Revisa tu conexión a internet e intenta de nuevo.';
-            statusMessage.style.color = '#e74c3c';
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Solicitar contacto';
+      if (response && response.ok) {
+        setStatus('¡Gracias! Tus datos fueron enviados. Pronto nos pondremos en contacto contigo.', '#2ecc71');
+        contactForm.reset();
+        if (window.dataLayer) {
+          window.dataLayer.push({ event: 'lead_submitted' });
         }
-    });
+      } else {
+        const code = response ? response.status : 'desconocido';
+        setStatus(`Hubo un problema con el envío (Error: ${code}). Intenta de nuevo.`, '#e74c3c');
+      }
+    } catch (err) {
+      console.error('Error de red al enviar el formulario:', err);
+      setStatus('No se pudo conectar con el servidor. Revisa tu conexión e intenta de nuevo.', '#e74c3c');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.removeAttribute('aria-disabled');
+      contactForm.removeAttribute('aria-busy');
+      submitButton.textContent = 'Solicitar contacto';
+    }
+  });
 });
