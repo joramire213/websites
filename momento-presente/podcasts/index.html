@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
 
-  <!-- Datos estructurados: listado de podcasts -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -41,40 +41,82 @@
         "name":"Desarrollo del Cerebro Infantil y Adolescente",
         "url":"https://momentopresentekids.com/podcasts/audio/desarrollo_cerebro_infantil.mp4",
         "encodingFormat":"audio/mp4",
-        "uploadDate":"2025-09-15"
+        "uploadDate":"2025-09-15",
+        "duration":"PT23M04S",
+        "description":"Cómo se moldea la plasticidad cerebral en edades tempranas y qué hábitos cotidianos favorecen el aprendizaje y la regulación emocional."
       },
       {
         "@type":"AudioObject",
         "name":"Cuando mi hijo no quiere ir a clase",
         "url":"https://momentopresentekids.com/podcasts/audio/cuando_no_quiere_ir_a_clase.mp3",
         "encodingFormat":"audio/mpeg",
-        "uploadDate":"2025-08-30"
+        "uploadDate":"2025-08-30",
+        "duration":"PT10M12S",
+        "description":"Estrategias prácticas para abordar la negativa escolar: causas frecuentes, acompañamiento afectivo y pactos realistas con el colegio."
       },
       {
         "@type":"AudioObject",
         "name":"Rutinas de la mañana sin carreras",
         "url":"https://momentopresentekids.com/podcasts/audio/rutinas_manana_sin_carreras.mp4",
         "encodingFormat":"audio/mp4",
-        "uploadDate":"2025-08-18"
+        "uploadDate":"2025-08-18",
+        "duration":"PT7M05S",
+        "description":"Diseña mañanas más tranquilas con pasos simples: anticipación, micro-hábitos y herramientas para reducir el estrés familiar."
       }
     ]
   }
   </script>
 
   <style>
-    /* Microestilos solo para el reproductor; lo demás usa style.css */
-    .player-card{cursor:pointer; user-select:none;}
-    .player-row{display:flex; gap:1rem; align-items:center;}
-    .play-btn{display:inline-flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:999px; border:1px solid rgba(2,6,23,.1); background:#fff;}
-    .play-btn:focus-visible{outline:2px solid #1b2a3a; outline-offset:2px;}
-    .title-wrap h3{margin:0;}
-    .meta{margin:.25rem 0 0; color:#475569; font-size:.92rem;}
-    .timeline{position:relative; height:28px; display:flex; align-items:center; cursor:pointer; touch-action:none;}
-    .track{position:relative; height:6px; width:100%; background:#e7edf4; border-radius:999px; overflow:hidden;}
-    .buffer{position:absolute; left:0; top:0; bottom:0; width:0%; background:#d6e3f3;}
-    .bar{position:absolute; left:0; top:0; bottom:0; width:0%; background:#1b2a3a;}
-    .thumb{position:absolute; top:50%; transform:translate(-50%,-50%); width:14px; height:14px; border-radius:50%; background:#1b2a3a; border:2px solid #fff; box-shadow:0 1px 3px rgba(2,6,23,.25); pointer-events:none;}
-    .time-row{display:flex; justify-content:space-between; font-size:.86rem; color:#475569; margin-top:.25rem;}
+    /* Apariencia de reproductor para cada tarjeta */
+    .player-card{
+      position:relative;
+      padding:1.25rem 1.25rem 1rem;
+      border-radius:18px;
+      background:
+        radial-gradient(1200px 400px at -10% -40%, #ffffff 0%, #ffffff 40%, rgba(255,255,255,0) 41%),
+        linear-gradient(180deg, #ffffff 0%, #fbfdff 60%, #f4f8fd 100%);
+      border:1px solid rgba(2,6,23,.06);
+      box-shadow: 0 6px 20px rgba(13, 38, 76, .06);
+      transition: transform .2s ease, box-shadow .2s ease;
+      cursor:default;
+      user-select:none;
+    }
+    .player-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 26px rgba(13,38,76,.09); }
+    .title-wrap h3{ margin:0 0 .25rem 0; }
+    .meta{ margin:0 0 .5rem 0; color:#475569; font-size:.92rem; }
+    .desc{ margin:.25rem 0 1rem; color:#334155; line-height:1.6; }
+
+    /* Botón Play/Pause centrado como control principal */
+    .controls{
+      display:flex; justify-content:center; align-items:center; margin:.25rem 0 .5rem;
+    }
+    .play-btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:64px; height:64px; border-radius:999px;
+      border:1px solid rgba(2,6,23,.08); background:#ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .08), inset 0 -2px 6px rgba(148,163,184,.15);
+    }
+    .play-btn:focus-visible{ outline:3px solid #1b2a3a; outline-offset:3px; }
+
+    /* Timeline estilo player */
+    .timeline{ position:relative; height:36px; display:flex; align-items:center; cursor:pointer; touch-action:none; }
+    .track{
+      position:relative; height:8px; width:100%;
+      background:#e7edf4; border-radius:999px; overflow:hidden;
+      box-shadow: inset 0 1px 2px rgba(2,6,23,.08);
+    }
+    .buffer{ position:absolute; inset:0 auto 0 0; width:0%; background:#d6e3f3; }
+    .bar{ position:absolute; inset:0 auto 0 0; width:0%; background:#1b2a3a; }
+    .thumb{
+      position:absolute; top:50%; transform:translate(-50%,-50%);
+      width:16px; height:16px; border-radius:50%; background:#1b2a3a; border:2px solid #fff;
+      box-shadow:0 2px 6px rgba(2,6,23,.25); pointer-events:none;
+    }
+    .time-row{ display:flex; justify-content:space-between; font-size:.86rem; color:#475569; margin-top:.25rem; }
+
+    /* Accesibilidad/robustez */
+    .reveal-on-scroll { opacity:1 !important; transform:none !important; }
   </style>
 </head>
 <body>
@@ -84,7 +126,7 @@
   <div id="site-header"></div>
 
   <main>
-    <!-- SIN HERO: el contenido “estalla” directo -->
+    <!-- SIN HERO -->
     <section aria-labelledby="podcast-title">
       <div class="container">
         <h1 id="podcast-title">Podcast</h1>
@@ -92,140 +134,118 @@
       </div>
     </section>
 
-    <!-- (Opcional) Filtros mínimos -->
-    <section>
-      <div class="container">
-        <form class="contact-form" id="podcast-filters" role="search" aria-label="Filtros de episodios" onsubmit="return false;" style="max-width:720px;">
-          <div class="form-group full-width">
-            <label for="q2">Buscar</label>
-            <input id="q2" type="search" placeholder="Palabras clave (ej: sueño, límites, ansiedad)">
-          </div>
-          <div class="form-group">
-            <label for="orden2">Ordenar</label>
-            <select id="orden2">
-              <option value="recientes">Más recientes</option>
-              <option value="titulo">Título (A–Z)</option>
-            </select>
-          </div>
-          <button class="submit-button" id="applyFilters2">Aplicar filtros</button>
-          <button type="button" class="submit-button" id="clearFilters2" style="background:#e9eef5;color:#1b2a3a;margin-left:.5rem;">Limpiar</button>
-        </form>
-      </div>
-    </section>
-
     <!-- Grilla de episodios: cada tarjeta es un reproductor -->
     <section>
       <div class="container">
         <div class="servicios-grid" id="episodesGrid">
-          <!-- Episodio 1 (MP4) -->
+
+          <!-- Episodio 1 -->
           <article class="service-card player-card"
                    data-title="Desarrollo del Cerebro Infantil y Adolescente"
                    data-date="2025-09-15"
-                   tabindex="0" role="button"
-                   aria-label="Reproducir: Desarrollo del Cerebro Infantil y Adolescente">
-            <div class="player-row">
+                   tabindex="0" aria-label="Tarjeta: Desarrollo del Cerebro Infantil y Adolescente">
+            <div class="title-wrap">
+              <h3><span class="card-link">Desarrollo del Cerebro Infantil y Adolescente</span></h3>
+              <p class="meta">Plasticidad cerebral · 23:04</p>
+            </div>
+            <p class="desc">Una mirada práctica a la plasticidad cerebral: cómo se construyen conexiones sanas, qué hábitos favorecen el aprendizaje y cómo regular emociones en casa.</p>
+
+            <!-- Control principal -->
+            <div class="controls">
               <button class="play-btn" aria-label="Reproducir">
                 <i data-lucide="play" aria-hidden="true"></i>
               </button>
-              <div style="flex:1;">
-                <div class="title-wrap">
-                  <h3><span class="card-link">Desarrollo del Cerebro Infantil y Adolescente</span></h3>
-                  <p class="meta">Plasticidad cerebral · 23:04</p>
-                </div>
-
-                <!-- Timeline -->
-                <div class="timeline" aria-label="Línea de tiempo de reproducción" role="slider" tabindex="0"
-                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                  <div class="track">
-                    <div class="buffer"></div>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="thumb" style="left:0%"></div>
-                </div>
-                <div class="time-row">
-                  <small class="time-current">0:00</small>
-                  <small class="time-total">0:00</small>
-                </div>
-              </div>
             </div>
+
+            <!-- Timeline -->
+            <div class="timeline" aria-label="Línea de tiempo de reproducción" role="slider" tabindex="0"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="track">
+                <div class="buffer"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="thumb" style="left:0%"></div>
+            </div>
+            <div class="time-row">
+              <small class="time-current">0:00</small>
+              <small class="time-total">0:00</small>
+            </div>
+
             <audio preload="none" class="audio">
               <source src="./audio/desarrollo_cerebro_infantil.mp4" type="audio/mp4"/>
             </audio>
           </article>
 
-          <!-- Episodio 2 (MP3) -->
+          <!-- Episodio 2 -->
           <article class="service-card player-card"
                    data-title="Cuando mi hijo no quiere ir a clase"
                    data-date="2025-08-30"
-                   tabindex="0" role="button"
-                   aria-label="Reproducir: Cuando mi hijo no quiere ir a clase">
-            <div class="player-row">
+                   tabindex="0" aria-label="Tarjeta: Cuando mi hijo no quiere ir a clase">
+            <div class="title-wrap">
+              <h3><span class="card-link">Cuando mi hijo no quiere ir a clase</span></h3>
+              <p class="meta">Habilidades sociales · 10:12</p>
+            </div>
+            <p class="desc">Claves para comprender la negativa escolar, reducir la ansiedad matutina y reconstruir la motivación con acuerdos simples entre familia y colegio.</p>
+
+            <div class="controls">
               <button class="play-btn" aria-label="Reproducir">
                 <i data-lucide="play" aria-hidden="true"></i>
               </button>
-              <div style="flex:1;">
-                <div class="title-wrap">
-                  <h3><span class="card-link">Cuando mi hijo no quiere ir a clase</span></h3>
-                  <p class="meta">Habilidades sociales · 10:12</p>
-                </div>
-
-                <div class="timeline" aria-label="Línea de tiempo de reproducción" role="slider" tabindex="0"
-                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                  <div class="track">
-                    <div class="buffer"></div>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="thumb" style="left:0%"></div>
-                </div>
-                <div class="time-row">
-                  <small class="time-current">0:00</small>
-                  <small class="time-total">0:00</small>
-                </div>
-              </div>
             </div>
+
+            <div class="timeline" aria-label="Línea de tiempo de reproducción" role="slider" tabindex="0"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="track">
+                <div class="buffer"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="thumb" style="left:0%"></div>
+            </div>
+            <div class="time-row">
+              <small class="time-current">0:00</small>
+              <small class="time-total">0:00</small>
+            </div>
+
             <audio preload="none" class="audio">
               <source src="./audio/cuando_no_quiere_ir_a_clase.mp3" type="audio/mpeg"/>
             </audio>
           </article>
 
-          <!-- Episodio 3 (MP4) -->
+          <!-- Episodio 3 -->
           <article class="service-card player-card"
                    data-title="Rutinas de la mañana sin carreras"
                    data-date="2025-08-18"
-                   tabindex="0" role="button"
-                   aria-label="Reproducir: Rutinas de la mañana sin carreras">
-            <div class="player-row">
+                   tabindex="0" aria-label="Tarjeta: Rutinas de la mañana sin carreras">
+            <div class="title-wrap">
+              <h3><span class="card-link">Rutinas de la mañana sin carreras</span></h3>
+              <p class="meta">Familia · 7:05</p>
+            </div>
+            <p class="desc">Un plan paso a paso para mañanas más serenas: anticipación, organización visual y micro-hábitos que disminuyen el estrés de todos.</p>
+
+            <div class="controls">
               <button class="play-btn" aria-label="Reproducir">
                 <i data-lucide="play" aria-hidden="true"></i>
               </button>
-              <div style="flex:1;">
-                <div class="title-wrap">
-                  <h3><span class="card-link">Rutinas de la mañana sin carreras</span></h3>
-                  <p class="meta">Familia · 7:05</p>
-                </div>
-
-                <div class="timeline" aria-label="Línea de tiempo de reproducción" role="slider" tabindex="0"
-                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                  <div class="track">
-                    <div class="buffer"></div>
-                    <div class="bar"></div>
-                  </div>
-                  <div class="thumb" style="left:0%"></div>
-                </div>
-                <div class="time-row">
-                  <small class="time-current">0:00</small>
-                  <small class="time-total">0:00</small>
-                </div>
-              </div>
             </div>
+
+            <div class="timeline" aria-label="Línea de tiempo de reproducción" role="slider" tabindex="0"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="track">
+                <div class="buffer"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="thumb" style="left:0%"></div>
+            </div>
+            <div class="time-row">
+              <small class="time-current">0:00</small>
+              <small class="time-total">0:00</small>
+            </div>
+
             <audio preload="none" class="audio">
               <source src="./audio/rutinas_manana_sin_carreras.mp4" type="audio/mp4"/>
             </audio>
           </article>
-        </div>
 
-        <div class="no-results" id="noResults2" role="status" aria-live="polite" style="display:none;margin-top:1rem;">
-          <p>No encontramos episodios con tus filtros. Prueba limpiar o usar otras palabras.</p>
         </div>
       </div>
     </section>
@@ -238,35 +258,6 @@
   <script src="../js/main.js"></script>
   <script>
   (function(){
-    // ----------- Filtros básicos -----------
-    const grid = document.getElementById('episodesGrid');
-    const q = document.getElementById('q2');
-    const orden = document.getElementById('orden2');
-    const btn = document.getElementById('applyFilters2');
-    const clear = document.getElementById('clearFilters2');
-    const noResults = document.getElementById('noResults2');
-
-    function applyFilters(){
-      const term = (q.value||'').toLowerCase().trim();
-      const cards = Array.from(grid.children);
-      let visible = 0;
-      cards.forEach(card=>{
-        const title = (card.dataset.title||'').toLowerCase();
-        const show = !term || title.includes(term);
-        card.style.display = show ? '' : 'none';
-        if(show) visible++;
-      });
-      const vis = cards.filter(c=>c.style.display!=='none');
-      vis.sort((a,b)=>{
-        if(orden.value==='titulo') return a.dataset.title.localeCompare(b.dataset.title);
-        return (b.dataset.date||'').localeCompare(a.dataset.date||'');
-      });
-      vis.forEach(el=>grid.appendChild(el));
-      noResults.style.display = visible ? 'none' : 'block';
-    }
-    btn.addEventListener('click', applyFilters);
-    clear.addEventListener('click', ()=>{ q.value=''; orden.value='recientes'; applyFilters(); });
-
     // ----------- Reproductor por tarjeta (play/pause + timeline con seek) -----------
     let currentAudio = null;
     let currentCard  = null;
@@ -278,6 +269,9 @@
       if(!icon) return;
       icon.setAttribute('data-lucide', playing ? 'pause' : 'play');
       if(window.lucide && typeof lucide.createIcons==='function'){ lucide.createIcons(); }
+      // Accesibilidad: estado del botón
+      const btn = card.querySelector('.play-btn');
+      if(btn){ btn.setAttribute('aria-label', playing ? 'Pausar' : 'Reproducir'); }
     }
 
     function percentToTime(audio, pct){
@@ -296,7 +290,6 @@
       const cur   = card.querySelector('.time-current');
       const tot   = card.querySelector('.time-total');
 
-      // Play/Pause
       function play(){
         if(currentAudio && currentAudio!==audio){ currentAudio.pause(); if(currentCard) setIcon(currentCard,false); }
         audio.play();
@@ -306,8 +299,32 @@
       function pause(){ audio.pause(); setIcon(card, false); }
       function toggle(){ audio.paused ? play() : pause(); }
 
-      // Timeline helpers
-      let dragging = false;
+      // Botón principal
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); toggle(); });
+
+      // Teclado en la tarjeta (Enter/Espacio)
+      card.addEventListener('keydown', (e)=>{
+        if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggle(); }
+      });
+
+      // Metadatos y progreso
+      audio.addEventListener('loadedmetadata', ()=>{ tot.textContent = fmt(audio.duration); });
+      audio.addEventListener('timeupdate', ()=>{
+        const p = (audio.currentTime / (audio.duration||1));
+        bar.style.width = (p*100)+'%';
+        thumb.style.left = (p*100)+'%';
+        cur.textContent = fmt(audio.currentTime);
+      });
+      audio.addEventListener('progress', ()=>{
+        if(audio.buffered.length){
+          const end = audio.buffered.end(audio.buffered.length-1);
+          const pct = end / (audio.duration||1);
+          buff.style.width = (Math.min(1, pct)*100)+'%';
+        }
+      });
+      audio.addEventListener('ended', ()=>{ setIcon(card,false); });
+
+      // Seek: click + drag + touch
       function updateFromPointer(clientX){
         const rect = track.getBoundingClientRect();
         const pct = (clientX - rect.left) / rect.width;
@@ -318,41 +335,12 @@
         thumb.style.left = (p*100)+'%';
         cur.textContent = fmt(audio.currentTime);
       }
-
-      // Botones / Accesibilidad
-      btn.addEventListener('click', (e)=>{ e.stopPropagation(); toggle(); });
-      card.addEventListener('click', (e)=>{ if(e.target.closest('.play-btn') || e.target.closest('.timeline')) return; toggle(); });
-      card.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggle(); }});
-
-      // Cargar metadatos
-      audio.addEventListener('loadedmetadata', ()=>{ tot.textContent = fmt(audio.duration); });
-
-      // Progreso visual
-      audio.addEventListener('timeupdate', ()=>{
-        const p = (audio.currentTime / (audio.duration||1));
-        bar.style.width = (p*100)+'%';
-        thumb.style.left = (p*100)+'%';
-        cur.textContent = fmt(audio.currentTime);
-      });
-
-      // Buffering (aprox)
-      audio.addEventListener('progress', ()=>{
-        if(audio.buffered.length){
-          const end = audio.buffered.end(audio.buffered.length-1);
-          const pct = end / (audio.duration||1);
-          buff.style.width = (Math.min(1, pct)*100)+'%';
-        }
-      });
-
-      audio.addEventListener('ended', ()=>{ setIcon(card,false); });
-
-      // Seek por click
       tl.addEventListener('click', (e)=>{ updateFromPointer(e.clientX); });
 
-      // Seek por drag (mouse + touch + teclado)
+      let dragging = false;
       function onPointerDown(e){
         dragging = true;
-        updateFromPointer(e.clientX|| (e.touches && e.touches[0].clientX));
+        updateFromPointer(e.clientX || (e.touches && e.touches[0].clientX));
         document.addEventListener('mousemove', onPointerMove);
         document.addEventListener('mouseup', onPointerUp);
         document.addEventListener('touchmove', onPointerMove, {passive:false});
@@ -361,7 +349,7 @@
       function onPointerMove(e){
         if(!dragging) return;
         e.preventDefault?.();
-        updateFromPointer(e.clientX|| (e.touches && e.touches[0].clientX));
+        updateFromPointer(e.clientX || (e.touches && e.touches[0].clientX));
       }
       function onPointerUp(){
         dragging = false;
@@ -373,18 +361,16 @@
       tl.addEventListener('mousedown', onPointerDown);
       tl.addEventListener('touchstart', onPointerDown, {passive:true});
 
-      // Slider accesible con teclado
+      // Slider accesible
       tl.addEventListener('keydown', (e)=>{
         if(!audio.duration) return;
-        const step = audio.duration * 0.02; // 2% por pulsación
+        const step = audio.duration * 0.02;
         if(['ArrowRight','ArrowUp'].includes(e.key)){ e.preventDefault(); audio.currentTime = Math.min(audio.duration, audio.currentTime + step); }
         if(['ArrowLeft','ArrowDown'].includes(e.key)){ e.preventDefault(); audio.currentTime = Math.max(0, audio.currentTime - step); }
       });
     }
 
-    // Init
-    applyFilters();
-    grid.querySelectorAll('.player-card').forEach(attachPlayer);
+    document.querySelectorAll('.player-card').forEach(attachPlayer);
 
     // Pausar si se cambia de pestaña
     document.addEventListener('visibilitychange', ()=>{
