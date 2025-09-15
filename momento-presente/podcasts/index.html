@@ -79,7 +79,7 @@
        Apariencia audaz tipo reproductor de audio (solo estilos)
       ========================================================= */
     :root{
-      --accent: #57A9FF;          /* naranja vibrante del botón/progreso */
+      --accent: #57A9FF;          /* azul primario del sitio */
       --accent-2: #a855f7;        /* púrpura para degradé */
       --ink: #0f172a;             /* texto principal */
       --ink-soft:#475569;         /* meta/tiempos */
@@ -98,7 +98,7 @@
         radial-gradient(120% 140% at 100% 0%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 40%),
         linear-gradient(135deg, var(--card-from) 0%, var(--card-to) 60%),
         radial-gradient(140% 140% at 0% 100%, var(--accent-2) 0%, rgba(168,85,247,0.15) 35%, transparent 60%),
-        radial-gradient(180% 180% at 100% 100%, var(--accent) 0%, rgba(249,115,22,0.12) 40%, transparent 70%);
+        radial-gradient(180% 180% at 100% 100%, var(--accent) 0%, rgba(87,169,255,0.12) 40%, transparent 70%);
       border:1px solid rgba(255,255,255,.10);
       box-shadow:
         0 12px 24px rgba(2,6,23,.26),
@@ -110,9 +110,9 @@
     .player-card:hover{
       transform: translateY(-3px);
       box-shadow:
-        0 14px 28px rgba(2,6,23,.28),
-        inset 0 1px 0 rgba(255,255,255,.05);
-      border-color: rgba(255,255,255,.14);
+        0 12px 22px rgba(2,6,23,.22),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.12);
     }
 
     .title-wrap h3{ margin:0 0 .25rem 0; color:#ffffff; }
@@ -125,15 +125,18 @@
       display:inline-flex; align-items:center; justify-content:center;
       width:68px; height:68px; border-radius:999px;
       background: radial-gradient(120% 120% at 30% 20%, #fff 0%, #fff0 55%),
-                  linear-gradient(135deg, var(--accent) 0%, #fb923c 60%);
+                  linear-gradient(135deg, var(--accent) 0%, #8CCBFF 60%);
       border:0;
       box-shadow:
-        0 6px 20px rgba(249,115,22,.45),
+        0 6px 20px rgba(87,169,255,.45),
         inset 0 -6px 12px rgba(0,0,0,.15);
       color:#fff;
     }
     .play-btn i{ color:#fff !important; }
-    .play-btn:hover{ box-shadow: 0 8px 26px rgba(249,115,22,.55), inset 0 -6px 12px rgba(0,0,0,.18); transform: translateY(-1px); }
+    .play-btn:hover{ 
+      box-shadow: 0 8px 26px rgba(87,169,255,.55), inset 0 -6px 12px rgba(0,0,0,.18); 
+      transform: translateY(-1px); 
+    }
     .play-btn:active{ transform: translateY(0); }
     .play-btn:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
 
@@ -152,14 +155,14 @@
     }
     .bar{
       position:absolute; inset:0 auto 0 0; width:0%;
-      background: linear-gradient(90deg, var(--accent) 0%, #fb923c 50%, var(--accent-2) 100%);
-      box-shadow: 0 0 12px rgba(249,115,22,.55);
+      background: linear-gradient(90deg, var(--accent) 0%, #8CCBFF 50%, var(--secondary) 100%);
+      box-shadow: 0 0 12px rgba(87,169,255,.45);
     }
     .thumb{
       position:absolute; top:50%; transform:translate(-50%,-50%);
       width:18px; height:18px; border-radius:50%;
       background:#fff; border:3px solid rgba(255,255,255,.75);
-      box-shadow: 0 4px 10px rgba(0,0,0,.35), 0 0 0 4px rgba(249,115,22,.25);
+      box-shadow: 0 4px 10px rgba(0,0,0,.35), 0 0 0 4px rgba(87,169,255,.25);
       pointer-events:none;
     }
 

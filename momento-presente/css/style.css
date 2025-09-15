@@ -90,6 +90,8 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 /* ------------------- */
 /* HEADER sticky translúcido con blur*/
 /* ------------------- */
+#site-header { position: sticky; top: 0; z-index: 1000; }  :contentReference[oaicite:0]{index=0}
+
 .main-header {
   position: sticky;
   top: 0;
