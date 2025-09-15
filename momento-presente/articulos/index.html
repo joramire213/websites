@@ -30,6 +30,12 @@
     .meta-read { margin:.25rem 0 0; color:#334155; font-size:.95rem; }
     .meta-tags { margin:.15rem 0 0; color:#64748b; font-size:.85rem; }
     .meta-tags .label { color:#64748b; font-weight:400; } /* “Temas” sin negrilla */
+    /* Centra título y subtítulo del header de artículos */
+    section[aria-labelledby="titulo-articulos"] .container { text-align: center; }
+
+    /* Mucho menos aire arriba y entre subtítulo y tarjetas */
+    section[aria-labelledby="titulo-articulos"] { padding-top: 32px; padding-bottom: 20px; } /* ↓ top y ↓ bottom */
+    section[aria-labelledby="titulo-articulos"] + section { padding-top: 20px; }             /* ~25% del espacio original */
   </style>
 
   <!-- Datos estructurados -->

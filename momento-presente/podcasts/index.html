@@ -68,6 +68,13 @@
   </script>
 
   <style>
+    /* Centra título y subtítulo del header de la página */
+    section[aria-labelledby="podcast-title"] .container { text-align: center; }
+
+    /* Mucho menos aire arriba y entre subtítulo y tarjetas */
+    section[aria-labelledby="podcast-title"] { padding-top: 32px; padding-bottom: 20px; } /* ↓ top y ↓ bottom */
+    section[aria-labelledby="podcast-title"] + section { padding-top: 20px; }             /* ~25% del espacio original */
+    
     /* Apariencia de reproductor para cada tarjeta */
     .player-card{
       position:relative;
@@ -265,13 +272,13 @@
     function fmt(t){ if(!isFinite(t)) return '0:00'; const m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+String(s).padStart(2,'0'); }
 
     function setIcon(card, playing){
-      const icon = card.querySelector('.play-btn i');
-      if(!icon) return;
-      icon.setAttribute('data-lucide', playing ? 'pause' : 'play');
-      if(window.lucide && typeof lucide.createIcons==='function'){ lucide.createIcons(); }
-      // Accesibilidad: estado del botón
       const btn = card.querySelector('.play-btn');
-      if(btn){ btn.setAttribute('aria-label', playing ? 'Pausar' : 'Reproducir'); }
+      if(!btn) return;
+      btn.innerHTML = playing
+        ? '<i data-lucide="pause" aria-hidden="true"></i>'
+        : '<i data-lucide="play" aria-hidden="true"></i>';
+      if (window.lucide && typeof lucide.createIcons === 'function') { lucide.createIcons(); }
+      btn.setAttribute('aria-label', playing ? 'Pausar' : 'Reproducir');
     }
 
     function percentToTime(audio, pct){
