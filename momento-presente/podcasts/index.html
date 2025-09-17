@@ -4,17 +4,48 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- SEO -->
   <title>Podcast | Momento Presente</title>
   <meta name="description" content="Episodios breves y accionables para familias: pautas de crianza, regulación emocional y bienestar infantil." />
   <link rel="canonical" href="https://momentopresentekids.com/podcasts/" />
-  <meta name="theme-color" content="#fffaf1">
+  <meta name="theme-color" content="#fffaf1" />
 
-  <!-- Medición (coherente con el sitio) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <!-- Favicons (PNGs + manifest) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://momentopresentekids.com/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://momentopresentekids.com/img/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://momentopresentekids.com/img/apple-touch-icon.png">
+  <link rel="manifest" href="https://momentopresentekids.com/site.webmanifest">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Podcast | Momento Presente" />
+  <meta property="og:description" content="Episodios breves y accionables para familias: pautas de crianza, regulación emocional y bienestar infantil." />
+  <meta property="og:url" content="https://momentopresentekids.com/podcasts/" />
+  <meta property="og:image" content="https://momentopresentekids.com/img/og-image.jpg" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="Momento Presente" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Podcast | Momento Presente" />
+  <meta name="twitter:description" content="Episodios breves y accionables para familias: pautas de crianza, regulación emocional y bienestar infantil." />
+  <meta name="twitter:image" content="https://momentopresentekids.com/img/og-image.jpg" />
+
+  <!-- Medición: GTM -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W92DWBFZ');
+  </script>
+
+  <!-- Medición: GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1RC38KZR1L', { anonymize_ip: true });
+  </script>
 
   <!-- Fuentes + Iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +53,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- CSS del sitio -->
-  <link rel="icon" href="momentopresentekids.com/img/favicon.png" type="image/png">
+  <!-- CSS + Layout -->
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
 
-  <!-- Datos estructurados -->
+  <!-- Datos estructurados: CollectionPage + episodios (AudioObject) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",

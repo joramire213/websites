@@ -1,175 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
-    <!-- End Google Tag Manager -->
-    
-    <title>Momento Presente | Acompañamiento Terapéutico Infantil en Medellín</title>
+  <!-- Codificación y viewport -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- SEO Estratégico -->
-    <meta name="description" content="Acompañamiento terapéutico infantil y orientación para familias en Medellín. Agenda tu cita con la psicóloga Nataly Galeano. Atención presencial y virtual.">
-    <meta name="keywords" content="terapia infantil, psicología niños, momento presente, medellín, nataly galeano, regulación emocional, habilidades sociales">
-    <link rel="canonical" href="https://momentopresentekids.com/">
+  <!-- Título + SEO base -->
+  <title>Momento Presente | Acompañamiento Terapéutico Infantil en Medellín</title>
+  <meta name="description" content="Acompañamiento terapéutico infantil y orientación para familias en Medellín. Agenda tu cita con la psicóloga Nataly Galeano. Atención presencial y virtual.">
+  <link rel="canonical" href="https://momentopresentekids.com/" />
+  <meta name="theme-color" content="#111827" />
 
-    <!-- Open Graph (para compartir en redes sociales) -->
-    <meta property="og:title" content="Momento Presente | Psicología Infantil en Medellín">
-    <meta property="og:description" content="Evaluación, terapia y orientación para niñas y niños. Un espacio seguro para crecer.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://momentopresentekids.com/">
-    <!-- IMPORTANTE: Crea una imagen de 1200x630px y súbela como 'og-image.jpg' en tu carpeta 'img/' -->
-    <meta property="og:image" content="https://momentopresentekids.com/img/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="es_CO">
-    <meta property="og:site_name" content="Momento Presente">
+  <!-- Favicons (recomendado por Google) -->
+  <!-- Coloca los archivos en / (raíz) y /img/ -->
+  <link rel="icon" type="image/svg+xml" href="https://momentopresentekids.com/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://momentopresentekids.com/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://momentopresentekids.com/img/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://momentopresentekids.com/img/apple-touch-icon.png">
+  <link rel="manifest" href="https://momentopresentekids.com/site.webmanifest">
+  <!-- Opcional para Safari Pinned Tab -->
+  <link rel="mask-icon" href="https://momentopresentekids.com/img/safari-pinned-tab.svg" color="#111827">
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon.png" type="image/png">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Momento Presente | Psicología Infantil en Medellín">
+  <meta property="og:description" content="Evaluación, terapia y orientación para niñas y niños. Un espacio seguro para crecer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://momentopresentekids.com/">
+  <meta property="og:image" content="https://momentopresentekids.com/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Momento Presente">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Momento Presente | Psicología Infantil en Medellín">
+  <meta name="twitter:description" content="Evaluación, terapia y orientación para niñas y niños.">
+  <meta name="twitter:image" content="https://momentopresentekids.com/img/og-image.jpg">
 
-    <!-- Google Fonts (ACTUALIZADO PARA INCLUIR POPPINS) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Preload de la imagen principal del hero para mejorar LCP -->
-    <link rel="preload" as="image" href="./img/hero.jpg" imagesrcset="./img/hero.jpg 1280w" imagesizes="100vw" fetchpriority="high">
-    
-    <!-- Lucide Icons (lo mantenemos por ahora) -->
-    <script defer src="https://unpkg.com/lucide@latest"></script>
+  <!-- Preconnect/Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Nuestro CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/layout.js"></script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://momentopresentekids.com/#localbusiness",
-  "additionalType": "https://schema.org/Psychologist",
-  "name": "Momento Presente - Psicología Infantil",
-  "url": "https://momentopresentekids.com/",
-  "image": "https://momentopresentekids.com/img/og-image.jpg",
-  "telephone": "+57 3006813088",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Medellín",
-    "addressRegion": "Antioquia",
-    "addressCountry": "CO"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 6.2442,
-    "longitude": -75.5812
-  },
-  "byAppointmentOnly": true,
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Medellín, Antioquia, Colombia"
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday"
+  <!-- Preload LCP (hero) -->
+  <link rel="preload" as="image"
+        href="https://momentopresentekids.com/img/hero.jpg"
+        imagesrcset="https://momentopresentekids.com/img/hero.jpg 1280w"
+        imagesizes="100vw"
+        fetchpriority="high">
+
+  <!-- CSS + Iconos -->
+  <link rel="stylesheet" href="https://momentopresentekids.com/css/style.css">
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Tag Manager (head) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W92DWBFZ');
+  </script>
+
+  <!-- GA4 (carga asíncrona) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-1RC38KZR1L', { anonymize_ip: true });
+  </script>
+
+  <!-- Datos estructurados (LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://momentopresentekids.com/#localbusiness",
+    "additionalType": "https://schema.org/Psychologist",
+    "name": "Momento Presente - Psicología Infantil",
+    "url": "https://momentopresentekids.com/",
+    "image": "https://momentopresentekids.com/img/og-image.jpg",
+    "telephone": "+57 3006813088",
+    "priceRange": "$$",
+    "address": { "@type": "PostalAddress", "addressLocality": "Medellín", "addressRegion": "Antioquia", "addressCountry": "CO" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 6.2442, "longitude": -75.5812 },
+    "byAppointmentOnly": true,
+    "areaServed": { "@type": "AdministrativeArea", "name": "Medellín, Antioquia, Colombia" },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00", "closes": "18:00"
+    }],
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100086572137490",
+      "https://www.instagram.com/momentopresente.kids/",
+      "https://www.tiktok.com/@momentopresentekids"
     ],
-    "opens": "09:00",
-    "closes": "18:00"
-  }],
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=100086572137490",
-    "https://www.instagram.com/momentopresente.kids/",
-    "https://www.tiktok.com/@momentopresentekids"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "areaServed": "CO",
-    "availableLanguage": ["es"],
-    "telephone": "+57 3006813088"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebSite",
-  "@id":"https://momentopresentekids.com/#website",
-  "url":"https://momentopresentekids.com/",
-  "name":"Momento Presente",
-  "inLanguage":"es-CO",
-  "potentialAction":{
-    "@type":"SearchAction",
-    "target":"https://momentopresentekids.com/?s={search_term_string}",
-    "query-input":"required name=search_term_string"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cuándo debería llevar a mi hijo a terapia psicológica?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Se recomienda consultar cuando observes cambios en el comportamiento, dificultades en la regulación emocional, problemas en la escuela o señales de ansiedad y tristeza persistente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué beneficios tiene la terapia infantil?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La terapia infantil ayuda a los niños a expresar sus emociones, desarrollar habilidades sociales, mejorar su autoestima y fortalecer la relación con sus padres y entorno escolar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo es la primera sesión en Momento Presente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La primera sesión es una entrevista con los padres para conocer la situación familiar, establecer objetivos y definir el plan de acompañamiento más adecuado para el niño."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Ofrecen atención virtual además de presencial?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, ofrecemos atención tanto presencial en Medellín como virtual, para adaptarnos a las necesidades de cada familia."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo puedo agendar una cita?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes agendar tu cita directamente desde nuestro sitio web, escribirnos por WhatsApp al +57 3006813088 o completar el formulario de contacto en línea."
-      }
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "areaServed": "CO",
+      "availableLanguage": ["es"],
+      "telephone": "+57 3006813088"
     }
-  ]
-}
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  }
+  </script>
 
-  gtag('config', 'G-1RC38KZR1L');
-</script>
+  <!-- Datos estructurados (WebSite + buscador interno) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://momentopresentekids.com/#website",
+    "url":"https://momentopresentekids.com/",
+    "name":"Momento Presente",
+    "inLanguage":"es-CO",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://momentopresentekids.com/?s={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Datos estructurados (FAQPage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿Cuándo debería llevar a mi hijo a terapia psicológica?","acceptedAnswer":{"@type":"Answer","text":"Se recomienda consultar cuando observes cambios en el comportamiento, dificultades en la regulación emocional, problemas en la escuela o señales de ansiedad y tristeza persistente."}},
+      {"@type":"Question","name":"¿Qué beneficios tiene la terapia infantil?","acceptedAnswer":{"@type":"Answer","text":"La terapia infantil ayuda a los niños a expresar sus emociones, desarrollar habilidades sociales, mejorar su autoestima y fortalecer la relación con sus padres y entorno escolar."}},
+      {"@type":"Question","name":"¿Cómo es la primera sesión en Momento Presente?","acceptedAnswer":{"@type":"Answer","text":"La primera sesión es una entrevista con los padres para conocer la situación familiar, establecer objetivos y definir el plan de acompañamiento más adecuado para el niño."}},
+      {"@type":"Question","name":"¿Ofrecen atención virtual además de presencial?","acceptedAnswer":{"@type":"Answer","text":"Sí, ofrecemos atención tanto presencial en Medellín como virtual, para adaptarnos a las necesidades de cada familia."}},
+      {"@type":"Question","name":"¿Cómo puedo agendar una cita?","acceptedAnswer":{"@type":"Answer","text":"Puedes agendar tu cita desde nuestro sitio web, escribirnos por WhatsApp al +57 3006813088 o completar el formulario de contacto en línea."}}
+    ]
+  }
+  </script>
+
+  <!-- JS propio que depende del DOM pero no bloquea el render -->
+  <script defer src="https://momentopresentekids.com/js/layout.js"></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->

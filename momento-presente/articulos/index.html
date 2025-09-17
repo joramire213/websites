@@ -4,15 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- SEO -->
   <title>Artículos | Momento Presente</title>
   <meta name="description" content="Artículos sobre desarrollo infantil, regulación emocional y orientación para familias. Lecturas claras y prácticas." />
   <link rel="canonical" href="https://momentopresentekids.com/articulos/" />
-  <meta name="theme-color" content="#fffaf1">
+  <meta name="theme-color" content="#fffaf1" />
 
-  <!-- Medición -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W92DWBFZ');</script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://momentopresentekids.com/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://momentopresentekids.com/img/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://momentopresentekids.com/img/apple-touch-icon.png">
+  <link rel="manifest" href="https://momentopresentekids.com/site.webmanifest">
+
+  <!-- Medición: GTM -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W92DWBFZ');
+  </script>
+
+  <!-- Medición: GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RC38KZR1L"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RC38KZR1L');</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1RC38KZR1L', { anonymize_ip: true });
+  </script>
 
   <!-- Fuentes + Iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,24 +41,10 @@
   <script defer src="https://unpkg.com/lucide@latest"></script>
 
   <!-- CSS + Layout -->
-  <link rel="icon" href="momentopresentekids.com/img/favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
 
-  <!-- Microestilos puntuales para meta de lectura y tags -->
-  <style>
-    .meta-read { margin:.25rem 0 0; color:#334155; font-size:.95rem; }
-    .meta-tags { margin:.15rem 0 0; color:#64748b; font-size:.85rem; }
-    .meta-tags .label { color:#64748b; font-weight:400; } /* “Temas” sin negrilla */
-    /* Centra título y subtítulo del header de artículos */
-    section[aria-labelledby="titulo-articulos"] .container { text-align: center; }
-
-    /* Mucho menos aire arriba y entre subtítulo y tarjetas */
-    section[aria-labelledby="titulo-articulos"] { padding-top: 32px; padding-bottom: 20px; } /* ↓ top y ↓ bottom */
-    section[aria-labelledby="titulo-articulos"] + section { padding-top: 20px; }             /* ~25% del espacio original */
-  </style>
-
-  <!-- Datos estructurados -->
+  <!-- Datos estructurados: CollectionPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
