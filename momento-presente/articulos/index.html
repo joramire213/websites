@@ -6,7 +6,7 @@
 
   <!-- SEO -->
   <title>Artículos | Momento Presente</title>
-  <meta name="description" content="Artículos sobre desarrollo infantil, regulación emocional y orientación a familias. Lecturas claras y prácticas." />
+  <meta name="description" content="Artículos sobre desarrollo infantil, regulación emocional y orientación para familias. Lecturas claras y prácticas." />
   <link rel="canonical" href="https://momentopresentekids.com/articulos/" />
   <meta name="theme-color" content="#fffaf1" />
 
@@ -44,6 +44,16 @@
   <link rel="stylesheet" href="../css/style.css">
   <script defer src="../js/layout.js"></script>
 
+  <!-- Estilos específicos para centrar título y subtítulo -->
+  <style>
+    /* Centra título y subtítulo del header de la página */
+    section[aria-labelledby="titulo-articulos"] .container { text-align: center; }
+
+    /* Mucho menos aire arriba y entre subtítulo y tarjetas */
+    section[aria-labelledby="titulo-articulos"] { padding-top: 32px; padding-bottom: 20px; }
+    section[aria-labelledby="titulo-articulos"] + section { padding-top: 20px; }
+  </style>
+  
   <!-- Datos estructurados: CollectionPage -->
   <script type="application/ld+json">
   {
