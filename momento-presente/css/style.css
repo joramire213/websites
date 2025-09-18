@@ -90,7 +90,7 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 /* ------------------- */
 /* HEADER sticky translúcido con blur*/
 /* ------------------- */
-#site-header { position: sticky; top: 0; z-index: 1000; }  :contentReference[oaicite:0]{index=0}
+#site-header { position: sticky; top: 0; z-index: 1000; }
 
 .main-header {
   position: sticky;
@@ -236,13 +236,14 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 .servicios-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 👈 cambia de 3 a 2 */
-  gap: 30px;
+  gap: 24px;
 }
 
 .metodo-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* antes 4 */
+  justify-content: center;              /* centra el grid en el contenedor */
+  gap: 24px;
 }
 
 .service-card{
@@ -514,6 +515,11 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 .servicios-grid.visible .service-card:nth-child(4),
 .metodo-grid.visible .service-card:nth-child(4) { transition-delay: 0.3s; }
 
+#testimonios .servicios-grid {
+  grid-template-columns: repeat(3, 1fr); /* fuerza 3 en fila */
+  justify-content: center;              /* centra dentro del contenedor */
+}
+
 /* Respeto a usuarios con reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
   .reveal-on-scroll, .reveal-on-scroll > * {
@@ -546,7 +552,7 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 
 .player-card { cursor:pointer; }
 
-.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+.player-card.reveal-on-scroll { opacity: 1 !important; transform: none !important; }
 
 /* ------------------- */
 /* RESPONSIVE DESIGN */
@@ -563,6 +569,7 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
 
   .main-nav { display: none; }
   .burger-menu { display: block; }
+  #testimonios .servicios-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* FAQ */
@@ -669,4 +676,6 @@ a:focus-visible, button:focus-visible, .card-link:focus-visible,
     line-height: 1.5;
   }
   .nosotros-img img{ max-width:100%; }
+
+  #testimonios .servicios-grid { grid-template-columns: 1fr; }
 }
